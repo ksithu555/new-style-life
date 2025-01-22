@@ -61,6 +61,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <input class="form-control" type="text" placeholder="SubCategory Name" name="subname[]" id="subname" value="{{ old('subname') }}">
+                                                    <input class="form-control" type="text" placeholder="SubCategory Name In Japanese" name="subnameJp[]" id="subnameJp" value="{{ old('subnameJp') }}">
                                                     <div class="input-group-append align-self-center mx-auto justify-content-center">
                                                         <a href="#" class="align-items-center d-flex" id="add-more-field">
                                                             <i data-feather="plus-square"></i> Add
@@ -72,6 +73,12 @@
                                                 @if (!empty($error['subname']))
                                                     @foreach ($error['subname'] as $key => $value)
                                                         <p class="subname error text-danger">{{ $value }}</p>
+                                                    @endforeach
+                                                @endif
+                                                <p style="display:none" class="subnameJp error text-danger"></p>
+                                                @if (!empty($error['subnameJp']))
+                                                    @foreach ($error['subnameJp'] as $key => $value)
+                                                        <p class="subnameJp error text-danger">{{ $value }}</p>
                                                     @endforeach
                                                 @endif
                                             </div>
@@ -157,7 +164,7 @@
         $('.btn-submit').click(function() {
             $('.error').hide();
 
-            if ($.trim($("#category").val()) === "0" || $.trim($("#subcategory").val()) === "" || $.trim($("#subname").val()) === "") {
+            if ($.trim($("#category").val()) === "0" || $.trim($("#subcategory").val()) === "" || $.trim($("#subname").val()) === "" || $.trim($("#subnameJp").val()) === "") {
                 if ($.trim($("#category").val()) === "0") {
                     $('.error.category').text('Category Name is required').show();
                 }
@@ -167,8 +174,14 @@
                 if ($.trim($("#subname").val()) === "") {
                     $('.error.subname').text('Subcategory Name is required').show();
                 }
+                if ($.trim($("#subnameJp").val()) === "") {
+                    $('.error.subnameJp').text('Subcategory Name In Japanese is required').show();
+                }
                 if ($.trim($("#addedsubname").val()) === "") {
                     $('.error.subname').text('Subcategory Name is required').show();
+                }
+                if ($.trim($("#addedsubnameJp").val()) === "") {
+                    $('.error.subnameJp').text('Subcategory Name In Japanese is required').show();
                 }
                 return false;
             } else {
@@ -184,6 +197,7 @@
                 <div class="col-sm-12">
                     <div class="input-group">
                         <input class="form-control" type="text" placeholder="SubCategory Name" name="subname[]" id="addedsubname">
+                        <input class="form-control" type="text" placeholder="SubCategory Name In Japanese" name="subnameJp[]" id="addedsubnameJp">
                         <div class="input-group-append align-self-center mx-auto justify-content-center">
                             <a href="#" class="align-items-center d-flex remove-field">
                                 <i data-feather="minus-square" class="remove-field"></i> Remove

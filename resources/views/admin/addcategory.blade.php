@@ -47,6 +47,20 @@
                                             </div>
                                         </div>
 
+                                        <div class="mb-4 row  align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Category Name In Japanese</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" placeholder="Category Name In Japanese" name="titleJp" id="titleJp"
+                                                    value="{{ old('titleJp') ?? $data->category_name_jp ?? '' }}">
+                                                <p style="display:none" class="titleJp error text-danger"></p>
+                                                    @if (!empty($error['titleJp']))
+                                                        @foreach ($error['titleJp'] as  $key => $value)
+                                                            <p class="titleJp error text-danger">{{ $value }}</p>
+                                                        @endforeach
+                                                    @endif
+                                            </div>
+                                        </div>
+
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="col-sm-3 col-form-label form-label-title">Select Icon</label>
@@ -191,10 +205,14 @@
         var imageSrc = $.trim($("#image").val());
         var imageSrcs = $.trim($("#preview-image-before-upload").attr('src'));
 
-if ($.trim($("#title").val()) === ""  ||  (imageSrc === "" && imageSrcs =='')) {
+if ($.trim($("#title").val()) === "" || $.trim($("#titleJp").val()) === "" ||  (imageSrc === "" && imageSrcs =='')) {
     if ($.trim($("#title").val()) === "") {
         $('.error.title').text('Category Name is required');
         $('.error.title').show();
+    }
+    if ($.trim($("#titleJp").val()) === "") {
+        $('.error.titleJp').text('Category Name In Japanese is required');
+        $('.error.titleJp').show();
     }
     if (imageSrc === "" && imageSrcs =='') {
         $('.error.image').text('Category Icon is required');

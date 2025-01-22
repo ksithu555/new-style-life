@@ -26,6 +26,12 @@ use App\Http\Controllers\Auth\RegisterController;
 //Route::get('/verifyemail', function () {return view('auth.verify-email');})->name('auth.verify-email');
 //route::get('/verifyemail',[UserController::class,'verify-email'])->name('auth.verify-email');
 
+// Language
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back()->withInput();
+});
 
 Route::get('/', [AdminController::class, 'welcome']);
 

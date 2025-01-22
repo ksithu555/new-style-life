@@ -413,6 +413,20 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">SubCategory Name In Japanese</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control" name="subnameJp" id="subnameJp" type="text" placeholder="SubCategory Name In Japanese"
+                                                        value="{{ old('subnameJp') ?? $subcategory_name->sub_category_name_jp  ?? '' }}">
+                                                        <p style="display:none" class="subnameJp error text-danger"></p>
+                                                        @if (!empty($error['subnameJp']))
+                                                            @foreach ($error['subnameJp'] as  $key => $value)
+                                                                <p class="subnameJp error text-danger">{{ $value }}</p>
+                                                            @endforeach
+                                                        @endif
+                                                    </div>
+                                                </div>
+
                                                 <button class="btn btn-submit btn-animation ms-auto fw-bold" type="submit">
                                                     @if (!$editmode)
                                                         <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -542,7 +556,7 @@
 
             $('#confirmModal').on('click', '.btn-submit', function() {
 
-                if ($.trim($("#subcategory").val()) === "" || $.trim($("#subname").val()) === "") {
+                if ($.trim($("#subcategory").val()) === "" || $.trim($("#subname").val()) === "" || $.trim($("#subnameJp").val()) === "") {
 
                     if ($.trim($("#subcategory").val()) === "") {
                         $('.error.subcategory').text('subcategory is required')
@@ -555,6 +569,10 @@
                     if ($.trim($("#subname").val()) === "") {
                         $('.error.subname').text('subname is required')
                         $('.error.subname').show()
+                    }
+                    if ($.trim($("#subnameJp").val()) === "") {
+                        $('.error.subnameJp').text('subname in japanese is required')
+                        $('.error.subnameJp').show()
                     }
                     else{
                         $('.error.subname').hide()

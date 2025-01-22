@@ -29,7 +29,7 @@
                                 @if ($productsGroupedByDiscount[30] != null)
                                     <button
                                         onclick="location.href = '{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[30]]) }}';"
-                                        class="btn btn-furniture mt-xxl-4 mt-3 home-button mend-auto">Shop Now <i
+                                        class="btn btn-furniture mt-xxl-4 mt-3 home-button mend-auto">{{ __('messages.shop_now') }} <i
                                             class="fa-solid fa-right-long ms-2 icon"></i></button>
                                 @endif
                             </div>
@@ -50,8 +50,8 @@
                                 <h3 class="furniture-content">{{ $tops[1]->phasetwo }}</h3>
                                 @if ($productsGroupedByDiscount[50] != null)
                                     <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[50]]) }}"
-                                        class="shop-button btn btn-furniture mt-0 d-inline-block btn-md text-content">Shop
-                                        Now <i class="fa-solid fa-right-long ms-2"></i></a>
+                                        class="shop-button btn btn-furniture mt-0 d-inline-block btn-md text-content">
+                                        {{ __('messages.shop_now') }} <i class="fa-solid fa-right-long ms-2"></i></a>
                                 @endif
                             </div>
                         </div>
@@ -72,8 +72,8 @@
                             <use xlink:href="{{ asset('frontend/assets/svg/svg/service-icon-4.svg#shipping') }}"></use>
                         </svg>
                         <div class="service-detail">
-                            <h3>Free Shipping</h3>
-                            <h6 class="text-content">Free Shipping For Order Over ¥5000</h6>
+                            <h3>{{ __('messages.free_shipping') }}</h3>
+                            <h6 class="text-content">{{ __('messages.free_shipping_message') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -83,8 +83,8 @@
                             <use xlink:href="{{ asset('frontend/assets/svg/svg/service-icon-4.svg#service') }}"></use>
                         </svg>
                         <div class="service-detail">
-                            <h3>24 x 7 Service</h3>
-                            <h6 class="text-content">Online Service For 24 x 7</h6>
+                            <h3>{{ __('messages.24_7_service') }}</h3>
+                            <h6 class="text-content">{{ __('messages.24_7_service_message') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                             <use xlink:href="{{ asset('frontend/assets/svg/svg/service-icon-4.svg#pay') }}"></use>
                         </svg>
                         <div class="service-detail">
-                            <h3>Online Pay</h3>
-                            <h6 class="text-content">Online Payment Avaible</h6>
+                            <h3>{{ __('messages.online_pay') }}</h3>
+                            <h6 class="text-content">{{ __('messages.online_pay_message') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,8 @@
                             <use xlink:href="{{ asset('frontend/assets/svg/svg/service-icon-4.svg#offer') }}"></use>
                         </svg>
                         <div class="service-detail">
-                            <h3>Discount</h3>
-                            <h6 class="text-content">Daily Mega Discounts</h6>
+                            <h3>{{ __('messages.discount') }}</h3>
+                            <h6 class="text-content">{{ __('messages.discount_message') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -116,8 +116,8 @@
                             <use xlink:href="{{ asset('frontend/assets/svg/svg/service-icon-4.svg#return') }}"></use>
                         </svg>
                         <div class="service-detail">
-                            <h3>Coupon</h3>
-                            <h6 class="text-content">Get Cash Back By Using Coupon</h6>
+                            <h3>{{ __('messages.coupon') }}</h3>
+                            <h6 class="text-content">{{ __('messages.coupon_message') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -135,18 +135,18 @@
                         @if (count($couponProducts) > 0)
                             <div class="title title-flex">
                                 <div>
-                                    <h2>Today Coupon Items</h2>
+                                    <h2>{{ __('messages.today_coupon_items') }}</h2>
                                     <span class="title-leaf">
                                         <svg class="icon-width">
                                             <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                         </svg>
                                     </span>
-                                    <p>Grab these special deals available with exclusive discounts!</p>
+                                    <p>{{ __('messages.today_coupon_items_message') }}</p>
                                 </div>
                                 <div class="timing-box">
                                     <div class="timing">
                                         <i data-feather="clock"></i>
-                                        <h6 class="name">Today :</h6>
+                                        <h6 class="name">{{ __('messages.today') }} :</h6>
                                         <h6 class="name" id="formatted-date"></h6>
                                     </div>
                                 </div>
@@ -276,18 +276,18 @@
                                                                                 @endfor
                                                                             </ul>
                                                                             <span class="ms-2">{{ $count }}
-                                                                                Reviews</span>
+                                                                                {{ __('messages.reviews') }}</span>
                                                                         </div>
 
                                                                         <div class="product-detail">
-                                                                            <h4>Product Details :</h4>
+                                                                            <h4>{{ __('messages.product_details') }} :</h4>
                                                                             <p>{!! $couponProduct->long_desc !!}</p>
                                                                         </div>
 
                                                                         <ul class="brand-list">
                                                                             <li>
                                                                                 <div class="brand-box">
-                                                                                    <h5>Brand Name:</h5>
+                                                                                    <h5>{{ __('messages.brand_name') }}:</h5>
                                                                                     <h6>
                                                                                         @php
                                                                                             $brand = DB::table('brands')
@@ -304,7 +304,7 @@
 
                                                                             <li>
                                                                                 <div class="brand-box">
-                                                                                    <h5>Product Code:</h5>
+                                                                                    <h5>{{ __('messages.product_code') }}:</h5>
                                                                                     <h6>{{ $couponProduct->product_code }}
                                                                                     </h6>
                                                                                 </div>
@@ -312,7 +312,7 @@
 
                                                                             <li>
                                                                                 <div class="brand-box">
-                                                                                    <h5>Category:</h5>
+                                                                                    <h5>{{ __('messages.category') }}:</h5>
                                                                                     <h6>
                                                                                         @php
                                                                                             $category = DB::table(
@@ -324,14 +324,14 @@
                                                                                                 )
                                                                                                 ->first();
                                                                                         @endphp
-                                                                                        {{ $category->category_name }}
+                                                                                        {{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}
                                                                                     </h6>
                                                                                 </div>
                                                                             </li>
 
                                                                             <li>
                                                                                 <div class="brand-box">
-                                                                                    <h5>In Stock:</h5>
+                                                                                    <h5>{{ __('messages.in_stock') }}:</h5>
                                                                                     <h6>{{ $couponProduct->in_stock }}
                                                                                     </h6>
                                                                                 </div>
@@ -396,12 +396,12 @@
                                                                                 onclick="addToCartCoupon({{ $couponProduct->id }})"
                                                                                 class="btn btn-md add-cart-button icon"
                                                                                 @if ($couponProduct->in_stock < 1) disabled @endif>
-                                                                                Add To Cart</button>
+                                                                                {{ __('messages.add_to_cart') }}</button>
 
                                                                             <button
                                                                                 onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $couponProduct->id]) }}';"
                                                                                 class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
-                                                                                View More Details</button>
+                                                                                {{ __('messages.view_more_details') }}</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -429,31 +429,30 @@
                                             <div class="banner-details p-center p-4 text-white text-center">
                                                 <div>
                                                     <h3 class="lh-base fw-bold offer-text" style="color: #417394;">
-                                                        {{ $coupon->name }}</h3>
+                                                        {{ __('messages.coupon_name') }}: {{ $coupon->name }}
+                                                    </h3>
                                                     <h4 class="lh-base fw-bold offer-text" style="color: #417394;">
-                                                        Get ¥{{ number_format($coupon->discount_amount, 0, '', ',') }}
-                                                        Cashback! Min Order of
-                                                        ¥{{ number_format($coupon->mini_amount, 0, '', ',') }}
+                                                        {{ __('messages.get_cashback', ['amount' => number_format($coupon->discount_amount, 0, '', ','), 'min_amount' => number_format($coupon->mini_amount, 0, '', ',')]) }}
                                                     </h4>
                                                     <h5 class="lh-base fw-bold offer-text" style="color: #417394;">
-                                                        Expired Date :
-                                                        {{ date('Y/m/d', strtotime($coupon->startdate)) }} ~
-                                                        {{ date('Y/m/d', strtotime($coupon->enddate)) }}
+                                                        {{ __('messages.expired_date', ['start_date' => date('Y/m/d', strtotime($coupon->startdate)), 'end_date' => date('Y/m/d', strtotime($coupon->enddate))]) }}
                                                     </h5>
                                                     @if ($coupon->seller)
                                                         @if ($coupon->seller->coupon_status == 1)
-                                                            <h4 class="lh-base fw-bold offer-text"
-                                                                style="color: #417394;">Publisher :
-                                                                {{ $coupon->seller->shop_name }}</h4>
+                                                            <h4 class="lh-base fw-bold offer-text" style="color: #417394;">
+                                                                {{ __('messages.publisher', ['publisher' => $coupon->seller->shop_name]) }}
+                                                            </h4>
                                                         @endif
                                                     @elseif ($coupon->product->first())
                                                         @if ($coupon->product->first()->coupon_status == 1)
-                                                            <h4 class="lh-base fw-bold offer-text"
-                                                                style="color: #417394;">Publisher : New Style Life</h4>
+                                                            <h4 class="lh-base fw-bold offer-text" style="color: #417394;">
+                                                                {{ __('messages.publisher', ['publisher' => 'New Style Life']) }}
+                                                            </h4>
                                                         @endif
                                                     @endif
-                                                    <h6 class="coupon-code">Use Code :
-                                                        {{ $coupon->coupon_code }}</h6>
+                                                    <h6 class="coupon-code">
+                                                        {{ __('messages.use_code', ['code' => $coupon->coupon_code]) }}
+                                                    </h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -465,13 +464,13 @@
 
                     @if (count($categories) > 0)
                         <div class="title">
-                            <h2>Browse by Categories</h2>
+                            <h2>{{ __('messages.browse_by_categories') }}</h2>
                             <span class="title-leaf">
                                 <svg class="icon-width">
                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                 </svg>
                             </span>
-                            <p>Explore the top categories and find your favorites.</p>
+                            <p>{{ __('messages.explore_top_categories') }}</p>
                         </div>
 
                         <div class="category-slider-2 product-wrapper no-arrow">
@@ -482,7 +481,7 @@
                                         <div>
                                             <img src="{{ asset('images/' . $list->category_icon) }}"
                                                 class="blur-up lazyload" alt="">
-                                            <h5>{{ $list->category_name }}</h5>
+                                            <h5>{{ $list->{'category_name_' . app()->getLocale() } ?? $list->category_name }}</h5>
                                         </div>
                                     </a>
                                 </div>
@@ -505,7 +504,7 @@
                                             @if ($meatHalfDiscount != null)
                                                 <button
                                                     onclick="location.href = '{{ route('show-discount-product', ['ids' => $meatHalfDiscount]) }}';"
-                                                    class="btn btn-furniture btn-sm mend-auto">Shop Now <i
+                                                    class="btn btn-furniture btn-sm mend-auto">{{ __('messages.shop_now') }} <i
                                                         class="fa-solid fa-arrow-right icon"></i></button>
                                             @endif
                                         </div>
@@ -525,7 +524,7 @@
                                             @if ($vegetableHalfDiscount != null)
                                                 <button
                                                     onclick="location.href = '{{ route('show-discount-product', ['ids' => $vegetableHalfDiscount]) }}';"
-                                                    class="btn btn-furniture btn-sm mend-auto">Shop Now <i
+                                                    class="btn btn-furniture btn-sm mend-auto">{{ __('messages.shop_now') }} <i
                                                         class="fa-solid fa-arrow-right icon"></i></button>
                                             @endif
                                         </div>
@@ -537,13 +536,13 @@
 
                     @if (count($latestProducts) > 0)
                         <div class="title d-block">
-                            <h2>Newest Products</h2>
+                            <h2>{{ __('messages.newest_products') }}</h2>
                             <span class="title-leaf">
                                 <svg class="icon-width">
                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                 </svg>
                             </span>
-                            <p>Discover the latest additions to our collection, handpicked just for you.</p>
+                            <p>{{ __('messages.discover_latest_additions') }}</p>
                         </div>
 
                         <div class="row row-cols-xxl-5 row-cols-md-4 row-cols-sm-3 row-cols-2 g-sm-4 g-3 no-arrow">
@@ -652,130 +651,100 @@
                                                                 <ul class="rating">
                                                                     @for ($i = 1; $i <= 5; $i++)
                                                                         @if ($i <= $starRating)
-                                                                            <li><i data-feather="star"
-                                                                                    class="fill"></i></li>
+                                                                            <li><i data-feather="star" class="fill"></i></li>
                                                                         @else
                                                                             <li><i data-feather="star"></i></li>
                                                                         @endif
                                                                     @endfor
                                                                 </ul>
-                                                                <span class="ms-2">{{ $count }}
-                                                                    Reviews</span>
+                                                                <span class="ms-2">{{ $count }} {{ __('messages.reviews') }}</span>
                                                             </div>
-
+                                                            
                                                             <div class="product-detail">
-                                                                <h4>Product Details :</h4>
+                                                                <h4>{{ __('messages.product_details') }} :</h4>
                                                                 <p>{!! $latestProduct->long_desc !!}</p>
                                                             </div>
-
+                                                            
                                                             <ul class="brand-list">
                                                                 <li>
                                                                     <div class="brand-box">
-                                                                        <h5>Brand Name:</h5>
+                                                                        <h5>{{ __('messages.brand_name') }}:</h5>
                                                                         <h6>
                                                                             @php
-                                                                                $brand = DB::table('brands')
-                                                                                    ->where(
-                                                                                        'id',
-                                                                                        $latestProduct->brand_id,
-                                                                                    )
-                                                                                    ->first();
+                                                                                $brand = DB::table('brands')->where('id', $latestProduct->brand_id)->first();
                                                                             @endphp
                                                                             {{ $brand->brand_name }}
                                                                         </h6>
                                                                     </div>
                                                                 </li>
-
+                                                            
                                                                 <li>
                                                                     <div class="brand-box">
-                                                                        <h5>Product Code:</h5>
+                                                                        <h5>{{ __('messages.product_code') }}:</h5>
                                                                         <h6>{{ $latestProduct->product_code }}</h6>
                                                                     </div>
                                                                 </li>
-
+                                                            
                                                                 <li>
                                                                     <div class="brand-box">
-                                                                        <h5>Category:</h5>
+                                                                        <h5>{{ __('messages.category') }}:</h5>
                                                                         <h6>
                                                                             @php
-                                                                                $category = DB::table('categories')
-                                                                                    ->where(
-                                                                                        'id',
-                                                                                        $latestProduct->category_id,
-                                                                                    )
-                                                                                    ->first();
+                                                                                $category = DB::table('categories')->where('id', $latestProduct->category_id)->first();
                                                                             @endphp
-                                                                            {{ $category->category_name }}
+                                                                            {{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}
                                                                         </h6>
                                                                     </div>
                                                                 </li>
-
+                                                            
                                                                 <li>
                                                                     <div class="brand-box">
-                                                                        <h5>In Stock:</h5>
+                                                                        <h5>{{ __('messages.in_stock') }}:</h5>
                                                                         <h6>{{ $latestProduct->in_stock }}</h6>
                                                                     </div>
                                                                 </li>
                                                             </ul>
+                                                            
                                                             <ul class="brand-list">
                                                                 @php
                                                                     $sizes = explode(',', $latestProduct->product_size);
                                                                 @endphp
                                                                 <li>
-                                                                    <div class="product-contain"
-                                                                        style="display: flex; flex-wrap: wrap;">
+                                                                    <div class="product-contain" style="display: flex; flex-wrap: wrap;">
                                                                         @foreach ($sizes as $key => $size)
-                                                                            <div class="form-check"
-                                                                                style="margin-left: 10px; margin-top: 15px;">
-                                                                                <input class="form-check-input"
-                                                                                    type="radio"
-                                                                                    name="selected_latest_size_{{ $latestProduct->id }}"
-                                                                                    value="{{ $size }}"
-                                                                                    id="size_{{ $latestProduct->id }}_{{ $size }}"
-                                                                                    {{ $key === 0 ? 'checked' : '' }}>
-                                                                                <label
-                                                                                    for="size_{{ $latestProduct->id }}_{{ $size }}">{{ $size }}</label>
+                                                                            <div class="form-check" style="margin-left: 10px; margin-top: 15px;">
+                                                                                <input class="form-check-input" type="radio" name="selected_latest_size_{{ $latestProduct->id }}" value="{{ $size }}" id="size_{{ $latestProduct->id }}_{{ $size }}" {{ $key === 0 ? 'checked' : '' }}>
+                                                                                <label for="size_{{ $latestProduct->id }}_{{ $size }}">{{ $size }}</label>
                                                                             </div>
                                                                         @endforeach
                                                                     </div>
                                                                 </li>
                                                             </ul>
+                                                            
                                                             <ul class="brand-list">
                                                                 @php
-                                                                    $colors = explode(
-                                                                        ',',
-                                                                        $latestProduct->product_color,
-                                                                    );
+                                                                    $colors = explode(',', $latestProduct->product_color);
                                                                 @endphp
                                                                 <li>
-                                                                    <div class="product-contain"
-                                                                        style="display: flex; flex-wrap: wrap;">
+                                                                    <div class="product-contain" style="display: flex; flex-wrap: wrap;">
                                                                         @foreach ($colors as $key => $color)
-                                                                            <div class="form-check"
-                                                                                style="margin-left: 10px; margin-top: 15px;">
-                                                                                <input class="form-check-input"
-                                                                                    type="radio"
-                                                                                    name="selected_latest_color_{{ $latestProduct->id }}"
-                                                                                    value="{{ $color }}"
-                                                                                    id="color_{{ $latestProduct->id }}_{{ $color }}"
-                                                                                    {{ $key === 0 ? 'checked' : '' }}>
-                                                                                <label
-                                                                                    for="color_{{ $latestProduct->id }}_{{ $color }}">{{ $color }}</label>
+                                                                            <div class="form-check" style="margin-left: 10px; margin-top: 15px;">
+                                                                                <input class="form-check-input" type="radio" name="selected_latest_color_{{ $latestProduct->id }}" value="{{ $color }}" id="color_{{ $latestProduct->id }}_{{ $color }}" {{ $key === 0 ? 'checked' : '' }}>
+                                                                                <label for="color_{{ $latestProduct->id }}_{{ $color }}">{{ $color }}</label>
                                                                             </div>
                                                                         @endforeach
                                                                     </div>
                                                                 </li>
                                                             </ul>
+                                                            
                                                             <div class="modal-button">
-                                                                <button onclick="addToCartLatest({{ $latestProduct->id }})"
-                                                                    class="btn btn-md add-cart-button icon"
-                                                                    @if ($latestProduct->in_stock < 1) disabled @endif>
-                                                                    Add To Cart</button>
-
-                                                                <button
-                                                                    onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $latestProduct->id]) }}';"
-                                                                    class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
-                                                                    View More Details</button>
+                                                                <button onclick="addToCartLatest({{ $latestProduct->id }})" class="btn btn-md add-cart-button icon" @if ($latestProduct->in_stock < 1) disabled @endif>
+                                                                    {{ __('messages.add_to_cart') }}
+                                                                </button>
+                                                            
+                                                                <button onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $latestProduct->id]) }}';" class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
+                                                                    {{ __('messages.view_more_details') }}
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -794,7 +763,7 @@
                     <div class="p-sticky">
                         @if (count($categories) > 0)
                             <div class="category-menu">
-                                <h3>Categories</h3>
+                                <h3>{{ __('messages.categories') }}</h3>
                                 <ul class="border-bottom-0">
                                     @foreach ($categories as $categorie)
                                         <li>
@@ -804,7 +773,7 @@
                                                 <h5>
                                                     <a
                                                         href="{{ route('show-category-left-side-bar', ['categoryid' => $categorie->id]) }}">
-                                                        {{ $categorie->category_name }}
+                                                        {{ $categorie->{'category_name_' . app()->getLocale() } ?? $categorie->category_name }}
                                                     </a>
                                                 </h5>
                                             </div>
@@ -828,7 +797,7 @@
                                             {{ $tops[4]->phasethree }}</p>
                                         <button
                                             onclick="location.href = '{{ route('show-discount-product', ['topic' => 'new-arrivals']) }}';"
-                                            class="btn btn-furniture btn-md mend-auto">Shop Now <i
+                                            class="btn btn-furniture btn-md mend-auto">{{ __('messages.shop_now') }} <i
                                                 class="fa-solid fa-arrow-right icon"></i></button>
                                     </div>
                                 </div>
@@ -838,7 +807,7 @@
                         @if (count($trendingProducts) > 0)
                             <div class="section-t-space">
                                 <div class="category-menu">
-                                    <h3>Trending Products</h3>
+                                    <h3>{{ __('messages.trending_products') }}</h3>
 
                                     <ul class="product-list border-0 p-0 d-block">
                                         @foreach ($trendingProducts as $trending)
@@ -916,7 +885,7 @@
                                     </p>
                                     <button class="btn theme-bg-color mt-sm-4 mt-2 btn-md text-white fw-bold"
                                         onclick="location.href = '{{ route('show-discount-product', ['topic' => 'value-of-the-day']) }}';">
-                                        Shop Now
+                                        {{ __('messages.shop_now') }}
                                     </button>
                                 </div>
                             </div>
@@ -934,13 +903,13 @@
             @if (count($bestSellerProducts) > 0)
                 <div class="title d-block">
                     <div>
-                        <h2>Our best Seller</h2>
+                        <h2>{{ __('messages.best_seller') }}</h2>
                         <span class="title-leaf">
                             <svg class="icon-width">
                                 <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                             </svg>
                         </span>
-                        <p>Explore our most popular products, loved by our customers.</p>
+                        <p>{{ __('messages.explore_popular_products') }}</p>
                     </div>
                 </div>
                 <div class="banner-slider product-wrapper wow fadeInUp">
@@ -1011,8 +980,8 @@
                         <div class="row">
                             <div class="col-xxl-4 col-lg-5 col-md-7 col-sm-9 offset-xxl-2 offset-md-1">
                                 <div class="newsletter-detail">
-                                    <h2>Join Our Newsletter And Get...</h2>
-                                    <h5>Get access to the latest information.</h5>
+                                    <h2>{{ __('messages.join_our_newsletter') }}</h2>
+                                    <h5>{{ __('messages.get_latest_info') }}</h5>
                                     @php $action= route('registernewsletter'); @endphp
                                     <form class="theme-form theme-form-2 mega-form" id="registernewsletter"
                                         class="contact-form" method="POST" action="{{ $action }}"
@@ -1020,10 +989,10 @@
                                         @csrf
                                         <div class="input-box">
                                             <input type="email" class="form-control" id="newsletter"
-                                                name="newsletter" placeholder="Enter Your Email">
+                                                name="newsletter" placeholder="{{ __('messages.enter_your_email') }}">
                                             <i class="fa-solid fa-envelope arrow"></i>
-                                            <button class="sub-btn btn-submit  btn-animation">
-                                                <span class="d-sm-block d-none">Subscribe</span>
+                                            <button class="sub-btn btn-submit btn-animation">
+                                                <span class="d-sm-block d-none">{{ __('messages.subscribe') }}</span>
                                                 <i class="fa-solid fa-arrow-right icon"></i>
                                             </button>
                                         </div>
@@ -1050,19 +1019,19 @@
             <div class="cookie-image">
                 <img src="{{ asset('frontend/assets/images/cookie-bar.png') }}" class="blur-up lazyload"
                     alt="">
-                <h2>Cookies!</h2>
+                <h2>{{ __('messages.cookies') }}</h2>
             </div>
 
             <div class="cookie-contain">
-                <h5 class="text-content">We use cookies to make your experience better</h5>
+                <h5 class="text-content">{{ __('messages.cookies_message') }}</h5>
             </div>
         </div>
 
         <div class="button-group">
             <a href="{{ url('/privacy-policy') }}" class="text-content">
-                <button class="btn privacy-button">Privacy Policy</button>
+                <button class="btn privacy-button">{{ __('messages.privacy_policy') }}</button>
             </a>
-            <button class="btn ok-button">OK</button>
+            <button class="btn ok-button">{{ __('messages.btn_ok') }}</button>
         </div>
     </div>
     <!-- Cookie Bar Box End -->
@@ -1078,13 +1047,16 @@
             $('.error').hide();
             var email = $.trim($("#newsletter").val());
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
+            const localeMessages = {
+                enterYourEmail: "{{ __('messages.enter_your_email_error_message') }}",
+                validYourEmail: "{{ __('messages.valid_your_email_error_message') }}"
+            };
             if (email === "") {
-                $('.error.newsletter').text('Email is required');
+                $('.error.newsletter').text(localeMessages.enterYourEmail);
                 $('.error.newsletter').show();
                 return false;
             } else if (!emailPattern.test(email)) {
-                $('.error.newsletter').text('Invalid email format');
+                $('.error.newsletter').text(localeMessages.validYourEmail);
                 $('.error.newsletter').show();
                 return false;
             } else {

@@ -56,20 +56,28 @@
                                                 <div class="input-group">
                                                     <input class="form-control" type="text" placeholder="Sub Title" name="subtitle[]" id="subtitle"
                                                         value="{{ old('sub_category_titlename') ?? $subtitle->sub_category_titlename ?? '' }}">
+                                                    <input class="form-control" type="text" placeholder="Sub Title In Japanese" name="subtitleJp[]" id="subtitleJp"
+                                                        value="{{ old('sub_category_titlename_jp') ?? $subtitle->sub_category_titlename_jp ?? '' }}">
                                                     <div class="input-group-append align-self-center mx-auto justify-content-center">
                                                         <a href="#" class="align-items-center d-flex" id="add-more-field">
                                                             <i data-feather="plus-square"></i> Add
                                                         </a>
                                                     </div>
                                                 </div>
-                                                    <div id="dynamic-form"></div>
-                                                        <p style="display:none" class="subtitle error text-danger"></p>
-                                                            @if (!empty($error['subtitle']))
-                                                                @foreach ($error['subtitle'] as  $key => $value)
-                                                                    <p class="subtitle error text-danger">{{ $value }}</p>
-                                                                @endforeach
-                                                            @endif
-                                                    </div>
+                                                <div id="dynamic-form"></div>
+                                                    <p style="display:none" class="subtitle error text-danger"></p>
+                                                        @if (!empty($error['subtitle']))
+                                                            @foreach ($error['subtitle'] as  $key => $value)
+                                                                <p class="subtitle error text-danger">{{ $value }}</p>
+                                                            @endforeach
+                                                        @endif
+                                                    <p style="display:none" class="subtitleJp error text-danger"></p>
+                                                        @if (!empty($error['subtitleJp']))
+                                                            @foreach ($error['subtitleJp'] as  $key => $value)
+                                                                <p class="subtitleJp error text-danger">{{ $value }}</p>
+                                                            @endforeach
+                                                        @endif
+                                                </div>
                                             </div>
 
                                             <button type="button" class="btn btn-submit btn-animation ms-auto fw-bold">
@@ -172,6 +180,7 @@
                 <div class="col-sm-12">
                     <div class="input-group">
                         <input class="form-control" type="text" placeholder="Sub Title" name="subtitle[]">
+                        <input class="form-control" type="text" placeholder="Sub Title In Japanese" name="subtitleJp[]">
                         <div class="input-group-append align-self-center mx-auto justify-content-center">
                             <a href="#" class="align-items-center d-flex remove-field">
                                 <i data-feather="minus-square"></i> Remove
@@ -204,7 +213,7 @@
 $('.btn-submit').click(function() {
 
     $('.error').hide();
-    if ($.trim($("#category").val()) === "0"  ||  $.trim($("#subtitle").val()) === "" ) {
+    if ($.trim($("#category").val()) === "0"  ||  $.trim($("#subtitle").val()) === "" || $.trim($("#subtitleJp").val()) === "") {
         if ($.trim($("#category").val()) === "0") {
             $('.error.category').text('Category Name is required');
             $('.error.category').show();
@@ -212,6 +221,10 @@ $('.btn-submit').click(function() {
         if ( $.trim($("#subtitle").val()) === "") {
             $('.error.subtitle').text('Subtitle Name is required');
             $('.error.subtitle').show();
+        }
+        if ( $.trim($("#subtitleJp").val()) === "") {
+            $('.error.subtitleJp').text('Subtitle Name In Japanese is required');
+            $('.error.subtitleJp').show();
         }
         return false;
     } else {

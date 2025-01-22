@@ -85,7 +85,7 @@
                     <div class="col-xxl-3 d-xxl-block d-none">
                         <div class="top-left-header">
                             <i class="iconly-Location icli text-white"></i>
-                            <span class="text-white">4-27-5 Ikebukuro, Toshima-ku, Tokyo</span>
+                            <span class="text-white">{{ __('messages.top_bar_address') }}</span>
                         </div>
                     </div>
 
@@ -94,7 +94,7 @@
                             <div class="notification-slider">
                                 <div>
                                     <div class="timer-notification">
-                                        <h6><strong class="me-1">Welcome to the New Style Life EC site!</strong>
+                                        <h6><strong class="me-1">{{ __('messages.welcome') }}</strong>
                                         </h6>
                                     </div>
                                 </div>
@@ -104,13 +104,35 @@
 
                     <div class="col-lg-3">
                         <ul class="about-list right-nav-about">
-                            <li class="right-nav-list">
+                            <li class="right-nav-list dropdown">
                                 <div class="dropdown theme-form-select" style="display: flex;">
                                     <img src="{{ asset('frontend/assets/images/country/japan.png') }}"
                                         class="img-fluid blur-up lazyload" alt="" width="30px">
                                     <img src="{{ asset('frontend/assets/images/country/united-states.png') }}"
                                         class="img-fluid blur-up lazyload" alt="" width="30px"
                                         style="margin-left: 5px;">
+                                </div>
+                            </li>
+                            <li class="right-nav-list">
+                                <div class="dropdown theme-form-select">
+                                    @foreach(config('app.available_locales') as $locale_name => $available_locale)
+                                        @if($available_locale === app()->getLocale())
+                                            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{ $locale_name }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                    <ul class="dropdown-menu" style="min-width: 80px;max-width: 100px; margin-left: -25px;">
+                                        @foreach(config('app.available_locales') as $locale_name => $available_locale)
+                                            @if($available_locale !== app()->getLocale())
+                                                <li>
+                                                    <a href="{{ url('/language/'.$available_locale) }}" class="dropdown-item">
+                                                        {{ $locale_name }}
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </li>
                             <li class="right-nav-list">
@@ -145,7 +167,7 @@
                                     <form id="mainSearchForm" action="{{ route('show-product') }}" method="GET">
                                         <div class="input-group">
                                             <input type="search" class="form-control" name="mainSearch"
-                                                placeholder="I'm searching for..."
+                                                placeholder="{{ __('messages.searching_for') }}"
                                                 value="{{ request('mainSearch') }}">
                                             <button class="btn" type="submit" id="button-addon2">
                                                 <i data-feather="search"></i>
@@ -304,10 +326,10 @@
                                             <div class="onhover-div onhover-div-login">
                                                 <ul class="user-box-name">
                                                     <li class="product-box-contain">
-                                                        <a href="{{ route('login') }}">Log In</a>
+                                                        <a href="{{ route('login') }}">{{ __('messages.login') }}</a>
                                                     </li>
                                                     <li class="product-box-contain">
-                                                        <a href="{{ route('user_register') }}">Buyer Register</a>
+                                                        <a href="{{ route('user_register') }}">{{ __('messages.buyer_register') }}</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -331,7 +353,7 @@
                                                         <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                                             href="javascript:void(0)">
                                                             <i data-feather="log-out"></i>
-                                                            <span style="margin-left: 10px;">Log out</span>
+                                                            <span style="margin-left: 10px;">{{ __('messages.logout') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -353,12 +375,12 @@
                         <div class="header-nav-left">
                             <button class="dropdown-category">
                                 <i data-feather="align-left"></i>
-                                <span>All Categories</span>
+                                <span>{{ __('messages.all_categories') }}</span>
                             </button>
 
                             <div class="category-dropdown">
                                 <div class="category-title">
-                                    <h5>All Categories</h5>
+                                    <h5>{{ __('messages.all_categories') }}</h5>
                                     <button type="button" class="btn p-0 close-button text-content">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
@@ -369,7 +391,7 @@
                                             <a href="javascript:void(0)" class="category-name">
                                                 <img src="{{ asset('images/' . $category->category_icon) }}"
                                                     alt="">
-                                                <h6>{{ $category->category_name }}</h6>
+                                                <h6>{{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}</h6>
                                                 <i class="fa-solid fa-angle-right"></i>
                                             </a>
 
@@ -377,13 +399,13 @@
                                                 @foreach ($category->subCategoryTitle as $subCategoryTitle)
                                                     <div class="list-1" style="margin-left: 10px;margin-top: 10px;">
                                                         <div class="category-title-box">
-                                                            <h5>{{ $subCategoryTitle->sub_category_titlename }}</h5>
+                                                            <h5>{{ $subCategoryTitle->{'sub_category_titlename_' . app()->getLocale()} ?? $subCategoryTitle->sub_category_titlename }}</h5>
                                                         </div>
                                                         @foreach ($subCategoryTitle->subCategory as $subCategory)
                                                             <ul>
                                                                 <li>
                                                                     <a
-                                                                        href="{{ url('/subcategorysidebar/' . $subCategory->id) }}">{{ $subCategory->sub_category_name }}</a>
+                                                                        href="{{ url('/subcategorysidebar/' . $subCategory->id) }}">{{ $subCategory->{'sub_category_name_' . app()->getLocale() } ?? $subCategory->sub_category_name }}</a>
                                                                 </li>
                                                             </ul>
                                                         @endforeach
@@ -400,7 +422,7 @@
                             <div class="main-nav navbar navbar-expand-xl navbar-light navbar-sticky">
                                 <div class="offcanvas offcanvas-collapse order-xl-2" id="primaryMenu">
                                     <div class="offcanvas-header navbar-shadow">
-                                        <h5>Menu</h5>
+                                        <h5>{{ __('messages.menu') }}</h5>
                                         <button class="btn-close lead" type="button"
                                             data-bs-dismiss="offcanvas"></button>
                                     </div>
@@ -409,31 +431,31 @@
                                         <ul class="navbar-nav">
                                             @if (empty(Auth::user()))
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link " href="{{ url('/') }}">Home</a>
+                                                    <a class="nav-link " href="{{ url('/') }}">{{ __('messages.home') }}</a>
                                                 </li>
                                             @endif
 
                                             @if (!empty(Auth::user()))
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="{{ url('/user') }}">My Menu</a>
+                                                    <a class="nav-link" href="{{ url('/user') }}">{{ __('messages.my_menu') }}</a>
 
                                                 </li>
                                             @endif
 
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link " href="{{ url('/products') }}">Products</a>
+                                                <a class="nav-link " href="{{ url('/products') }}">{{ __('messages.products') }}</a>
                                             </li>
 
 
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link " href="{{ route('shoplist') }}">Shop</a>
+                                                <a class="nav-link " href="{{ route('shoplist') }}">{{ __('messages.shop') }}</a>
                                             </li>
 
                                             @if ($specialCorner->isNotEmpty())
                                                 <li class="nav-item dropdown dropdown-mega">
                                                     <a class="nav-link menu dropdown-toggle ps-xl-2 ps-0"
                                                         href="javascript:void(0)" data-bs-toggle="dropdown">
-                                                        <span class="menu">Special Corner</span>
+                                                        <span class="menu">{{ __('messages.special_corner') }}</span>
                                                     </a>
 
                                                     <div class="dropdown-menu dropdown-menu-2">
@@ -469,7 +491,7 @@
 
                                     @if (empty(Auth::user()))
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
+                                            <a class="nav-link" href="{{ url('/faq') }}">{{ __('messages.faq') }}</a>
 
                                         </li>
                                     @endif
@@ -477,9 +499,9 @@
                                     @if (empty(Auth::user()))
                                         <li class="nav-item dropdown new-nav-item">
                                             @if ($newBlogsExist)
-                                                <label class="new-dropdown">New</label>
+                                                <label class="new-dropdown">{{ __('messages.news') }}</label>
                                             @endif
-                                            <a class="nav-link" href="{{ url('/news') }}">Blog</a>
+                                            <a class="nav-link" href="{{ url('/news') }}">{{ __('messages.blog') }}</a>
                                         </li>
                                     @endif
 
@@ -494,15 +516,16 @@
                         <div class="header-nav-right">
                             <button class="btn deal-button" data-bs-toggle="modal" data-bs-target="#deal-box">
                                 <i data-feather="zap"></i>
-                                <span>Deal Today</span>
+                                <span>{{ __('messages.deal_today') }}</span>
                             </button>
                         </div>
                     @else
                         <div class="header-nav-right">
                             <button class="btn deal-button" data-bs-toggle="modal">
                                 <i data-feather="zap"></i>
-                                <a href="{{ route('login') }}" style="color: var(--theme-color)"><span> Deal
-                                        Today</span></a>
+                                <a href="{{ route('login') }}" style="color: var(--theme-color)">
+                                    <span>{{ __('messages.deal_today') }}</span>
+                                </a>
                             </button>
                         </div>
                     @endif
@@ -519,35 +542,35 @@
             <li class="active">
                 <a href="{{ url('/') }}">
                     <i class="iconly-Home icli"></i>
-                    <span>Home</span>
+                    <span>{{ __('messages.home') }}</span>
                 </a>
             </li>
 
             <li class="mobile-category">
                 <a href="javascript:void(0)">
                     <i class="iconly-Category icli js-link"></i>
-                    <span>Category</span>
+                    <span>{{ __('messages.category') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/search') }}" class="search-box">
                     <i class="iconly-Search icli"></i>
-                    <span>Search</span>
+                    <span>{{ __('messages.search') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/wishlist') }}" class="notifi-wishlist">
                     <i class="iconly-Heart icli"></i>
-                    <span>My Wish</span>
+                    <span>{{ __('messages.my_wish') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/carts') }}">
                     <i class="iconly-Bag-2 icli fly-cate"></i>
-                    <span>Cart</span>
+                    <span>{{ __('messages.cart') }}</span>
                 </a>
             </li>
         </ul>
@@ -567,8 +590,7 @@
                             <img src="{{ asset('backend/assets/images/logo/nsl-logo.png') }}" class="img-fluid blur-up lazyload" alt="">
                         </a>
                         <p class="information-text information-text-2">
-                            Infusing style into everyday living, our curated collection elevates your space.
-                            Discover quality products that enhance your lifestyle, delivered with care and precision.
+                            {{ __('messages.footer_paragraph') }}
                         </p>
                         <ul class="social-icon">
                             <li class="light-bg">
@@ -604,78 +626,77 @@
 
                     <div class="col-xxl-2 col-xl-4 col-sm-6">
                         <div class="footer-title">
-                            <h4 class="text-white">Useful Links</h4>
+                            <h4 class="text-white">{{ __('messages.useful_links') }}</h4>
                         </div>
                         <ul class="footer-list footer-list-light footer-contact">
                             <li>
-                                <a href="{{ url('/') }}" class="light-text">Home</a>
+                                <a href="{{ url('/') }}" class="light-text">{{ __('messages.home') }}</a>
                             </li>
                             <li>
-                                <a class="light-text" href="{{ url('/products') }}">Products</a>
+                                <a class="light-text" href="{{ url('/products') }}">{{ __('messages.products') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('shoplist') }}" class="light-text">Shop</a>
+                                <a href="{{ route('shoplist') }}" class="light-text">{{ __('messages.shop') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/news') }}" class="light-text">Blog</a>
+                                <a href="{{ url('/news') }}" class="light-text">{{ __('messages.blog') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/contact') }}" class="light-text">Contact Us</a>
+                                <a href="{{ url('/contact') }}" class="light-text">{{ __('messages.contact_us') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/our-story') }}" class="light-text">Our Story</a>
+                                <a href="{{ url('/our-story') }}" class="light-text">{{ __('messages.our_story') }}</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-xxl-2 col-xl-4 col-sm-6">
                         <div class="footer-title">
-                            <h4 class="text-white">Help Center</h4>
+                            <h4 class="text-white">{{ __('messages.help_center') }}</h4>
                         </div>
                         <ul class="footer-list footer-contact footer-list-light">
                             @if (empty(Auth::user()))
                                 <li>
-                                    <a href="{{ route('seller.register') }}" class="light-text">Seller Register</a>
+                                    <a href="{{ route('seller.register') }}" class="light-text">{{ __('messages.seller_register') }}</a>
                                 </li>
                             @endif
                             @if (!empty(Auth::user()))
                                 <li>
-                                    <a href="{{ route('user_profile') }}" class="light-text">Your Account</a>
+                                    <a href="{{ route('user_profile') }}" class="light-text">{{ __('messages.your_account') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('user_order') }}" class="light-text">Track Order</a>
+                                    <a href="{{ route('user_order') }}" class="light-text">{{ __('messages.track_order') }}</a>
                                 </li>
                             @endif
                             <li>
-                                <a href="{{ url('/wishlist') }}" class="light-text">Your Wishlist</a>
+                                <a href="{{ url('/wishlist') }}" class="light-text">{{ __('messages.your_wishlist') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/comparelist') }}" class="light-text">Your Compare List</a>
+                                <a href="{{ url('/comparelist') }}" class="light-text">{{ __('messages.your_compare_list') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('footer_search') }}" class="light-text">Search</a>
+                                <a href="{{ route('footer_search') }}" class="light-text">{{ __('messages.search') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/faq') }}" class="light-text">FAQ</a>
+                                <a href="{{ url('/faq') }}" class="light-text">{{ __('messages.faq') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/term-and-condition') }}" class="light-text">Terms and
-                                    Conditions</a>
+                                <a href="{{ url('/term-and-condition') }}" class="light-text">{{ __('messages.terms_and_conditions') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/privacy-policy') }}" class="light-text">Privacy Policy</a>
+                                <a href="{{ url('/privacy-policy') }}" class="light-text">{{ __('messages.privacy_policy') }}</a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="col-xxl-2 col-xl-4 col-sm-6">
                         <div class="footer-title">
-                            <h4 class="text-white">Categories</h4>
+                            <h4 class="text-white">{{ __('messages.categories') }}</h4>
                         </div>
                         <ul class="footer-list footer-list-light footer-contact">
                             @foreach ($categories as $category)
                                 <li>
                                     <a href="{{ url('/categorysidebar/' . $category->id) }}"
-                                        class="light-text">{{ $category->category_name }}</a>
+                                        class="light-text">{{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -683,14 +704,14 @@
 
                     <div class="col-xxl-3 col-xl-4 col-sm-6">
                         <div class="footer-title">
-                            <h4 class="text-white">Contact Us</h4>
+                            <h4 class="text-white">{{ __('messages.contact_us') }}</h4>
                         </div>
                         <ul class="footer-address footer-contact">
                             <li>
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box flex-start-box">
                                         <i data-feather="map-pin"></i>
-                                        <p>4-27-5 Ikebukuro, Toshima-ku, Tokyo</p>
+                                        <p>{{ __('messages.top_bar_address') }}</p>
                                     </div>
                                 </a>
                             </li>
@@ -699,7 +720,7 @@
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box">
                                         <i data-feather="phone"></i>
-                                        <p>Call us: (+81)03-3981-5090</p>
+                                        <p>{{ __('messages.call_us') }}: (+81)03-3981-5090</p>
                                     </div>
                                 </a>
                             </li>
@@ -708,7 +729,7 @@
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box">
                                         <i data-feather="mail"></i>
-                                        <p>Email Us: support@new-style.life</p>
+                                        <p>{{ __('messages.email_us') }}: support@new-style.life</p>
                                     </div>
                                 </a>
                             </li>
@@ -782,10 +803,10 @@
                 <div class="modal-header">
                     <div>
                         @if ($deal->count() > 0)
-                            <h5 class="modal-title w-100" id="deal_today">Deal Today</h5>
-                            <p class="mt-1 text-content">Your ordered items for today.</p>
+                            <h5 class="modal-title w-100" id="deal_today">{{ __('messages.deal_today') }}</h5>
+                            <p class="mt-1 text-content">{{ __('messages.your_items_for_today') }}</p>
                         @else
-                            <p class="mt-1 text-content">Today, no order yet.</p>
+                            <p class="mt-1 text-content">{{ __('messages.today_no_order_yet') }}</p>
                         @endif
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
@@ -814,10 +835,10 @@
                                                 <h6>¥{{ number_format($list->selling_price, '0', '', ',') }}</h6>
                                             @endif
                                             @if ($list->payment_approved == 0)
-                                                <span style="color: red">Payment transfer not yet!</span>
+                                                <span style="color: red">{{ __('messages.payment_transfer_not_yet') }}</span>
                                             @else
                                                 @if ($list->estimate_date)
-                                                    <span>Estimated Waiting Time : {{ $list->estimate_date }}
+                                                    <span>{{ __('messages.estimated_waiting_time') }} : {{ $list->estimate_date }}
                                                         {{ $list->estimate_date > 1 ? 'days' : 'day' }}</span>
                                                 @endif
                                             @endif
@@ -845,11 +866,11 @@
                     <ul>
                         <li>
                             <div class="setting-name">
-                                <h4>Color</h4>
+                                <h4>{{ __('messages.color') }}</h4>
                             </div>
                             <div class="theme-setting-button color-picker">
                                 <form class="form-control">
-                                    <label for="colorPick" class="form-label mb-0">Theme Color</label>
+                                    <label for="colorPick" class="form-label mb-0">{{ __('messages.theme_color') }}</label>
                                     <input type="color" class="form-control form-control-color" id="colorPick"
                                         value="#417394" title="Choose your color">
                                 </form>
@@ -858,11 +879,11 @@
 
                         <li>
                             <div class="setting-name">
-                                <h4>Dark</h4>
+                                <h4>{{ __('messages.dark') }}</h4>
                             </div>
                             <div class="theme-setting-button">
-                                <button class="btn btn-2 outline" id="darkButton">Dark</button>
-                                <button class="btn btn-2 unline" id="lightButton">Light</button>
+                                <button class="btn btn-2 outline" id="darkButton">{{ __('messages.dark') }}</button>
+                                <button class="btn btn-2 unline" id="lightButton">{{ __('messages.light') }}</button>
                             </div>
                         </li>
 
@@ -892,24 +913,24 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header d-block text-center">
-                    <h5 class="modal-title w-100" id="exampleModalLabel">Logging Out</h5>
+                    <h5 class="modal-title w-100" id="exampleModalLabel">{{ __('messages.loging_out') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="remove-box">
-                        <p>Are you sure you want to log out?</p>
+                        <p>{{ __('messages.loging_out_confirm_message') }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <form method="POST" action="{{ route('adminlogout') }}">
                         @csrf
                         <button type="submit" class="btn btn-animation btn-md fw-bold"
-                            style="background: #417394; !important;">Yes</button>
+                            style="background: #417394; !important;">{{ __('messages.btn_yes') }}</button>
                     </form>
                     <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal"
-                        style="background: #6c757d;">No</button>
+                        style="background: #6c757d;">{{ __('messages.btn_no') }}</button>
                 </div>
             </div>
         </div>

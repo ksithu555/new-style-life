@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
             // \App\Http\Middleware\LanguageManager::class,
             //\App\Http\Middleware\HttpsProtocolMiddleware::class
             \App\Http\Middleware\Localization::class, /* <--- add this */
+            \App\Http\Middleware\LocaleMiddleware::class,
         ],
 
         'api' => [
