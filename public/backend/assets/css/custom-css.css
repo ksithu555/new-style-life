@@ -1,0 +1,74 @@
+.input-group {
+    display: flex;
+}
+
+.input-group .custom-select {
+    flex-grow: 1;
+    margin-right: 3px;
+}
+
+.input-group input,
+.input-group button {
+    margin-right: 5px;
+    border-radius: 0%;
+}
+
+.input-group button {
+    height: 38px;
+}
+
+.status-list li {
+    margin-bottom: 10px;
+}
+
+.status-link:visited {
+    color: black;
+}
+
+.uploaded-image {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.file-input-container {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+}
+
+.file-input-container img {
+    display: block;
+}
+
+.selected-image {
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+}
+
+.table-order td,
+.table-order th {
+    text-align: center;
+    vertical-align: middle;
+}
