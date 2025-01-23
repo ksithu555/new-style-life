@@ -175,4 +175,5 @@ return [
     'check_error_for_form_below' => '以下のフォームのエラーを確認してください',
     'email_password_incorrect' => 'メールアドレスまたはパスワードが正しくありません！',
     'account_inactive' => 'あなたのアカウントは無効化されています！',
+    'no_product_found' => '商品が見つかりません',   
 ];

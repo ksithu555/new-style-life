@@ -175,4 +175,5 @@ return [
     'check_error_for_form_below' => 'Please check the form below for errors',
     'email_password_incorrect' => 'Email or password is incorrect!',
     'account_inactive' => 'Your account have been inactivated!',
+    'no_product_found' => 'No product found',
 ];
