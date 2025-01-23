@@ -37,7 +37,7 @@
 @if ($errors->any())
 <div class="alert alert-danger">
     <button type="button" class="close">×</button>
-    Please check the form below for errors
+    {{  __('messages.check_error_for_form_below') }}
 </div>
 @endif
 

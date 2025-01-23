@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>FAQ</h2>
+                        <h2>{{ __('messages.faq') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">FAQ</li>
+                                <li class="breadcrumb-item active">{{ __('messages.faq') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -145,9 +145,9 @@
                             <div class="row">
                                 <div class="col-xxl-12 col-lg-12 col-sm-6">
                                     <div class="mb-md-4 mb-3 custom-form">
-                                        <label for="exampleFormControlInput" class="form-label">Name</label>
+                                        <label for="exampleFormControlInput" class="form-label">{{ __('messages.name') }}</label>
                                         <div class="custom-input">
-                                            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="{{ old('name') }}">
+                                            <input type="text" class="form-control" id="name" placeholder="{{ __('messages.enter_name') }}" name="name" value="{{ old('name') }}">
                                             <i class="fa-solid fa-user"></i>
                                         </div>
                                         <span class="error" style="color:red" id="error-name"></span>
@@ -156,9 +156,9 @@
 
                                 <div class="col-xxl-6 col-lg-12 col-sm-6">
                                     <div class="mb-md-4 mb-3 custom-form">
-                                        <label for="exampleFormControlInput2" class="form-label">Email Address</label>
+                                        <label for="exampleFormControlInput2" class="form-label">{{ __('messages.email') }}</label>
                                         <div class="custom-input">
-                                            <input type="email" class="form-control" id="email" placeholder="Enter Email Address" name="email" value="{{ old('email') }}">
+                                            <input type="email" class="form-control" id="email" placeholder="{{ __('messages.enter_email') }}" name="email" value="{{ old('email') }}">
                                             <i class="fa-solid fa-envelope"></i>
                                         </div>
                                         <span class="error" style="color:red" id="error-email"></span>
@@ -167,9 +167,9 @@
 
                                 <div class="col-xxl-6 col-lg-12 col-sm-6">
                                     <div class="mb-md-4 mb-3 custom-form">
-                                        <label for="exampleFormControlInput3" class="form-label">Phone Number</label>
+                                        <label for="exampleFormControlInput3" class="form-label">{{ __('messages.phone') }}</label>
                                         <div class="custom-input">
-                                            <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number" maxlength="10"
+                                            <input type="tel" class="form-control" id="phone" placeholder="{{ __('messages.enter_phone') }}" maxlength="10"
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="phone" value="{{ old('phone') }}">
                                             <i class="fa-solid fa-mobile-screen-button"></i>
                                         </div>
@@ -179,16 +179,16 @@
 
                                 <div class="col-12">
                                     <div class="mb-md-4 mb-3 custom-form">
-                                        <label for="exampleFormControlTextarea" class="form-label">Message</label>
+                                        <label for="exampleFormControlTextarea" class="form-label">{{ __('messages.message') }}</label>
                                         <div class="custom-textarea">
-                                            <textarea class="form-control" id="message" placeholder="Enter Your Message" rows="6" name="message">{{ old('message') }}</textarea>
+                                            <textarea class="form-control" id="message" placeholder="{{ __('messages.enter_message') }}" rows="6" name="message">{{ old('message') }}</textarea>
                                             <i class="fa-solid fa-message"></i>
                                         </div>
                                         <span class="error" style="color:red" id="error-message"></span>
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-animation theme-bg-color ms-auto fw-bold" type="button" onclick="validateFaqForm()">Send Message</button>
+                            <button class="btn btn-animation theme-bg-color ms-auto fw-bold" type="button" onclick="validateFaqForm()">{{ __('messages.btn_send_message') }}</button>
                         </form>
                     </div>
                 </div>
@@ -234,31 +234,31 @@
 
             if (!name) {
                 isValid = false;
-                document.getElementById('error-name').textContent = 'Please provide your name.';
+                document.getElementById('error-name').textContent = '{{ __('messages.enter_name_error_message') }}';
             } else if (name.length > 255) {
                 isValid = false;
-                document.getElementById('error-name').textContent = 'Your name must not exceed 255 characters.';
+                document.getElementById('error-name').textContent = '{{ __('messages.valid_name_error_message') }}';
             }
 
             if (!email) {
                 isValid = false;
-                document.getElementById('error-email').textContent = 'Please provide your email.';
+                document.getElementById('error-email').textContent = '{{ __('messages.enter_email_error_message') }}';
             } else if (!/\S+@\S+\.\S+/.test(email)) {
                 isValid = false;
-                document.getElementById('error-email').textContent = 'Please provide a valid email address.';
+                document.getElementById('error-email').textContent = '{{ __('messages.valid_email_error_message') }}';
             }
 
             if (!phone) {
                 isValid = false;
-                document.getElementById('error-phone').textContent = 'Please provide your phone number.';
+                document.getElementById('error-phone').textContent = '{{ __('messages.enter_phone_error_message') }}';
             } else if (!/^\d+$/.test(phone)) {
                 isValid = false;
-                document.getElementById('error-phone').textContent = 'Please provide a valid phone number.(eg. 09077554361)';
+                document.getElementById('error-phone').textContent = '{{ __('messages.valid_phone_error_message') }}';
             }
 
             if (!message) {
                 isValid = false;
-                document.getElementById('error-message').textContent = 'Please provide your message.';
+                document.getElementById('error-message').textContent = '{{ __('messages.enter_message_error_message') }}';
             }
 
             if (isValid) {

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Product details</h2>
+                        <h2>{{ __('messages.product_details') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                     </a>
                                 </li>
 
-                                <li class="breadcrumb-item active">Product</li>
+                                <li class="breadcrumb-item active">{{ __('messages.product') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,7 +27,7 @@
 
     <!-- Product Left Sidebar Start -->
     @if (!$product)
-        <h1 class="text-center">Product Not Found</h1>
+        <h1 class="text-center">{{ __('messages.product_not_found') }}</h1>
     @else
         <section class="product-section">
             <div class="container-fluid-lg">
@@ -127,7 +127,7 @@
                                                     @endif
                                                 @endfor
                                             </ul>
-                                            <span class="review"><?php echo $count; ?> Customer Review</span>
+                                            <span class="review"><?php echo $count; ?> {{ __('messages.customer_review') }}</span>
                                         </div>
                                     </div>
 
@@ -169,16 +169,16 @@
                                         <button onclick="addToCart({{ $product->id }})"
                                             class="btn btn-md bg-dark cart-button text-white w-100"
                                             @if ($product->in_stock < 1) disabled @endif>
-                                            Add To Cart
+                                            {{  __('messages.add_to_cart') }}
                                         </button>
                                     </div>
 
                                     <div class="progress-sec">
                                         <div class="left-progressbar">
                                             @if ($product->in_stock > 0)
-                                                <h6>Please hurry! Only {{ $product->in_stock }} left in stock</h6>
+                                            <h6>{{ __('messages.hurry_only_left_in_stock', ['count' => $product->in_stock]) }}</h6>
                                             @else
-                                                <h6>No stock left</h6>
+                                                <h6>{{ __('messages.no_stock_left') }}</h6>
                                             @endif
                                             <div role="progressbar" class="progress warning-progress">
                                                 <?php
@@ -197,11 +197,11 @@
                                     <div class="buy-box">
                                         <a href="{{ route('show-wishlist', ['id' => $id]) }}">
                                             <i data-feather="heart"></i>
-                                            <span>Add To Wishlist</span>
+                                            <span>{{ __('messages.btn_add_to_wishlist') }}</span>
                                         </a>
                                         <a href="{{ route('show-comparelist', ['id' => $id]) }}">
                                             <i data-feather="shuffle"></i>
-                                            <span>Add To Compare</span>
+                                            <span>{{ __('messages.btn_add_to_compare_list') }}</span>
                                         </a>
                                     </div>
                                 </div>
@@ -213,25 +213,29 @@
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
                                                 data-bs-target="#description" type="button"
-                                                role="tab">Description</button>
+                                                role="tab">{{ __('messages.description') }}</button>
                                         </li>
 
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="info-tab" data-bs-toggle="tab"
-                                                data-bs-target="#info" type="button" role="tab">Additional
-                                                info</button>
+                                                data-bs-target="#info" type="button" role="tab">
+                                                {{ __('messages.additional_information') }}
+                                            </button>
                                         </li>
 
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="care-tab" data-bs-toggle="tab"
-                                                data-bs-target="#care" type="button" role="tab">Care
-                                                Instructions</button>
+                                                data-bs-target="#care" type="button" role="tab">
+                                                {{ __('messages.care_instructions') }}
+                                            </button>
                                         </li>
 
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="review-tab" data-bs-toggle="tab"
                                                 data-bs-target="#review" type="button"
-                                                role="tab">Review</button>
+                                                role="tab">
+                                                {{ __('messages.review') }}
+                                            </button>
                                         </li>
                                     </ul>
 
@@ -249,7 +253,7 @@
                                                 <table class="table info-table">
                                                     <tbody>
                                                         <tr>
-                                                            <td>Brand</td>
+                                                            <td>{{ __('messages.brand') }}</td>
                                                             <td>
                                                                 @php
                                                                     $brand = DB::table('brands')
@@ -260,7 +264,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Made In</td>
+                                                            <td>{{ __('messages.made_in') }}</td>
                                                             <td>
                                                                 @php
                                                                     $country = DB::table('countries')
@@ -271,7 +275,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Shop</td>
+                                                            <td>{{ __('messages.shop') }}</td>
                                                             <td>
                                                                 @php
                                                                     $seller = DB::table('sellers')
@@ -282,7 +286,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Category</td>
+                                                            <td>{{ __('messages.category') }}</td>
                                                             <td>
                                                                 @php
                                                                     $category = DB::table('categories')
@@ -293,7 +297,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Sub Category</td>
+                                                            <td>{{ __('messages.sub_category') }}</td>
                                                             <td>
                                                                 @php
                                                                     $sub_category = DB::table('sub_categories')
@@ -304,26 +308,26 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>In Stock</td>
+                                                            <td>{{ __('messages.in_stock') }}</td>
                                                             <td>{{ $product->in_stock }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Delivery Fee</td>
+                                                            <td>{{ __('messages.delivery_fee') }}</td>
                                                             <td>¥
                                                                 {{ number_format($product->delivery_price, '0', '', ',') }}
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Estimated Day</td>
-                                                            <td>{{ $product->estimate_date }} days</td>
+                                                            <td>{{ __('messages.estimated_day') }}</td>
+                                                            <td>{{ $product->estimate_date }} {{ __('messages.days') }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Shipping From</td>
+                                                            <td>{{ __('messages.shipping_from') }}</td>
                                                             <td>
                                                                 @if ($product->shipping_country == 1)
-                                                                    Abroad
+                                                                {{ __('messages.abroad') }}
                                                                 @else
-                                                                    Japan
+                                                                {{ __('messages.japan') }}
                                                                 @endif
                                                             </td>
                                                         </tr>
@@ -383,7 +387,7 @@
                                                                             <i data-feather="star"></i>
                                                                         </h2>
 
-                                                                        <h5>{{ $count }} Overall Ratings</h5>
+                                                                        <h5>{{ $count }} {{ __('messages.overall_rating') }}</h5>
                                                                     </div>
                                                                 </div>
 
@@ -453,15 +457,12 @@
                                                                     </ul>
 
                                                                     <div class="review-title-2">
-                                                                        <h4 class="fw-bold">Review this product</h4>
-                                                                        <p>Let other customers know what you think</p>
-                                                                        <button class="btn" type="button"
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#writereview"
+                                                                        <h4 class="fw-bold">{{ __('messages.review_this_product') }}</h4>
+                                                                        <p>{{ __('messages.let_other_know') }}</p>
+                                                                        <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#writereview"
                                                                             <?php if (!Auth::user()) {
                                                                                 echo 'disabled';
-                                                                            } ?>>Write a
-                                                                            review</button>
+                                                                            } ?>>{{ __('messages.write_review') }}</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -558,7 +559,7 @@
                                                     @endif
                                                 @endfor
                                             </ul>
-                                            <span>({{ $ratingWithProductCount[1] }} Reviews)</span>
+                                            <span>({{ $ratingWithProductCount[1] }} {{ __('messages.reviews') }})</span>
                                         </div>
 
                                     </div>
@@ -569,7 +570,7 @@
                                         <li>
                                             <div class="address-contact">
                                                 <i data-feather="map-pin"></i>
-                                                <h5>Address: <span
+                                                <h5>{{ __('messages.address') }}: <span
                                                         class="text-content">〒{{ $product->user->seller->zip_code }}</span><br>
                                                     <span
                                                         class="text-content">{{ $product->user->seller->country->name }}</span><br>
@@ -590,7 +591,7 @@
                                         <li>
                                             <div class="address-contact">
                                                 <i data-feather="headphones"></i>
-                                                <h5>Contact Seller: <span
+                                                <h5>{{ __('messages.contact_seller') }}: <span
                                                         class="text-content">{{ $product->user->seller->phone }}</span>
                                                 </h5>
                                             </div>
@@ -603,7 +604,7 @@
                             @if ($topProducts->count() > 0)
                                 <div class="pt-25">
                                     <div class="category-menu">
-                                        <h3>Trending Products</h3>
+                                        <h3>{{ __('messages.trending_products') }}</h3>
 
                                         <ul class="product-list product-right-sidebar border-0 p-0">
                                             @foreach ($topProducts as $topProduct)
@@ -663,7 +664,7 @@
             <section class="product-list-section section-b-space">
                 <div class="container-fluid-lg">
                     <div class="title">
-                        <h2>Related Products</h2>
+                        <h2>{{ __('messages.related_products') }}</h2>
                         <span class="title-leaf">
                             <svg class="icon-width">
                                 <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
@@ -734,7 +735,7 @@
                                                 <div class="product-footer">
                                                     <div class="product-detail">
                                                         <span
-                                                            class="span-name">{{ $relatedProduct->Category->category_name }}</span>
+                                                            class="span-name">{{ $relatedProduct->Category->{'category_name_' . app()->getLocale() } ?? $relatedProduct->Category->category_name }}</span>
                                                         <a
                                                             href="{{ route('show-product-left-thumbnail', ['id' => $relatedProduct->id]) }}">
                                                             <h5 class="name">
@@ -848,18 +849,18 @@
                                                         @endif
                                                     @endfor
                                                 </ul>
-                                                <span class="ms-2">{{ $count }} Reviews</span>
+                                                <span class="ms-2">{{ $count }} {{ __('messages.reviews') }}</span>
                                             </div>
 
                                             <div class="product-detail">
-                                                <h4>Product Details :</h4>
+                                                <h4>{{ __('messages.product_details') }} :</h4>
                                                 <p>{!! $relproduct->long_desc !!}</p>
                                             </div>
 
                                             <ul class="brand-list">
                                                 <li>
                                                     <div class="brand-box">
-                                                        <h5>Brand Name:</h5>
+                                                        <h5>{{ __('messages.brand') }}:</h5>
                                                         <h6>
                                                             @php
                                                                 $brand = DB::table('brands')
@@ -873,28 +874,28 @@
 
                                                 <li>
                                                     <div class="brand-box">
-                                                        <h5>Product Code:</h5>
+                                                        <h5>{{ __('messages.product_code') }}:</h5>
                                                         <h6>{{ $relproduct->product_code }}</h6>
                                                     </div>
                                                 </li>
 
                                                 <li>
                                                     <div class="brand-box">
-                                                        <h5>Category:</h5>
+                                                        <h5>{{ __('messages.category') }}:</h5>
                                                         <h6>
                                                             @php
                                                                 $category = DB::table('categories')
                                                                     ->where('id', $relproduct->category_id)
                                                                     ->first();
                                                             @endphp
-                                                            {{ $category->category_name }}
+                                                            {{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}
                                                         </h6>
                                                     </div>
                                                 </li>
 
                                                 <li>
                                                     <div class="brand-box">
-                                                        <h5>In Stock:</h5>
+                                                        <h5>{{ __('messages.in_stock') }}:</h5>
                                                         <h6>{{ $relproduct->in_stock }}</h6>
                                                     </div>
                                                 </li>
@@ -947,13 +948,14 @@
                                                 <button
                                                     onclick="location.href = '{{ route('show_carts', ['id' => $relproduct->id]) }}';"
                                                     class="btn btn-md add-cart-button icon"
-                                                    @if ($relproduct->in_stock < 1) disabled @endif>Add
-                                                    To Cart</button>
+                                                    @if ($relproduct->in_stock < 1) disabled @endif>
+                                                    {{ __('messages.add_to_cart') }}
+                                                </button>
 
                                                 <button
                                                     onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $relproduct->id]) }}';"
                                                     class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
-                                                    View More Details</button>
+                                                    {{ __('messages.view_more_details') }}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -971,7 +973,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Write a review</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __('messages.write_review') }}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
@@ -1014,14 +1016,14 @@
                                 </div>
                             </div>
                             <div class="review-box">
-                                <label for="comment" class="form-label">Your Comment *</label>
-                                <textarea id="comment" name="comment" rows="3" class="form-control" placeholder="Your Comment"></textarea>
+                                <label for="comment" class="form-label">{{ __('messages.your_comment') }} *</label>
+                                <textarea id="comment" name="comment" rows="3" class="form-control" placeholder="{{ __('messages.your_comment') }}"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-md fw-bold text-light theme-bg-color">Save</button>
+                            <button type="submit" class="btn btn-md fw-bold text-light theme-bg-color">{{ __('messages.btn_save') }}</button>
                             <button type="button" class="btn btn-md fw-bold text-light" data-bs-dismiss="modal"
-                                style="background-color: #ff6b6b;">Close</button>
+                                style="background-color: #ff6b6b;">{{ __('messages.btn_close') }}</button>
                         </div>
                     </form>
                 </div>

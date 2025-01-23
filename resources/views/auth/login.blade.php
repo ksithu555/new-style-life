@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2 class="mb-2">Log In</h2>
+                        <h2 class="mb-2">{{ __('messages.login') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Log In</li>
+                                <li class="breadcrumb-item active">{{ __('messages.login') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -33,8 +33,8 @@
                     <div class="log-in-box">
                         @include('components.messagebox')
                         <div class="log-in-title">
-                            <h3 style="text-wrap">Welcome to New Style Life </h3>
-                            <h5>Log In Your Account</h5>
+                            <h3 style="text-wrap">{{ __('messages.welcome_login') }} </h3>
+                            <h5>{{ __('messages.login_your_account') }}</h5>
                         </div>
                         @php $error = $errors->toArray(); @endphp
                         <div class="input-box">
@@ -44,8 +44,8 @@
                                 <div class="row g-4">
                                     <div class="col-12 mx-auto">
                                         <div class="form-group">
-                                            <label for="email"><b>{{ __('auth.mailaddress') }}</b></label>
-                                            <input class="form-control form-control-email" placeholder="{{ __('auth.mailaddress') }}" name="email" id="email" type="text" value="{{ old('email') }}" autofocus>
+                                            <label for="email"><b>{{ __('messages.email') }}</b></label>
+                                            <input class="form-control form-control-email" placeholder="{{ __('messages.enter_email') }}" name="email" id="email" type="text" value="{{ old('email') }}" autofocus>
                                             @if (!empty($error['inflhide']))
                                                 @foreach ($error['inflhide'] as  $key => $value)
                                                     <p class="inflhide error text-danger">{{ $value }}</p>
@@ -63,8 +63,8 @@
                             
                                     <div class="col-12 mx-auto">
                                         <div class="form-group">
-                                            <label for="pwd"><b>{{ __('auth.password') }}</b></label>
-                                            <input class="form-control form-control-password" placeholder="{{ __('auth.password') }}" name="password" id="password" type="password" autocomplete="current-password">
+                                            <label for="pwd"><b>{{ __('messages.password') }}</b></label>
+                                            <input class="form-control form-control-password" placeholder="{{ __('messages.enter_password') }}" name="password" id="password" type="password" autocomplete="current-password">
                                             @if (!empty($error['password']))
                                                 @foreach ($error['password'] as  $key => $value)
                                                     <p class="password error text-danger">{{ $value }}</p>
@@ -77,14 +77,14 @@
                                         <div class="forgot-box">
                                             <div class="form-check ps-0 m-0 remember-box">
                                                 <input class="checkbox_animated check-box" type="checkbox" id="rememberMeCheckbox" {{ old('remember') ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="rememberMeCheckbox">Remember me</label>
+                                                <label class="form-check-label" for="rememberMeCheckbox">{{ __('messages.remember_me') }}</label>
                                             </div>
-                                            <a href="{{ route('password.request') }}"><i class="fa fa-key"></i> Forgot Password?</a>
+                                            <a href="{{ route('password.request') }}"><i class="fa fa-key"></i> {{ __('messages.forgot_password') }}</a>
                                         </div>
                                     </div>
                             
                                     <div class="text-center">
-                                        <button class="btn btn-animation theme-bg-color w-100 justify-content-center" type="submit">Log In</button>
+                                        <button class="btn btn-animation theme-bg-color w-100 justify-content-center" type="submit">{{ __('messages.login') }}</button>
                                     </div>
                                 </div>
                             </form>

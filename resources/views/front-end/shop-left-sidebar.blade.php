@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Product List</h2>
+                        <h2>{{ __('messages.product_list') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Shop</li>
+                                <li class="breadcrumb-item active">{{ __('messages.shop') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -37,14 +37,14 @@
                                 </div>
                                 <div class="filter-category">
                                     <div class="filter-title">
-                                        <h2>Filters</h2>
-                                        <a href="{{ url('shopleftsidebar/' . $id) }}">Clear All</a>
+                                        <h2>{{ __('messages.filters') }}</h2>
+                                        <a href="{{ url('shopleftsidebar/' . $id) }}">{{ __('messages.clear_all') }}</a>
                                     </div>
                                 </div>
                                 <div class="accordion custom-accordion" id="accordionExample">
                                     <div class="accordion-item">
                                         <div style="display: flex; align-items: center;">
-                                            <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" value="{{ $search }}"
+                                            <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="{{ __('messages.search') }}" aria-label="Search" id="search" name="search" value="{{ $search }}"
                                             style="font-size: 15px; padding: 0.25rem 0.5rem; border-radius: 5px 0 0 5px;">
                                             <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit" id="searchBtn"
                                             style="font-size: 15px; padding: 0.25rem 0.5rem; background-color: var(--theme-color); border-radius: 0 5px 5px 0;">
@@ -55,7 +55,7 @@
                                         <h2 class="accordion-header" id="headingOne">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseOne">
-                                                <span>Categories</span>
+                                                <span>{{ __('messages.categories') }}</span>
                                             </button>
                                         </h2>
                                         <div id="collapseOne" class="accordion-collapse collapse show">
@@ -68,7 +68,7 @@
                                                             name="categories[]" value= "{{ $category->id }}" data-category="{{ $category->id }}"
                                                             {{ in_array($category->id, $categories) ? 'checked' : '' }}>
                                                             <label class="form-check-label" for="{{ $category->category_name }}">
-                                                                <span class="name">{{ $category->category_name }}</span>
+                                                                <span class="name">{{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}</span>
                                                                 <span class="number">({{ $category->product_count }})</span>
                                                             </label>
                                                         </div>
@@ -82,7 +82,7 @@
                                         <h2 class="accordion-header" id="headingThree">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                                <span>Price</span>
+                                                <span>{{ __('messages.price') }}</span>
                                             </button>
                                         </h2>
                                         <div id="collapseThree" class="accordion-collapse collapse show">
@@ -98,7 +98,7 @@
                                         <h2 class="accordion-header" id="headingSix">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseSix">
-                                                <span>Rating</span>
+                                                <span>{{ __('messages.rating') }}</span>
                                             </button>
                                         </h2>
                                         <div id="collapseSix" class="accordion-collapse collapse show">
@@ -268,7 +268,7 @@
                                         <h2 class="accordion-header" id="headingFour">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                                                <span>Discount</span>
+                                                <span>{{ __('messages.discount') }}</span>
                                             </button>
                                         </h2>
                                         <div id="collapseFour" class="accordion-collapse collapse show">
@@ -280,7 +280,7 @@
                                                                 id="flexCheckDefault" name="discount[]" value="1"
                                                                 {{ in_array("1", $discount) ? 'checked' : '' }}>
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                <span class="name">upto 5%</span>
+                                                                <span class="name">{{ __('messages.up_to_5_percent') }}</span>
                                                                 <span class="number">({{ $discountWithProductCount->group_1_count }})</span>
                                                             </label>
                                                         </div>
@@ -328,7 +328,7 @@
                                                                 id="flexCheckDefault4" name="discount[]" value="5"
                                                                 {{ in_array("5", $discount) ? 'checked' : '' }}>
                                                             <label class="form-check-label" for="flexCheckDefault4">
-                                                                <span class="name">More than 25%</span>
+                                                                <span class="name">{{ __('messages.more_than_25_percent') }}</span>
                                                                 <span class="number">({{ $discountWithProductCount->group_5_count }})</span>
                                                             </label>
                                                         </div>
@@ -360,7 +360,7 @@
                                             @endif
                                         @endfor
                                     </ul>
-                                    <span style="color: white;">({{ $ratingForShop[1] }} <?php echo ($ratingForShop[1] > 1) ? 'Reviews' : 'Review'; ?>)</span>
+                                    <span style="color: white;">({{ $ratingForShop[1] }} <?php echo ($ratingForShop[1] > 1) ? __('messages.reviews') : __('messages.review'); ?>)</span>
                                 </div></h2>
                             </div>
                         </div>
@@ -368,57 +368,52 @@
                     <div class="show-button" style="margin-top: 20px;">
                         <div class="filter-button-group mt-0">
                             <div class="filter-button d-inline-block d-lg-none">
-                                <a><i class="fa-solid fa-filter"></i> Filter Menu</a>
+                                <a><i class="fa-solid fa-filter"></i> {{ __('messages.filter_menu') }}</a>
                             </div>
                         </div>
 
                         <div class="top-filter-menu">
                             <div class="category-dropdown">
-                                <h5 class="text-content">Sort By :</h5>
+                                <h5 class="text-content">{{ __('messages.sort_by') }} :</h5>
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
                                         data-bs-toggle="dropdown">
                                         @if ($sort == 1)
-                                            <span>Low - High Price</span>
+                                            <span>{{ __('messages.low_high_price') }}</span>
                                         @elseif ($sort == 2)
-                                            <span>High - Low Price</span>
+                                            <span>{{ __('messages.high_low_price') }}</span>
                                         @elseif ($sort == 3)
-                                            <span>Average Rating</span>
+                                            <span>{{ __('messages.average_rating') }}</span>
                                         @elseif ($sort == 4)
-                                            <span>A - Z Order</span>
+                                            <span>{{ __('messages.a_z_order') }}</span>
                                         @elseif ($sort == 5)
-                                            <span>Z - A Order</span>
+                                            <span>{{ __('messages.z_a_order') }}</span>
                                         @elseif ($sort == 6)
-                                            <span>% Off - Hight To Low</span>
+                                            <span>{{ __('messages.percent_off_high_to_low') }}</span>
                                         @else
-                                            <span>Choose Sorting</span> 
+                                            <span>{{ __('messages.choose_sorting') }}</span>
                                         @endif
                                             <i class="fa-solid fa-angle-down"></i>
                                     </button>
 
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" id="drop1" name="sort" value="1" href="#">Low - High Price</a>
+                                            <a class="dropdown-item" id="drop1" name="sort" value="1" href="#">{{ __('messages.low_high_price') }}</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="drop2" name="sort" value="2" href="#">High - Low
-                                                Price</a>
+                                            <a class="dropdown-item" id="drop2" name="sort" value="2" href="#">{{ __('messages.high_low_price') }}</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="drop3" name="sort" value="3" href="#">Average
-                                                Rating</a>
+                                            <a class="dropdown-item" id="drop3" name="sort" value="3" href="#">{{ __('messages.average_rating') }}</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="drop4" name="sort" value="4" href="#">A - Z 
-                                                Order</a>
+                                            <a class="dropdown-item" id="drop4" name="sort" value="4" href="#">{{ __('messages.a_z_order') }}</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="drop5" name="sort" value="5" href="#">Z - A 
-                                                Order</a>
+                                            <a class="dropdown-item" id="drop5" name="sort" value="5" href="#">{{ __('messages.z_a_order') }}</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="drop6" name="sort" value="6" href="#">% Off - Hight To
-                                                Low</a>
+                                            <a class="dropdown-item" id="drop6" name="sort" value="6" href="#">{{ __('messages.percent_off_high_to_low') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -450,7 +445,7 @@
                     </div>
 
                         @if($shoplist->count() < 1)
-                            <h1 class="text-center">No Products Found</h1>
+                            <h1 class="text-center">{{ __('messages.no_product_found') }}</h1>
                         @endif
                     <div class="row g-sm-4 g-3 product-list-section row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2">
                         @foreach($shoplist as $list)
@@ -506,7 +501,7 @@
                                 </div>
                                 <div class="product-footer">
                                     <div class="product-detail">
-                                        <span class="span-name">{{ $list->category_name }}</span>
+                                        <span class="span-name">{{ $list->{'category_name_' . app()->getLocale() } ?? $list->category_name }}</span>
                                         <a href="{{ url('/product-left-thumbnail/' . $list->id) }}">
                                             <h5 class="name">{{ $list->product_name }}</h5>
                                         </a>
@@ -601,18 +596,18 @@
                                             @endif
                                         @endfor
                                     </ul>
-                                    <span class="ms-2">{{ $count}} Reviews</span>
+                                    <span class="ms-2">{{ $count}} {{ __('messages.reviews') }}</span>
                                 </div>
 
                                 <div class="product-detail">
-                                    <h4>Product Details :</h4>
+                                    <h4>{{ __('messages.product_details') }} :</h4>
                                     <p>{!! ($product->long_desc) !!}</p>
                                 </div>
 
                                 <ul class="brand-list">
                                     <li>
                                         <div class="brand-box">
-                                            <h5>Brand Name:</h5>
+                                            <h5>{{ __('messages.brand_name') }}:</h5>
                                             <h6>
                                                 @php
                                                     $brand = DB::table('brands')->where('id',$product->brand_id)->first();
@@ -624,26 +619,26 @@
 
                                     <li>
                                         <div class="brand-box">
-                                            <h5>Product Code:</h5>
+                                            <h5>{{ __('messages.product_code') }}:</h5>
                                             <h6>{{ $product->product_code }}</h6>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="brand-box">
-                                            <h5>Category:</h5>
+                                            <h5>{{ __('messages.category') }}:</h5>
                                             <h6>
                                                 @php
                                                     $category = DB::table('categories')->where('id',$product->category_id)->first();
                                                 @endphp
-                                                {{ $category->category_name }}
+                                                {{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}
                                             </h6>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="brand-box">
-                                            <h5>In Stock:</h5>
+                                            <h5>{{ __('messages.in_stock') }}:</h5>
                                             <h6>{{ $product->in_stock }}</h6>
                                         </div>
                                     </li>
@@ -685,11 +680,11 @@
                                 <div class="modal-button">
                                     <button onclick="addToCart({{ $product->id }})"
                                         class="btn btn-md add-cart-button icon" @if ($product->in_stock < 1) disabled @endif>
-                                        Add To Cart</button>
+                                        {{ __('messages.add_to_cart') }}</button>
                                     
                                     <button onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $product->id]) }}';"
                                         class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
-                                        View More Details</button>
+                                        {{ __('messages.view_more_details') }}</button>
                                 </div>
                             </div>
                         </div>

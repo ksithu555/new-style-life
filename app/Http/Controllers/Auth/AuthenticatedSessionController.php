@@ -49,10 +49,10 @@ class AuthenticatedSessionController extends Controller
         $loginUser = User::where('email', $request->email)->first();
         if(!$loginUser)
         {
-            return back()->with('error', 'Incorrect!')->with('incorrect', 'Email or password is incorrect!');
+            return back()->with('error', 'Incorrect!')->with('incorrect', __('messages.email_password_incorrect'));
         }
         if (!Hash::check($request->password, $loginUser->password)) {
-            return back()->with('error', 'Incorrect!')->with('incorrect', 'Email or password is incorrect!');
+            return back()->with('error', 'Incorrect!')->with('incorrect', __('messages.email_password_incorrect'));
         }
 
         if($loginUser->email_verified_at == null)
@@ -76,7 +76,7 @@ class AuthenticatedSessionController extends Controller
             }
             else
             {
-                return redirect()->back()->with('error', 'Your account have been inactivated!');
+                return redirect()->back()->with('error', __('messages.account_inactive'));
             }
         }
 
@@ -90,7 +90,7 @@ class AuthenticatedSessionController extends Controller
             }
             else
             {
-                return redirect()->back()->with('error', 'Your account have been inactivated!');
+                return redirect()->back()->with('error', __('messages.account_inactive'));
             }
         }
 
@@ -114,7 +114,7 @@ class AuthenticatedSessionController extends Controller
             }
             else
             {
-                return redirect()->back()->with('error', 'Your account have been inactivated!');
+                return redirect()->back()->with('error', __('messages.account_inactive'));
             }
         }
 

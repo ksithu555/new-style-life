@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Blog List</h2>
+                        <h2>{{ __('messages.blog_list') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Blog List</li>
+                                <li class="breadcrumb-item active">{{ __('messages.blog') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -35,7 +35,7 @@
                             <div class="accordion-item">
                                 <div style="display: flex; align-items: center;">
                                     <input class="form-control form-control-sm mr-sm-2" type="search"
-                                        placeholder="Search" aria-label="Search" id="search" name="search"
+                                        placeholder="{{ __('messages.search') }}" aria-label="Search" id="search" name="search"
                                         value="{{ $search }}"
                                         style="font-size: 15px; padding: 0.25rem 0.5rem; border-radius: 5px 0 0 5px;">
                                     <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit"
@@ -52,7 +52,7 @@
                                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseOne">
-                                        Recent Post
+                                        {{ __('messages.recent_posts') }}
                                     </button>
                                 </h2>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
