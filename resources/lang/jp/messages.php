@@ -217,4 +217,5 @@ return [
     'shop_for' => 'ショッピング',
     'new_style_life' => '新生活',
     'specializing_in_asian_cuisine' => 'アジア料理を専門とし、毎日新鮮で高品質な食品を日本に提供しています。',
+    'search_for_products' => '商品を検索',
 ];

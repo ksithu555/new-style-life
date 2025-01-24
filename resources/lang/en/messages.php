@@ -218,4 +218,5 @@ return [
     'shop_for' => 'Shop For',
     'new_style_life' => 'New Style Life',
     'specializing_in_asian_cuisine' => "Specializing in Asian cuisine, we're dedicated to providing fresh, top-quality food to Japan daily.",
+    'search_for_products' => 'Search for products',
 ];

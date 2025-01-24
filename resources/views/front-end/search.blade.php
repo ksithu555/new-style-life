@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Search</h2>
+                        <h2>{{ __('messages.search') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -20,7 +20,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Search</li>
+                                <li class="breadcrumb-item active">{{ __('messages.search') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-xxl-6 col-xl-8 mx-auto">
                     <div class="title d-block text-center">
-                        <h2>Search for products</h2>
+                        <h2>{{ __('messages.search_for_products') }}</h2>
                         <span class="title-leaf">
                             <svg class="icon-width">
                                 <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
@@ -115,7 +115,7 @@
 
                                     <div class="product-footer">
                                         <div class="product-detail">
-                                            <span class="span-name">{{ $product->Category->category_name }}</span>
+                                            <span class="span-name">{{ $product->Category->{'category_name_' . app()->getLocale()} ?? $product->Category->category_name }}</span>
                                             <a href="{{ route('show-product-left-thumbnail', ['id' => $product->id]) }}">
                                                 <h5 class="name">{{ $product->product_name }}</h5>
                                             </a>
@@ -209,18 +209,18 @@
                                             @endif
                                         @endfor
                                     </ul>
-                                    <span class="ms-2">{{ $count}} Reviews</span>
+                                    <span class="ms-2">{{ $count}} {{ __('messages.reviews') }}</span>
                                 </div>
 
                                 <div class="product-detail">
-                                    <h4>Product Details :</h4>
+                                    <h4>{{ __('messages.product_details') }} :</h4>
                                     <p>{!! ($product->long_desc) !!}</p>
                                 </div>
 
                                 <ul class="brand-list">
                                     <li>
                                         <div class="brand-box">
-                                            <h5>Brand Name:</h5>
+                                            <h5>{{ __('messages.brand_name') }}:</h5>
                                             <h6>
                                                 @php
                                                     $brand = DB::table('brands')->where('id',$product->brand_id)->first();
@@ -232,26 +232,26 @@
 
                                     <li>
                                         <div class="brand-box">
-                                            <h5>Product Code:</h5>
+                                            <h5>{{ __('messages.product_code') }}:</h5>
                                             <h6>{{ $product->product_code }}</h6>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="brand-box">
-                                            <h5>Category:</h5>
+                                            <h5>{{ __('messages.category') }}:</h5>
                                             <h6>
                                                 @php
                                                     $category = DB::table('categories')->where('id',$product->category_id)->first();
                                                 @endphp
-                                                {{ $category->category_name }}
+                                                {{ $category->{'category_name_' . app()->getLocale()} ?? $category->category_name }}
                                             </h6>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="brand-box">
-                                            <h5>In Stock:</h5>
+                                            <h5>{{ __('messages.in_stock') }}:</h5>
                                             <h6>{{ $product->in_stock }}</h6>
                                         </div>
                                     </li>
@@ -293,11 +293,13 @@
                                 <div class="modal-button">
                                     <button onclick="addToCart({{ $product->id }})"
                                         class="btn btn-md add-cart-button icon" @if ($product->in_stock < 1) disabled @endif>
-                                        Add To Cart</button>
+                                        {{ __('messages.add_to_cart') }}    
+                                    </button>
 
                                     <button onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $product->id]) }}';"
                                         class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
-                                        View More Details</button>
+                                        {{ __('messages.view_more_details') }}
+                                    </button>
                                 </div>
                             </div>
                         </div>
