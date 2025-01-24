@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Privacy Policy</h2>
+                        <h2>{{ __('messages.privacy_policy') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Privacy Policy</li>
+                                <li class="breadcrumb-item active">{{ __('messages.privacy_policy') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="col-sm-12">
                     <div class="">
                         {{-- English --}}
-                        <div class="product-section-box" id="EnglishVersion">
+                        <div class="product-section-box" id="EnglishVersion" style="{{ app()->getLocale() === 'jp' ? 'display:none' : '' }}">
                             <div class="row">
                                 <div class="col-sm-9">
                                     <div class="title-header option-title">
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         {{-- Japanese --}}
-                        <div class="product-section-box" id="JapaneseVersion" style="display:none;">
+                        <div class="product-section-box" id="JapaneseVersion" style="{{ app()->getLocale() === 'en' ? 'display:none' : '' }}">
                             <div class="row">
                                 <div class="col-sm-9">
                                     <div class="title-header option-title">

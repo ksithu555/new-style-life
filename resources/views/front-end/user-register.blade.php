@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Sign Up</h2>
+                        <h2>{{ __('messages.sign_up') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Sign Up</li>
+                                <li class="breadcrumb-item active">{{ __('messages.sign_up') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -28,7 +28,7 @@
                 <div class="col-lg-8 col-md-10 col-sm-12">
                     <div class="log-in-box center">
                         <div class="log-in-title">
-                            <h3>Create Account</h3>
+                            <h3>{{ __('messages.create_account') }}</h3>
                         </div>
                             @if(Session::get('success'))
                                 <div class="alert alert-success">
@@ -47,8 +47,8 @@
                                 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" class="form-control" name="name" id="fullname" placeholder="Type your name" value="{{ old('name') }}">
-                                        <label for="fullname">Name</label>
+                                        <input type="text" class="form-control" name="name" id="fullname" placeholder="{{ __('messages.enter_name') }}" value="{{ old('name') }}">
+                                        <label for="fullname">{{ __('messages.name') }}</label>
                                         {{-- <span style="color:red">@error('name'){{$message}} @enderror</span> --}}
                                         <span class="error" style="color:red" id="error-name"></span>
                                     </div>
@@ -56,8 +56,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ old('email') }}">
-                                        <label for="email">Email Address</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="{{ __('messages.enter_email') }}" value="{{ old('email') }}">
+                                        <label for="email">{{ __('messages.email') }}</label>
                                         @if($errors->has('email'))
                                             <span class="error" style="color:red">{{ $errors->first('email') }}</span>
                                         @endif
@@ -67,8 +67,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="{{ old('password') }}">
-                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="{{ __('messages.enter_password') }}" value="{{ old('password') }}">
+                                        <label for="password">{{ __('messages.password') }}</label>
                                         {{-- <span style="color:red">@error('password'){{$message}} @enderror</span> --}}
                                         <span class="error" style="color:red" id="error-password"></span>
                                     </div>
@@ -76,8 +76,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password">
-                                        <label for="password">Confirmed Password</label>
+                                        <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('messages.enter_confirm_password') }}">
+                                        <label for="password">{{ __('messages.confirm_password') }}</label>
                                         {{-- <span style="color:red">@error('password'){{$message}} @enderror</span> --}}
                                         <span class="error" style="color:red" id="error-confirmed-password"></span>
                                     </div>
@@ -93,8 +93,8 @@
 
                                 <div class="col-md-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" value="{{ old('phone') }}">
-                                        <label for="phone">Phone</label>
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="{{ __('messages.enter_phone') }}" value="{{ old('phone') }}">
+                                        <label for="phone">{{ __('messages.phone') }}</label>
                                         {{-- <span style="color:red">@error('phone'){{$message}} @enderror</span> --}}
                                         <span class="error" style="color:red" id="error-phone"></span>
                                     </div>
@@ -102,8 +102,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" name="zip_code" class="form-control" placeholder="Zip Code" max="7" value="{{ old('zip_code') }}">
-                                        <label>Zip Code</label>
+                                        <input type="text" name="zip_code" class="form-control" placeholder="{{ __('messages.enter_zip_code') }}" max="7" value="{{ old('zip_code') }}">
+                                        <label>{{ __('messages.zip_code') }}</label>
                                         {{-- <span style="color:red">@error('zip_code'){{ $message }}@enderror</span> --}}
                                         <span class="error" style="color:red" id="error-zip-code"></span>
                                     </div>
@@ -112,7 +112,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <select class="form-control" name="prefecture" value="{{ old('prefecture') }}">
-                                            <option>Choose Prefecture</option>
+                                            <option>{{ __('messages.choose_prefecture') }}</option>
                                             @foreach ($prefecture as $item)
                                                 <option value="{{ $item->id }}" {{ old('prefecture') == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                                             @endforeach
@@ -127,7 +127,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" name="city" class="form-control" placeholder="Narita-shi,Furugome" value="{{ old('city') }}">
-                                        <label>City, Ward, Town</label>
+                                        <label>{{ __('messages.city_ward_town') }}</label>
                                         {{-- <span style="color:red">@error('city'){{ $message }}@enderror</span> --}}
                                         <span class="error" style="color:red" id="error-city"></span>
                                     </div>
@@ -136,7 +136,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" name="chome" class="form-control" placeholder="1-2-3" value="{{ old('chome') }}">
-                                        <label>Chome, Banchi, Go</label>
+                                        <label>{{ __('messages.chome_banchi_go') }}</label>
                                         {{-- <span style="color:red">@error('chome'){{ $message }}@enderror</span> --}}
                                         <span class="error" style="color:red" id="error-chome"></span>
                                     </div>
@@ -145,7 +145,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" name="building" class="form-control" placeholder="Example Building" value="{{ old('building') }}">
-                                        <label>Building / Apt / Company name</label>
+                                        <label>{{ __('messages.building_apartment_company') }}</label>
                                         {{-- @error('building')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror --}}
@@ -156,7 +156,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" name="room" class="form-control" placeholder="101" value="{{ old('room') }}">
-                                        <label>Unit / Room no.</label>
+                                        <label>{{ __('messages.unit_room') }}</label>
                                         {{-- @error('room')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror --}}
@@ -168,8 +168,11 @@
                                     <div class="forgot-box">
                                         <div class="form-check ps-0 m-0 remember-box">
                                             <input class="checkbox_animated check-box" type="checkbox" id="flexCheckDefault" required>
-                                            <label class="form-check-label" for="flexCheckDefault">I agree with
-                                                <a href="{{ url('buyer-term-and-condition') }}"><span>Terms and Privacy</span></a>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                {{ __('messages.i_agree_with') }}
+                                                <a href="{{ url('buyer-term-and-condition') }}">
+                                                    <span>{{ __('messages.terms_and_privacy') }}</span>
+                                                </a>
                                             </label>
                                         </div>
                                     </div>
@@ -183,8 +186,8 @@
                                 </div>
                             </form>
                         <div class="sign-up-box">
-                            <h4>Already have an account?</h4>
-                            <a href="{{ route('login') }}">Log In</a>
+                            <h4> {{ __('messages.already_have_account') }}</h4>
+                            <a href="{{ route('login') }}">{{ __('messages.login') }}</a>
                         </div>
                     </div>
                 </div>
@@ -212,92 +215,92 @@
     
             if (!fullname) {
                 isValid = false;
-                document.getElementById('error-name').textContent = 'Please provide your name.';
+                document.getElementById('error-name').textContent = '{{ __('messages.enter_name_error_message') }}';
             } else if (fullname.length > 255) {
                 isValid = false;
-                document.getElementById('error-name').textContent = 'Your name must not exceed 255 characters.';
+                document.getElementById('error-name').textContent = '{{ __('messages.valid_name_error_message') }}';
             }
     
             if (!email) {
                 isValid = false;
-                document.getElementById('error-email').textContent = 'Please provide your email.';
+                document.getElementById('error-email').textContent = '{{ __('messages.enter_email_error_message') }}';
             } else if (!/\S+@\S+\.\S+/.test(email)) {
                 isValid = false;
-                document.getElementById('error-email').textContent = 'Please provide a valid email address.';
+                document.getElementById('error-email').textContent = '{{ __('messages.valid_email_error_message') }}';
             }
     
             if (!password) {
                 isValid = false;
-                document.getElementById('error-password').textContent = 'Please provide your password.';
+                document.getElementById('error-password').textContent = '{{ __('messages.enter_password_error_message') }}';
             } else if (password.length < 8) {
                 isValid = false;
-                document.getElementById('error-password').textContent = 'Your password must be at least 8 characters long.';
+                document.getElementById('error-password').textContent = '{{ __('messages.valid_password_error_message') }}';
             }
     
             if (password && !password_confirmation) {
                 isValid = false;
-                document.getElementById('error-confirmed-password').textContent = 'Please confirm your password.';
+                document.getElementById('error-confirmed-password').textContent = '{{ __('messages.enter_confirm_password_error_message') }}';
             } else if (password !== password_confirmation) {
                 isValid = false;
-                document.getElementById('error-confirmed-password').textContent = 'Passwords do not match.';
+                document.getElementById('error-confirmed-password').textContent = '{{ __('messages.passwords_do_not_match_error_message') }}';
             }
     
             if (!phone) {
                 isValid = false;
-                document.getElementById('error-phone').textContent = 'Please provide your phone number.';
+                document.getElementById('error-phone').textContent = '{{ __('messages.enter_phone_error_message') }}';
             } else if (!/^\d+$/.test(phone)) {
                 isValid = false;
-                document.getElementById('error-phone').textContent = 'Please provide a valid phone number.(eg. 09077554361)';
+                document.getElementById('error-phone').textContent = '{{ __('messages.valid_phone_error_message') }}';
             }
     
             if (!zip_code) {
                 isValid = false;
-                document.getElementById('error-zip-code').textContent = 'Please provide your zip code.';
+                document.getElementById('error-zip-code').textContent = '{{ __('messages.enter_zip_code_error_message') }}';
             } else if (zip_code.length !== 7 || !/^\d{7}$/.test(zip_code)) {
                 isValid = false;
-                document.getElementById('error-zip-code').textContent = 'Please provide a valid 7-digit zip code.';
+                document.getElementById('error-zip-code').textContent = '{{ __('messages.valid_zip_code_error_message') }}';
             }
     
-            if (!prefecture || prefecture === 'Choose Prefecture') {
+            if (!prefecture || prefecture === '{{ __('messages.choose_prefecture') }}') {
                 isValid = false;
-                document.getElementById('error-prefectures').textContent = 'Please select a valid prefecture.';
+                document.getElementById('error-prefectures').textContent = '{{ __('messages.select_valid_prefecture_error_message') }}';
             }
     
             if (!city) {
                 isValid = false;
-                document.getElementById('error-city').textContent = 'Please provide your city.';
+                document.getElementById('error-city').textContent = '{{ __('messages.enter_city_error_message') }}';
             } else if (city.length > 255) {
                 isValid = false;
-                document.getElementById('error-city').textContent = 'Your city must not exceed 255 characters.';
+                document.getElementById('error-city').textContent = '{{ __('messages.valid_city_error_message') }}';
             }
-    
+            
             if (!chome) {
                 isValid = false;
-                document.getElementById('error-chome').textContent = 'Please provide your chome.';
+                document.getElementById('error-chome').textContent = '{{ __('messages.enter_chome_error_message') }}';
             } else if (chome.length > 255) {
                 isValid = false;
-                document.getElementById('error-chome').textContent = 'Your chome must not exceed 255 characters.';
+                document.getElementById('error-chome').textContent = '{{ __('messages.valid_chome_error_message') }}';
             }
-    
+            
             if (!building) {
                 isValid = false;
-                document.getElementById('error-building').textContent = 'Please provide your building.';
+                document.getElementById('error-building').textContent = '{{ __('messages.enter_building_error_message') }}';
             } else if (building.length > 255) {
                 isValid = false;
-                document.getElementById('error-building').textContent = 'Your building must not exceed 255 characters.';
+                document.getElementById('error-building').textContent = '{{ __('messages.valid_building_error_message') }}';
             }
-    
+            
             if (!room) {
                 isValid = false;
-                document.getElementById('error-room-no').textContent = 'Please provide your room number.';
+                document.getElementById('error-room-no').textContent = '{{ __('messages.enter_room_error_message') }}';
             } else if (room.length > 255) {
                 isValid = false;
-                document.getElementById('error-room-no').textContent = 'Your room number must not exceed 255 characters.';
+                document.getElementById('error-room-no').textContent = '{{ __('messages.valid_room_error_message') }}';
             }
 
             if (!checkbox.checked) {
                 isValid = false;
-                document.getElementById('error-flexCheckDefault').textContent = 'You must agree to the Terms and Privacy to sign up.';
+                document.getElementById('error-flexCheckDefault').textContent = '{{ __('messages.agree_terms_privacy_error_message') }}';
             }
     
             if (isValid) {

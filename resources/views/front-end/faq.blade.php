@@ -27,7 +27,7 @@
     <section class="contact-box-section faq-box-contain section-b-space">
         <div class="container-fluid-lg">
             <div class="row g-lg-5 g-3">
-                <div class="col-lg-6" id="EnglishVersion">
+                <div class="col-lg-6" id="EnglishVersion" style="{{ app()->getLocale() === 'jp' ? 'display:none' : '' }}">
                     <div class="title-header option-title" id="japaneseBtnDiv">
                         <button class="align-items-center btn btn-theme d-flex" id="japaneseBtn" style="background-color: var(--theme-color); color: #fff;">
                             日本語で確認する
@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6" id="JapaneseVersion" style="display:none">
+                <div class="col-lg-6" id="JapaneseVersion" style="{{ app()->getLocale() === 'en' ? 'display:none' : '' }}">
                     <div class="title-header option-title" id="englishBtnDiv">
                         <button class="align-items-center btn btn-theme d-flex" id="englishBtn" style="background-color: var(--theme-color); color: #fff;">
                             Check in English

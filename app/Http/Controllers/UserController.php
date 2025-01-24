@@ -49,7 +49,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         if (User::where('email', $request->email)->exists()) {
-            return back()->withErrors(['email' => 'Email already exists.'])->withInput();
+            return back()->withErrors(['email' => __('messages.email_already_exists_error_message')])->withInput();
         }
 
         DB::beginTransaction();

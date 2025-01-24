@@ -132,13 +132,13 @@
                             <td class="header-menu" style="display: block; padding: 10px 32px;text-align: right;">
                                 <ul>
                                     <li>
-                                        <a href="{{ url('/') }}">Home</a>
+                                        <a href="{{ url('/') }}">{{ __('messages.home') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('/products') }}">Products</a>
+                                        <a href="{{ url('/products') }}">{{ __('messages.products') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('shoplist') }}">Shops</a>
+                                        <a href="{{ route('shoplist') }}">{{ __('messages.shop') }}</a>
                                     </li>
                                 </ul>
                             </td>
@@ -161,20 +161,15 @@
                         <thead>
                             <tr style="display: block;">
                                 <td style="display: block;">
-                                    <h3
-                                        style="font-weight: 700; font-size: 20px; margin: 0; text-transform: uppercase;">
-                                        Hi {{ $user->name }} ! Welcome To New Style Life.</h3>
+                                    <h3 style="font-weight: 700; font-size: 20px; margin: 0; text-transform: uppercase;">
+                                        {{ __('messages.welcome_message', ['name' => $user->name]) }}
+                                    </h3>
                                 </td>
 
                                 <td>
-                                    <p
-                                        style="font-size: 14px;font-weight: 600;width: 82%;margin: 8px auto 0;line-height: 1.5;color: #939393;font-family: 'Nunito Sans', sans-serif;">
-                                        We hope our product will lead you, like many other before you. to a place where
-                                        your ideas where your ideas can spark and grow and a place where you’ll find all
-                                        your inspiration needs. Before we get started, we’ll need to verify your
-                                        email.<br>
-                                        <span style="color: red">If you don't receive the email, please check your spam
-                                            or junk folder.</span>
+                                    <p style="font-size: 14px;font-weight: 600;width: 82%;margin: 8px auto 0;line-height: 1.5;color: #939393;font-family: 'Nunito Sans', sans-serif;">
+                                        {{ __('messages.verify_email_message_paragraph') }}<br>
+                                        <span style="color: red">{{ __('messages.check_spam_folder_message') }}</span>
                                     </p>
                                 </td>
                             </tr>
@@ -189,7 +184,7 @@
                                     <form method="POST" action="{{ route('verification.send') }}">
                                         @csrf
                                         <input type="hidden" name="email" value="{{ $user->email ?? '' }}">
-                                        <button class="password-button" type="submit">Resent Email
+                                        <button class="password-button" type="submit">{{ __('messages.btn_resend_email') }}
                                         </button>
                                     </form>
                                     {{-- <button class="password-button">Verify Email</button> --}}
@@ -203,16 +198,12 @@
                         <thead>
                             <tr style="display: block;">
                                 <td style="display: block;">
-                                    <p
-                                        style="font-size: 14px; font-weight: 600; width: 82%; margin: 0 auto; line-height: 1.5; color: #939393; font-family: 'Nunito Sans', sans-serif;">
-                                        If you have any question, please email us at <span
-                                            class="theme-color">info@new-style.life</span>, call <span
-                                            class="theme-color">(+81) 03-3981-5090</span> or vixit our <span
-                                            class="theme-color"><a class="nav-link"
-                                                href="{{ url('/faq') }}">FAQ</a></span>
-                                        You can also chat with a real live human
-                                        during our operating hours. they can answer questions about account or help you
-                                        with your meditation practice.</p>
+                                    <p style="font-size: 14px; font-weight: 600; width: 82%; margin: 0 auto; line-height: 1.5; color: #939393; font-family: 'Nunito Sans', sans-serif;">
+                                        {{ __('messages.contact_us_message') }} <span class="theme-color">info@new-style.life</span>, 
+                                        {{ __('messages.call') }} <span class="theme-color">(+81) 03-3981-5090</span> 
+                                        {{ __('messages.or_visit') }} <span class="theme-color"><a class="nav-link" href="{{ url('/faq') }}">{{ __('messages.faq') }}</a></span>.
+                                        {{ __('messages.chat_with_us') }}
+                                    </p>
                                 </td>
                             </tr>
                         </thead>
@@ -228,8 +219,9 @@
                                     style="margin: 8px auto 11px;">
                                     <tr>
                                         <td>
-                                            <h4 style="font-size: 19px; font-weight: 700; margin: 0;">Shop For <span
-                                                    class="theme-color">New Style Life</span></h4>
+                                            <h4 style="font-size: 19px; font-weight: 700; margin: 0;">
+                                                {{ __('messages.shop_for') }} <span class="theme-color">{{ __('messages.new_style_life') }}</span>
+                                            </h4>
                                         </td>
                                     </tr>
                                 </table>
@@ -239,24 +231,23 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/contact') }}"
-                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">Contact
-                                                Us</a>
+                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">
+                                                {{ __('messages.contact_us') }}
+                                            </a>
                                         </td>
                                         <td>
                                             <a href="{{ url('/privacy-policy') }}"
-                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">privacy
-                                                Policy</a>
+                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">
+                                                {{ __('messages.privacy_policy') }}
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <td>
-                                            <h5
-                                                style="font-size: 13px; text-transform: uppercase; margin: 0; color:#ddd;
-                                letter-spacing:1px; font-weight: 500;">
-                                                Specializing in Asian cuisine, we're dedicated to providing fresh,
-                                                top-quality food to Japan daily.
+                                            <h5 style="font-size: 13px; text-transform: uppercase; margin: 0; color:#ddd; letter-spacing:1px; font-weight: 500;">
+                                                {{ __('messages.specializing_in_asian_cuisine') }}
                                             </h5>
                                             <h5
                                                 style="font-size: 13px; text-transform: uppercase; margin: 10px 0 0; color:#ddd;
