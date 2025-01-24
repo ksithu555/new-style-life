@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-contain">
-                            <h2>Orders</h2>
+                            <h2>{{ __('messages.orders') }}</h2>
                             <nav>
                                 <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                             <i class="fa-solid fa-house"></i>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active">Orders</li>
+                                    <li class="breadcrumb-item active">{{ __('messages.orders') }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -69,17 +69,19 @@
                             <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" type="button" style="font-size: 14px; text-align: center;"><i data-feather="home"></i>
-                                        DashBoard</a>
+                                        {{ __('messages.dashboard') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="pills-order-tab" style="font-size: 14px; text-align: center;" href="{{ route('user_order') }}"><i data-feather="shopping-bag"></i>Orders</a>
+                                    <a class="nav-link active" id="pills-order-tab" style="font-size: 14px; text-align: center;" href="{{ route('user_order') }}"><i data-feather="shopping-bag"></i>
+                                        {{ __('messages.orders') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="delivery-detail" type="button" style="font-size: 14px; text-align: center;" href="{{ route('user_deivery_status') }}"><i data-feather="box"></i>
-                                        Delivery Status</a>
+                                        {{ __('messages.delivery_status') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-address-tab" type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{ route('user_addresses') }}"><i data-feather="map-pin"></i>Addresses</a>
+                                    <a class="nav-link" id="pills-address-tab" type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{ route('user_addresses') }}"><i data-feather="map-pin"></i>
+                                        {{ __('messages.address') }}</a>
                                 </li>
                                 {{-- <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-card-tab"
@@ -87,7 +89,7 @@
                                 </li> --}}
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-profile-tab" type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{ route('user_profile') }}"><i data-feather="user"></i>
-                                        Profile</a>
+                                        {{ __('messages.profile') }}</a>
                                 </li>
                                 @php
                                 $buyer = DB::table('buyers')
@@ -100,7 +102,7 @@
                                 @endphp
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-profile-tab" type="button" role="tab" style="font-size: 14px; text-align: center; display: flex; align-items: center;" href="{{ route('user_message') }}"><i data-feather="mail"></i>
-                                        Message
+                                        {{ __('messages.message') }}
                                         <span id="notification-badge" class="badge rounded-pill badge-theme" style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                             <b>{{ $noti > 0 ? 'new' : '' }}</b>
                                         </span>
@@ -120,7 +122,7 @@
                                     </div>
 
                                     <div class="order-details-name">
-                                        <h5 class="text-content">Product Info</h5>
+                                        <h5 class="text-content">{{ __('messages.product_infomation') }}</h5>
                                         <h3>
                                             @if (mb_strlen($orderDetail->product_name) > 30)
                                             {!! mb_substr($orderDetail->product_name, 0, 30) .
@@ -143,7 +145,7 @@
                                     </div>
 
                                     <div class="order-details-name">
-                                        <h5 class="text-content">Shipping Fee</h5>
+                                        <h5 class="text-content">{{ __('messages.shipping_fee') }}</h5>
                                         <h4>¥ {{ number_format($orderDetail->delivery_price, 0, '.', ',') }}</h4>
                                     </div>
                                 </div>
@@ -156,7 +158,7 @@
                                     </div>
 
                                     <div class="order-details-name">
-                                        <h5 class="text-content">Shop Info</h5>
+                                        <h5 class="text-content">{{ __('messages.shop_information') }}</h5>
                                         <h3>{{ $orderDetail->seller->shop_name }}</h3>
                                         <h5>{{ $orderDetail->seller->phone }}</h5>
                                     </div>
@@ -182,7 +184,7 @@
                                     </div>
 
                                     <div class="order-details-name">
-                                        <h5 class="text-content">From</h5>
+                                        <h5 class="text-content">{{ __('messages.from') }}</h5>
                                         <h4>〒{{ $orderDetail->seller->zip_code }} </h4>
                                         <h4>{{ $orderDetail->seller->country->name }}
                                             {{ $orderDetail->seller->prefecture }}
@@ -200,7 +202,7 @@
                                     </div>
 
                                     <div class="order-details-name">
-                                        <h5 class="text-content">Destination</h5>
+                                        <h5 class="text-content">{{ __('messages.destination') }}</h5>
                                         <h4>〒{{ formatZipCode($orderDetail->cus_post_code) }} </h4>
                                         <h4>{{ $orderDetail->prefecture->name }} </h4>
                                         <h4>{{ $orderDetail->cus_city }} {{ $orderDetail->cus_chome }} </h4>
@@ -214,16 +216,14 @@
                                     <div class="order-tracking-icon">
                                         <i class="text-content" data-feather="calendar"></i>
                                     </div>
-
+                            
                                     <div class="order-details-name">
-                                        <h5 class="text-content">Estimated Date</h5>
+                                        <h5 class="text-content">{{ __('messages.estimated_date') }}</h5>
                                         @if ($orderDetail->expected_from || $orderDetail->expected_to)
-                                        <h4>From : {{ date('Y/m/d', strtotime($orderDetail->expected_from)) }}
-                                        </h4>
-                                        <h4>To : {{ date('Y/m/d', strtotime($orderDetail->expected_to)) }}</h4>
+                                        <h4>{{ __('messages.from') }} : {{ date('Y/m/d', strtotime($orderDetail->expected_from)) }}</h4>
+                                        <h4>{{ __('messages.to') }} : {{ date('Y/m/d', strtotime($orderDetail->expected_to)) }}</h4>
                                         @else
-                                        <h4>{{ date('Y/m/d', strtotime($orderDetail->order_detail_created_at . ' + ' . $orderDetail->estimate_date . ' days')) }}
-                                        </h4>
+                                        <h4>{{ date('Y/m/d', strtotime($orderDetail->order_detail_created_at . ' + ' . $orderDetail->estimate_date . ' days')) }}</h4>
                                         @endif
                                     </div>
                                 </div>
@@ -268,11 +268,11 @@
                                 @endphp
                                 <ol class="progtrckr">
                                     <li class="{{ $pendingDone }}">
-                                        <h5>Pending</h5>
+                                        <h5>{{ __('messages.pending') }}</h5>
                                         <h6>{{ date('Y/m/d H:i', strtotime($pendingDate)) }}</h6>
                                     </li>
                                     <li class="{{ $confirmedDone }}">
-                                        <h5>Confirmed</h5>
+                                        <h5>{{ __('messages.confirmed') }}</h5>
                                         @if ($confirmedDate != 'Pending')
                                         <h6>{{ date('Y/m/d H:i', strtotime($confirmedDate)) }}</h6>
                                         @else
@@ -280,7 +280,7 @@
                                         @endif
                                     </li>
                                     <li class="{{ $processingDone }}">
-                                        <h5>Processing</h5>
+                                        <h5>{{ __('messages.processing') }}</h5>
                                         @if ($processingDate != 'Pending')
                                         <h6>{{ date('Y/m/d H:i', strtotime($processingDate)) }}</h6>
                                         @else
@@ -288,7 +288,7 @@
                                         @endif
                                     </li>
                                     <li class="{{ $pickedDone }}">
-                                        <h5>Picked</h5>
+                                        <h5>{{ __('messages.picked') }}</h5>
                                         @if ($pickedDate != 'Pending')
                                         <h6>{{ date('Y/m/d H:i', strtotime($pickedDate)) }}</h6>
                                         @else
@@ -296,7 +296,7 @@
                                         @endif
                                     </li>
                                     <li class="{{ $shippedDone }}">
-                                        <h5>Shipped</h5>
+                                        <h5>{{ __('messages.shipped') }}</h5>
                                         @if ($shippedDate != 'Pending')
                                         <h6>{{ date('Y/m/d H:i', strtotime($shippedDate)) }}</h6>
                                         @else
@@ -304,7 +304,7 @@
                                         @endif
                                     </li>
                                     <li class="{{ $deliveredDone }}">
-                                        <h5>Delivered</h5>
+                                        <h5>{{ __('messages.delivered') }}</h5>
                                         @if ($deliveredDate != 'Pending')
                                         <h6>{{ date('Y/m/d H:i', strtotime($deliveredDate)) }}</h6>
                                         @else
@@ -320,48 +320,48 @@
                                     <table class="table order-tab-table">
                                         <thead>
                                             <tr>
-                                                <th>Description</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
+                                                <th>{{ __('messages.description') }}</th>
+                                                <th>{{ __('messages.date') }}</th>
+                                                <th>{{ __('messages.time') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Order Placed</td>
+                                                <td>{{ __('messages.order_placed') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($pendingDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($pendingDate)) }}</td>
                                             </tr>
                                             @if ($confirmedDate != 'Pending')
                                             <tr>
-                                                <td>Confirmed the Order</td>
+                                                <td>{{ __('messages.order_confirmed') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($confirmedDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($confirmedDate)) }}</td>
                                             </tr>
                                             @endif
                                             @if ($processingDate != 'Pending')
                                             <tr>
-                                                <td>Processing to Ship</td>
+                                                <td>{{ __('messages.processing_to_ship') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($processingDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($processingDate)) }}</td>
                                             </tr>
                                             @endif
                                             @if ($pickedDate != 'Pending')
                                             <tr>
-                                                <td>Picked for Shipping</td>
+                                                <td>{{ __('messages.picked_for_shipping') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($pickedDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($pickedDate)) }}</td>
                                             </tr>
                                             @endif
                                             @if ($shippedDate != 'Pending')
                                             <tr>
-                                                <td>Shipping the Product</td>
+                                                <td>{{ __('messages.shipping_the_product') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($shippedDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($shippedDate)) }}</td>
                                             </tr>
                                             @endif
                                             @if ($deliveredDate != 'Pending')
                                             <tr>
-                                                <td>Delivered</td>
+                                                <td>{{ __('messages.delivered') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($deliveredDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($deliveredDate)) }}</td>
                                             </tr>

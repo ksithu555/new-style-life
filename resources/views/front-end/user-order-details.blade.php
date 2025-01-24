@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-contain">
-                            <h2>Orders</h2>
+                            <h2>{{ __('messages.orders') }}</h2>
                             <nav>
                                 <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                             <i class="fa-solid fa-house"></i>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active">Orders</li>
+                                    <li class="breadcrumb-item active">{{ __('messages.orders') }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -73,27 +73,27 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-dashboard-tab"
                                             type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_dashboard')}}"><i data-feather="home"></i>
-                                            DashBoard</a>
+                                            {{ __('messages.dashboard') }}</a>
                                 </li>
                                 <li class="nav-item active" role="presentation">
                                     <a class="nav-link" id="pills-order-tab"
                                         style="font-size: 14px; text-align: center;" href="{{route ('user_order')}}"><i
-                                            data-feather="shopping-bag"></i>Orders</a>
+                                            data-feather="shopping-bag"></i>{{ __('messages.orders') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="delivery-detail"
                                         type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
-                                        Delivery Status</a>
+                                        {{ __('messages.delivery_status') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-address-tab"
                                         type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_addresses')}}"><i
-                                            data-feather="map-pin"></i>Addresses</a>
+                                            data-feather="map-pin"></i>{{ __('messages.address') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-profile-tab"
                                         type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_profile')}}"><i data-feather="user"></i>
-                                        Profile</a>
+                                        {{ __('messages.profile') }}</a>
                                 </li>
                                 @php
                                     $buyer = DB::table('buyers')->where('user_id', $user->id)->first();
@@ -102,7 +102,7 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-profile-tab"
                                         type="button" role="tab" style="font-size: 14px; text-align: center; display: flex; align-items: center;" href="{{route ('user_message')}}"><i data-feather="mail"></i>
-                                        Message
+                                        {{ __('messages.message') }}
                                         <span id="notification-badge" class="badge rounded-pill badge-theme" style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                             <b>{{ $noti > 0 ? 'new' : '' }}</b>
                                         </span>
@@ -143,19 +143,19 @@
                                             @endphp
                                         @endif
                                             <div>
-                                                <h5>Order Code <span style="color: var(--theme-color);">{{ $orders->order_code }}</span></h5>
+                                                <h5>{{ __('messages.order_code') }} <span style="color: var(--theme-color);">{{ $orders->order_code }}</span></h5>
                                             </div>
                                             <div class="card-order-section">
                                                 <h5 style="color: var(--theme-color);">{{ date('Y/m/d', strtotime($orders->order_created_at)) }}</h5>
-                                                <h5>Items: <span style="color: var(--theme-color);">{{ $orders->total_qty }}</span></h5>
-                                                <h5>Total: <span style="color: var(--theme-color);">¥ {{ number_format($orders->total_amount , 0, '.', ',') }}</span></h5>
+                                                <h5>{{ __('messages.items') }}: <span style="color: var(--theme-color);">{{ $orders->total_qty }}</span></h5>
+                                                <h5>{{ __('messages.total') }}: <span style="color: var(--theme-color);">¥ {{ number_format($orders->total_amount , 0, '.', ',') }}</span></h5>
                                             </div>
                                         </div>
                                         <br>
                                         @if ($orderDetails->first()->payment_approved == 0)
-                                            <p style="color:red; font-size:12px;">* Please make the transfer for this order.</p>
+                                            <p style="color:red; font-size:12px;">* {{ __('messages.please_make_transfer') }}</p>
                                         @elseif ($orderDetails->first()->payment_approved == 2)
-                                            <p style="color:red; font-size:12px;">* Your order have been cancelled for no transfer payment.</p>
+                                            <p style="color:red; font-size:12px;">* {{ __('messages.order_cancelled_no_transfer') }}</p>
                                         @endif
                                         <div class="bg-inner cart-section order-details-table">
                                             <div class="row g-4">
@@ -164,13 +164,13 @@
                                                         <table class="table cart-table table-borderless">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>No</th>
-                                                                    <th>Product Name</th>
-                                                                    <th>Shop</th>
-                                                                    <th>Quantity</th>
-                                                                    <th>Price (tax inc)</th>
-                                                                    <th>Size</th>
-                                                                    <th>Color</th>
+                                                                    <th>#</th>
+                                                                    <th>{{ __('messages.product_name') }}</th>
+                                                                    <th>{{ __('messages.shop') }}</th>
+                                                                    <th>{{ __('messages.quantity') }}</th>
+                                                                    <th>{{ __('messages.price_tax_included') }}</th>
+                                                                    <th>{{ __('messages.size') }}</th>
+                                                                    <th>{{ __('messages.color') }}</th>
                                                                     <th></th>
                                                                 </tr>
                                                             </thead>
@@ -208,10 +208,10 @@
                                                                         @if ($order->payment_approved == 1)
                                                                             @if ($order->status != "Cancel" && $order->status != "Cash Cancel")
                                                                             <a type="button" class="btn btn-sm" style="background-color: var(--theme-color); border:0.5px solid var(--theme-color); margin-left:0.5em; color:white;"
-                                                                                href="{{route ('order_detail_tracking',['id' => $order->order_detail_id]) }}">Tracking</a>
+                                                                                href="{{route ('order_detail_tracking',['id' => $order->order_detail_id]) }}">{{ __('messages.tracking') }}</a>
                                                                             @else
                                                                             <button type="button" class="btn btn-sm" style="background-color: #ff6b6b; border:0.5px solid var(--theme-color); margin-left:0.5em; color:white;"
-                                                                                onclick="cancelReason({{ $order->order_detail_id }})">Cancelled</button>
+                                                                                onclick="cancelReason({{ $order->order_detail_id }})">{{ __('messages.cancelled') }}</button>
                                                                             @endif
                                                                         @endif
                                                                     </td>
@@ -223,7 +223,7 @@
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header d-block text-center">
-                                                                            <h5 class="modal-title w-100" id="exampleModalLabel{{ $order->order_detail_id }}">Cancelled Reason</h5>
+                                                                            <h5 class="modal-title w-100" id="exampleModalLabel{{ $order->order_detail_id }}">{{ __('messages.cancelled_reason') }}</h5>
                                                                             <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                                                 <i class="fa-solid fa-xmark"></i>
                                                                             </button>
@@ -241,7 +241,7 @@
                                                             <tfoot>
                                                                 <tr class="table-order">
                                                                     <td colspan="4">
-                                                                        <h5>Subtotal :</h5>
+                                                                        <h5>{{ __('messages.sub_total') }} :</h5>
                                                                     </td>
                                                                     <td>
                                                                         <h4>¥ {{ number_format($subTotalAmount , 0, '.', ',') }}</h4>
@@ -250,7 +250,7 @@
     
                                                                 <tr class="table-order">
                                                                     <td colspan="4">
-                                                                        <h5>Shipping :</h5>
+                                                                        <h5>{{ __('messages.shipping') }} :</h5>
                                                                     </td>
                                                                     <td>
                                                                         <h4>¥ {{ number_format($shippingFee , 0, '.', ',') }}</h4>
@@ -259,7 +259,7 @@
     
                                                                 <tr class="table-order">
                                                                     <td colspan="4">
-                                                                        <h5>Coupon Discounted :</h5>
+                                                                        <h5>{{ __('messages.coupon_discounted') }} :</h5>
                                                                     </td>
                                                                     <td>
                                                                         <h4>¥ {{ number_format($couponDiscountAmount , 0, '.', ',') }}</h4>
@@ -268,7 +268,7 @@
     
                                                                 <tr class="table-order">
                                                                     <td colspan="4">
-                                                                        <h4 class="theme-color fw-bold">Total Price :</h4>
+                                                                        <h4 class="theme-color fw-bold">{{ __('messages.total_price') }} :</h4>
                                                                     </td>
                                                                     <td>
                                                                         <h4 class="theme-color fw-bold">¥ {{ number_format($totalAmount , 0, '.', ',') }}</h4>
@@ -282,11 +282,11 @@
                                                 <div class="col-xl-3">
                                                     <div class="order-success">
                                                         <div class="row g-4">
-                                                            <h3>Summery</h3>
+                                                            <h3>{{ __('messages.summary') }}</h3>
                                                             <ul class="order-details">
-                                                                <li>Order Code: {{ $order->order_code }}</li>
-                                                                <li>Order Date: {{ date('Y/m/d H:i', strtotime($order->created_at)) }}</li>
-                                                                <li>Order Total: ¥ {{ number_format($totalAmount , 0, '.', ',') }}</li>
+                                                                <li>{{ __('messages.order_code') }}: {{ $order->order_code }}</li>
+                                                                <li>{{ __('messages.order_date') }}: {{ date('Y/m/d H:i', strtotime($order->created_at)) }}</li>
+                                                                <li>{{ __('messages.order_total') }}: ¥ {{ number_format($totalAmount , 0, '.', ',') }}</li>
                                                             </ul>
     
                                                             @php
@@ -301,7 +301,7 @@
                                                                 }
                                                             @endphp
                                                             <div class="payment-mode">
-                                                                <h4>Shipping address</h4>
+                                                                <h4>{{ __('messages.shipping_address') }}</h4>
                                                                 <ul class="order-details">
                                                                     <li><h5>{{ $order->order_details_name }}</h5></li><br>
                                                                     <li>〒{{ formatZipCode($order->post_code) }}</li><br>
@@ -314,7 +314,7 @@
                                                             </div>
     
                                                             <div class="payment-mode">
-                                                                <h4>Payment method</h4>
+                                                                <h4>{{ __('messages.payment_method') }}</h4>
                                                                 <p>{{ $order->payment_type }}</p>
                                                             </div>
                                                         </div>
