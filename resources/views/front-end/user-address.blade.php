@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Addresses</h2>
+                        <h2>{{ __('messages.address') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -20,7 +20,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Addresses</li>
+                                <li class="breadcrumb-item active">{{ __('messages.address') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -77,22 +77,22 @@
                             <li class="nav-item" role="presentation">
                             <a class="nav-link" id="pills-dashboard-tab"
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_dashboard')}}"><i data-feather="home"></i>
-                                    DashBoard</a>
+                                    {{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-order-tab" 
                                     style="font-size: 14px; text-align: center;" href="{{route ('user_order')}}"><i
-                                        data-feather="shopping-bag"></i>Orders</a>
+                                        data-feather="shopping-bag"></i>{{ __('messages.orders') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail" 
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
-                                    Delivery Status</a>
+                                    {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="pills-address-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_addresses')}}"><i
-                                        data-feather="map-pin"></i>Addresses</a>
+                                        data-feather="map-pin"></i>{{ __('messages.address') }}</a>
                             </li>
                             {{-- <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-card-tab"
@@ -102,7 +102,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_profile')}}"><i data-feather="user"></i>
-                                    Profile</a>
+                                    {{ __('messages.profile') }}</a>
                             </li>
                             @php
                                 $buyer = DB::table('buyers')->where('user_id', $user->id)->first();
@@ -111,7 +111,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center; display: flex; align-items: center;" href="{{route ('user_message')}}"><i data-feather="mail"></i>
-                                    Message
+                                    {{ __('messages.message') }}
                                     <span id="notification-badge" class="badge rounded-pill badge-theme" style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                         <b>{{ $noti > 0 ? 'new' : '' }}</b>
                                     </span>
@@ -124,14 +124,14 @@
                 <!-- Address View Start -->
                 <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">
-                       My Menu</button>
+                        {{ __('messages.my_menu') }}</button>
                     <div class="dashboard-right-sidebar">
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
                                 <div class="dashboard-address">
                                     <div class="title title-flex">
                                         <div>
-                                            <h2>My Address Book</h2>
+                                            <h2>{{ __('messages.delivery_status') }}</h2>
                                             <span class="title-leaf">
                                                 <svg class="icon-width bg-gray">
                                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
@@ -141,7 +141,7 @@
 
                                         <button class="btn theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3"
                                             data-bs-toggle="modal" data-bs-target="#add-address"><i data-feather="plus"
-                                                class="me-2"></i> Add New Address</button>
+                                                class="me-2"></i> {{ __('messages.add_new_address') }}</button>
                                     </div>
                                     @php
                                         function formatZipCode($zipCode) {
@@ -173,13 +173,13 @@
                                                     <table class="table">
                                                         <tbody>
                                                             <tr>
-                                                                <td>Name:</td>
+                                                                <td>{{ __('messages.name') }}:</td>
                                                                 <td>
                                                                     <p>{{ $item->name }}</p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Address:</td>
+                                                                <td>{{ __('messages.address') }}:</td>
                                                                 <td>
                                                                     <p>〒{{ formatZipCode($item->post_code) }}</p>
                                                                     <p>{{ $item->prefecture->name }}</p>
@@ -189,7 +189,7 @@
                                                             </tr>
 
                                                             <tr>
-                                                                <td>Phone:</td>
+                                                                <td>{{ __('messages.phone') }}:</td>
                                                                 <td>{{ $item->phone }}</td>
                                                             </tr>
                                                         </tbody>
@@ -200,14 +200,14 @@
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#editAddress{{ $item->id }}"
                                                             onclick="">
-                                                            <i data-feather="edit"></i> Edit
+                                                            <i data-feather="edit"></i> {{ __('messages.btn_edit') }}
                                                     </button>
                                                     @if ($item->main_address != 1)
                                                     <button class="btn btn-sm add-button w-100" 
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#removeProfile{{ $item->id }}"
                                                             onclick="showDeleteModal('{{ $item->id }}')" style="background-color: #ff6b6b;">
-                                                        <i data-feather="trash-2"></i> Remove
+                                                        <i data-feather="trash-2"></i> {{ __('messages.btn_remove') }}
                                                     </button>
                                                     @endif
                                                 </div>
@@ -231,7 +231,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add a new address</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('messages.add_new_address') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
@@ -241,20 +241,20 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
-                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('messages.enter_name') }}">
+                            <label for="name">{{ __('messages.name') }}</label>
                             <span class="error" style="color:red" id="error-name"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input type="text" class="form-control" id="post_code" name="post_code" placeholder="Post Code">
-                            <label for="post_code">Post Code</label>
+                            <input type="text" class="form-control" id="post_code" name="{{ __('messages.enter_post_code') }}" placeholder="Post Code">
+                            <label for="post_code">{{ __('messages.post_code') }}</label>
                             <span class="error" style="color:red" id="error-post_code"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
                             <select class="form-control" id="prefectures" name="prefectures">
-                                <option>Choose Prefecture</option>
+                                <option>{{ __('messages.choose_prefecture') }}</option>
                                 @foreach ($prefecture as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
@@ -263,49 +263,49 @@
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="City, Ward, Town">
-                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="{{ __('messages.city_ward_town') }}">
+                            <label for="city">{{ __('messages.city') }}</label>
                             <span class="error" style="color:red" id="error-city"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input type="text" class="form-control" id="chome" name="chome" placeholder="Chome, Banchi, Go">
-                            <label for="chome">Chome</label>
+                            <input type="text" class="form-control" id="chome" name="chome" placeholder="{{ __('messages.chome_banchi_go') }}">
+                            <label for="chome">{{ __('messages.chome') }}</label>
                             <span class="error" style="color:red" id="error-chome"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input type="text" class="form-control" id="building" name="building" placeholder="Building, Apartment, Company Name">
-                            <label for="building">Building</label>
+                            <input type="text" class="form-control" id="building" name="building" placeholder="{{ __('messages.building_apartment_company') }}">
+                            <label for="building">{{ __('messages.building') }}</label>
                             <span class="error" style="color:red" id="error-building"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input type="text" class="form-control" id="roomno" name="roomno" placeholder="Unit, Room No">
-                            <label for="roomno">Room No</label>
+                            <input type="text" class="form-control" id="roomno" name="roomno" placeholder="{{ __('messages.unit_room') }}">
+                            <label for="roomno">{{ __('messages.room') }}</label>
                             <span class="error" style="color:red" id="error-roomno"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
-                            <input class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
-                            <label for="phone">Phone Number</label>
+                            <input class="form-control" id="phone" name="phone" placeholder="{{ __('messages.enter_phone') }}">
+                            <label for="phone">{{ __('messages.phone') }}</label>
                             <span class="error" style="color:red" id="error-phone"></span>
                         </div>
     
                         <div class="form-floating mb-4 theme-form-floating form-group">
                             <select class="form-control" id="place" name="place">
-                                <option>Choose Place</option>
-                                <option value="Home">Home</option>
-                                <option value="Office">Office</option>
-                                <option value="Other">Other</option>
+                                <option>{{ __('messages.choose_place') }}</option>
+                                <option value="Home">{{ __('messages.home') }}</option>
+                                <option value="Office">{{ __('messages.office') }}</option>
+                                <option value="Other">{{ __('messages.other') }}</option>
                             </select>
                             <span class="error" style="color:red" id="error-place"></span>
                         </div>
                     </div>
     
                     <div class="modal-footer">
-                        <button type="button" class="btn theme-bg-color btn-md text-white" onclick="validateForm()">Save</button>
-                        <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal" style="background-color: #ff6b6b;">Close</button>
+                        <button type="button" class="btn theme-bg-color btn-md text-white" onclick="validateAddForm()">{{ __('messages.btn_save') }}</button>
+                        <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal" style="background-color: #ff6b6b;">{{ __('messages.btn_close') }}</button>
                     </div>
                 </form>
             </div>
@@ -316,20 +316,19 @@
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
             <div class="modal-content" style="background-color: #f5f5f5;">
                 <div class="modal-header d-block text-center">
-                    <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure?</h5>
+                    <h5 class="modal-title w-100" id="exampleModalLabel22">{{ __('messages.are_you_sure_to_add') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="remove-box">
-                        <p>Add this address to your address book.</p>
+                        <p>{{ __('messages.add_address_to_book') }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" id="confirmYes">Yes</button>
-                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal"
-                    style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                    <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" id="confirmYes">{{ __('messages.btn_yes') }}</button>
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal" style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                 </div>
             </div>
         </div>
@@ -342,7 +341,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit address</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ __('messages.edit_address') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
@@ -353,14 +352,14 @@
                         
                         <div class="modal-body">
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input type="text" class="form-control" id="name-{{ $item->id }}" name="name" placeholder="Enter Name" value="{{ $item->name }}">
-                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name-{{ $item->id }}" name="name" placeholder="{{ __('messages.enter_name') }}" value="{{ $item->name }}">
+                                <label for="name">{{ __('messages.name') }}</label>
                                 <span class="error" style="color:red" id="error-name-{{ $item->id }}"></span>
                             </div>
 
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input type="text" class="form-control" id="post_code-{{ $item->id }}" name="post_code" placeholder="Post Code" value="{{ $item->post_code }}">
-                                <label for="post_code">Post Code</label>
+                                <input type="text" class="form-control" id="post_code-{{ $item->id }}" name="post_code" placeholder="{{ __('messages.enter_post_code') }}" value="{{ $item->post_code }}">
+                                <label for="post_code">{{ __('messages.post_code') }}</label>
                                 <span class="error" style="color:red" id="error-post_code-{{ $item->id }}"></span>
                             </div>
 
@@ -374,48 +373,48 @@
                             </div>
                             
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input type="text" class="form-control" id="city-{{ $item->id }}" name="city" placeholder="City, Ward, Town" value="{{ $item->city }}">
-                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city-{{ $item->id }}" name="city" placeholder="{{ __('messages.city_ward_town') }}" value="{{ $item->city }}">
+                                <label for="city">{{ __('messages.city') }}</label>
                                 <span class="error" style="color:red" id="error-city-{{ $item->id }}"></span>
                             </div>
 
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input type="text" class="form-control" id="chome-{{ $item->id }}" name="chome" placeholder="Chome, Banchi, Go" value="{{ $item->chome }}">
-                                <label for="chome">Chome</label>
+                                <input type="text" class="form-control" id="chome-{{ $item->id }}" name="chome" placeholder="{{ __('messages.chome_banchi_go') }}" value="{{ $item->chome }}">
+                                <label for="chome">{{ __('messages.chome') }}</label>
                                 <span class="error" style="color:red" id="error-chome-{{ $item->id }}"></span>
                             </div>
 
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input type="text" class="form-control" id="building-{{ $item->id }}" name="building" placeholder="Building, Apartment, Company Name" value="{{ $item->building }}">
-                                <label for="building">Building</label>
+                                <input type="text" class="form-control" id="building-{{ $item->id }}" name="building" placeholder="{{ __('messages.building_apartment_company') }}" value="{{ $item->building }}">
+                                <label for="building">{{ __('messages.building') }}</label>
                                 <span class="error" style="color:red" id="error-building-{{ $item->id }}"></span>
                             </div>
 
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input type="text" class="form-control" id="roomno-{{ $item->id }}" name="roomno" placeholder="Unit, Room No" value="{{ $item->room_no }}">
-                                <label for="roomno">Room No</label>
+                                <input type="text" class="form-control" id="roomno-{{ $item->id }}" name="roomno" placeholder="{{ __('messages.unit_room') }}" value="{{ $item->room_no }}">
+                                <label for="roomno">{{ __('messages.room') }}</label>
                                 <span class="error" style="color:red" id="error-roomno-{{ $item->id }}"></span>
                             </div>
 
                             <div class="form-floating mb-4 theme-form-floating form-group">
-                                <input class="form-control" id="phone-{{ $item->id }}" name="phone" placeholder="Enter your phone number" value="{{ $item->phone }}">
-                                <label for="phone">Phone Number</label>
+                                <input class="form-control" id="phone-{{ $item->id }}" name="phone" placeholder="{{ __('messages.enter_phone') }}" value="{{ $item->phone }}">
+                                <label for="phone">{{ __('messages.phone') }}</label>
                                 <span class="error" style="color:red" id="error-phone-{{ $item->id }}"></span>
                             </div>
 
                             <div class="form-floating mb-4 theme-form-floating form-group">
                                 <select class="form-control" id="place-{{ $item->id }}" name="place">
-                                    <option value="Home" {{ $item->place == 'Home' ? 'selected' : '' }}>Home</option>
-                                    <option value="Office" {{ $item->place == 'Office' ? 'selected' : '' }}>Office</option>
-                                    <option value="Other" {{ $item->place == 'Other' ? 'selected' : '' }}>Other</option>
+                                    <option value="Home" {{ $item->place == 'Home' ? 'selected' : '' }}>{{ __('messages.home') }}</option>
+                                    <option value="Office" {{ $item->place == 'Office' ? 'selected' : '' }}>{{ __('messages.office') }}</option>
+                                    <option value="Other" {{ $item->place == 'Other' ? 'selected' : '' }}>{{ __('messages.other') }}</option>
                                 </select>
                                 <span class="error" style="color:red" id="error-place-{{ $item->id }}"></span>
                             </div>
                         </div>
                     
                         <div class="modal-footer">
-                            <button type="button" class="btn theme-bg-color btn-md text-white" onclick="validateEditForm({{ $item->id }})">Save</button>
-                            <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal" style="background-color: #ff6b6b;">Close</button>
+                            <button type="button" class="btn theme-bg-color btn-md text-white" onclick="validateEditForm({{ $item->id }})">{{ __('messages.btn_save') }}</button>
+                            <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal" style="background-color: #ff6b6b;">{{ __('messages.btn_close') }}</button>
                         </div>
                     </form> 
                 </div>
@@ -426,20 +425,20 @@
             <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
                 <div class="modal-content" style="background-color: #f5f5f5;">
                     <div class="modal-header d-block text-center">
-                        <h5 class="modal-title w-100" id="exampleModalLabel{{ $item->id }}">Are You Sure?</h5>
+                        <h5 class="modal-title w-100" id="exampleModalLabel{{ $item->id }}">{{ __('messages.are_you_sure_to_edit') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="remove-box">
-                            <p>This changes will be saved.</p>
+                            <p>{{ __('messages.change_will_be_saved') }}</p>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" onclick="submitEditForm({{ $item->id }})">Yes</button>
+                        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" onclick="submitEditForm({{ $item->id }})">{{ __('messages.btn_save') }}</button>
                         <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal"
-                        style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                        style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                     </div>
                 </div>
             </div>
@@ -452,24 +451,24 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header d-block text-center">
-                    <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure?</h5>
+                    <h5 class="modal-title w-100" id="exampleModalLabel22">{{ __('messages.are_you_sure_to_remove') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="remove-box">
-                        <p>You cannot see this address no more in your address book.</p>
+                        <p>{{ __('messages.remove_address_from_book') }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('remove_address', ['id' => $item->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">Yes</button>
+                        <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">{{ __('messages.btn_yes') }}</button>
                     </form>
                     <button type="button" class="btn btn-md fw-bold" data-bs-dismiss="modal"
-                    style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                    style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                 </div>
             </div>
         </div>
@@ -571,7 +570,7 @@
 </script>
 
 <script>
-    function validateForm() {
+    function validateAddForm() {
         let isValid = true;
     
         const name = document.getElementById('name').value.trim();
@@ -589,68 +588,68 @@
     
         if (!name) {
             isValid = false;
-            document.getElementById('error-name').textContent = 'Please provide your name.';
+            document.getElementById('error-name').textContent = '{{ __('messages.enter_name_error_message') }}';
         } else if (name.length > 255) {
             isValid = false;
-            document.getElementById('error-name').textContent = 'Your name must not exceed 255 characters.';
+            document.getElementById('error-name').textContent = '{{ __('messages.valid_name_error_message') }}';
         }
     
         if (!post_code) {
             isValid = false;
-            document.getElementById('error-post_code').textContent = 'Please provide your post code.';
+            document.getElementById('error-post_code').textContent = '{{ __('messages.enter_post_code_error_message') }}';
         } else if (post_code.length !== 7 || !/^\d{7}$/.test(post_code)) {
             isValid = false;
-            document.getElementById('error-post_code').textContent = 'Please provide a valid 7-digit post code.';
+            document.getElementById('error-post_code').textContent = '{{ __('messages.valid_post_code_error_message') }}';
         }
     
-        if (!prefectures || prefectures === 'Choose Prefecture') {
+        if (!prefectures || prefectures === '{{ __('messages.choose_prefecture') }}') {
             isValid = false;
-            document.getElementById('error-prefectures').textContent = 'Please select a valid prefecture.';
+            document.getElementById('error-prefectures').textContent = '{{ __('messages.select_valid_prefecture_error_message') }}';
         }
     
         if (!city) {
             isValid = false;
-            document.getElementById('error-city').textContent = 'Please provide your city.';
+            document.getElementById('error-city').textContent = '{{ __('messages.enter_city_error_message') }}';
         } else if (city.length > 255) {
             isValid = false;
-            document.getElementById('error-city').textContent = 'Your city must not exceed 255 characters.';
+            document.getElementById('error-city').textContent = '{{ __('messages.valid_city_error_message') }}';
         }
     
         if (!chome) {
             isValid = false;
-            document.getElementById('error-chome').textContent = 'Please provide your chome.';
+            document.getElementById('error-chome').textContent = '{{ __('messages.enter_chome_error_message') }}';
         } else if (chome.length > 255) {
             isValid = false;
-            document.getElementById('error-chome').textContent = 'Your chome must not exceed 255 characters.';
+            document.getElementById('error-chome').textContent = '{{ __('messages.valid_chome_error_message') }}';
         }
     
         if (!building) {
             isValid = false;
-            document.getElementById('error-building').textContent = 'Please provide your building.';
+            document.getElementById('error-building').textContent = '{{ __('messages.enter_building_error_message') }}';
         } else if (building.length > 255) {
             isValid = false;
-            document.getElementById('error-building').textContent = 'Your building must not exceed 255 characters.';
+            document.getElementById('error-building').textContent = '{{ __('messages.valid_building_error_message') }}';
         }
     
         if (!roomno) {
             isValid = false;
-            document.getElementById('error-roomno').textContent = 'Please provide your room number.';
+            document.getElementById('error-roomno').textContent = '{{ __('messages.enter_room_error_message') }}';
         } else if (roomno.length > 255) {
             isValid = false;
-            document.getElementById('error-roomno').textContent = 'Your room number must not exceed 255 characters.';
+            document.getElementById('error-roomno').textContent = '{{ __('messages.valid_room_error_message') }}';
         }
     
         if (!phone) {
             isValid = false;
-            document.getElementById('error-phone').textContent = 'Please provide your phone number.';
+            document.getElementById('error-phone').textContent = '{{ __('messages.enter_phone_error_message') }}';
         } else if (phone.length > 255) {
             isValid = false;
-            document.getElementById('error-phone').textContent = 'The phone number must not exceed 255 characters.';
+            document.getElementById('error-phone').textContent = '{{ __('messages.valid_phone_error_message') }}';
         }
     
-        if (!place || place === 'Choose Place') {
+        if (!place || place === '{{ __('messages.choose_place') }}') {
             isValid = false;
-            document.getElementById('error-place').textContent = 'Please select a valid place.';
+            document.getElementById('error-place').textContent = '{{ __('messages.select_valid_place_error_message') }}';
         }
     
         if (isValid) {
@@ -684,68 +683,68 @@
     
         if (!name) {
             isValid = false;
-            document.getElementById(`error-name-${id}`).textContent = 'Please provide your name.';
+            document.getElementById(`error-name-${id}`).textContent = '{{ __('messages.enter_name_error_message') }}';
         } else if (name.length > 255) {
             isValid = false;
-            document.getElementById(`error-name-${id}`).textContent = 'Your name must not exceed 255 characters.';
+            document.getElementById(`error-name-${id}`).textContent = '{{ __('messages.valid_name_error_message') }}';
         }
-    
+        
         if (!post_code) {
             isValid = false;
-            document.getElementById(`error-post_code-${id}`).textContent = 'Please provide your post code.';
+            document.getElementById(`error-post_code-${id}`).textContent = '{{ __('messages.enter_post_code_error_message') }}';
         } else if (post_code.length !== 7 || !/^\d{7}$/.test(post_code)) {
             isValid = false;
-            document.getElementById(`error-post_code-${id}`).textContent = 'Please provide a valid 7-digit post code.';
+            document.getElementById(`error-post_code-${id}`).textContent = '{{ __('messages.valid_post_code_error_message') }}';
         }
-    
-        if (!prefectures || prefectures === 'Choose Prefecture') {
+        
+        if (!prefectures || prefectures === '{{ __('messages.choose_prefecture') }}') {
             isValid = false;
-            document.getElementById(`error-prefectures-${id}`).textContent = 'Please select a valid prefecture.';
+            document.getElementById(`error-prefectures-${id}`).textContent = '{{ __('messages.select_valid_prefecture_error_message') }}';
         }
-    
+        
         if (!city) {
             isValid = false;
-            document.getElementById(`error-city-${id}`).textContent = 'Please provide your city.';
+            document.getElementById(`error-city-${id}`).textContent = '{{ __('messages.enter_city_error_message') }}';
         } else if (city.length > 255) {
             isValid = false;
-            document.getElementById(`error-city-${id}`).textContent = 'Your city must not exceed 255 characters.';
+            document.getElementById(`error-city-${id}`).textContent = '{{ __('messages.valid_city_error_message') }}';
         }
-    
+        
         if (!chome) {
             isValid = false;
-            document.getElementById(`error-chome-${id}`).textContent = 'Please provide your chome.';
+            document.getElementById(`error-chome-${id}`).textContent = '{{ __('messages.enter_chome_error_message') }}';
         } else if (chome.length > 255) {
             isValid = false;
-            document.getElementById(`error-chome-${id}`).textContent = 'Your chome must not exceed 255 characters.';
+            document.getElementById(`error-chome-${id}`).textContent = '{{ __('messages.valid_chome_error_message') }}';
         }
-    
+        
         if (!building) {
             isValid = false;
-            document.getElementById(`error-building-${id}`).textContent = 'Please provide your building.';
+            document.getElementById(`error-building-${id}`).textContent = '{{ __('messages.enter_building_error_message') }}';
         } else if (building.length > 255) {
             isValid = false;
-            document.getElementById(`error-building-${id}`).textContent = 'Your building must not exceed 255 characters.';
+            document.getElementById(`error-building-${id}`).textContent = '{{ __('messages.valid_building_error_message') }}';
         }
-    
+        
         if (!roomno) {
             isValid = false;
-            document.getElementById(`error-roomno-${id}`).textContent = 'Please provide your room number.';
+            document.getElementById(`error-roomno-${id}`).textContent = '{{ __('messages.enter_room_error_message') }}';
         } else if (roomno.length > 255) {
             isValid = false;
-            document.getElementById(`error-roomno-${id}`).textContent = 'Your room number must not exceed 255 characters.';
+            document.getElementById(`error-roomno-${id}`).textContent = '{{ __('messages.valid_room_error_message') }}';
         }
-
+        
         if (!phone) {
             isValid = false;
-            document.getElementById(`error-phone-${id}`).textContent = 'Please provide your phone number.';
+            document.getElementById(`error-phone-${id}`).textContent = '{{ __('messages.enter_phone_error_message') }}';
         } else if (phone.length > 255) {
             isValid = false;
-            document.getElementById(`error-phone-${id}`).textContent = 'The phone number must not exceed 255 characters.';
+            document.getElementById(`error-phone-${id}`).textContent = '{{ __('messages.valid_phone_error_message') }}';
         }
-
-        if (!place || place === 'Choose Place') {
+        
+        if (!place || place === '{{ __('messages.choose_place') }}') {
             isValid = false;
-            document.getElementById(`error-place-${id}`).textContent = 'Please select a valid place.';
+            document.getElementById(`error-place-${id}`).textContent = '{{ __('messages.select_valid_place_error_message') }}';
         }
 
         if (isValid) {

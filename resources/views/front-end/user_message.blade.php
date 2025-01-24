@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Message</h2>
+                        <h2>{{ __('messages.message') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -20,7 +20,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Message</li>
+                                <li class="breadcrumb-item active">{{ __('messages.message') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -78,22 +78,22 @@
                             <li class="nav-item" role="presentation">
                             <a class="nav-link" id="pills-dashboard-tab"
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_dashboard')}}"><i data-feather="home"></i>
-                                    DashBoard</a>
+                                    {{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-order-tab" 
                                     style="font-size: 14px; text-align: center;" href="{{route ('user_order')}}"><i
-                                        data-feather="shopping-bag"></i>Orders</a>
+                                        data-feather="shopping-bag"></i>{{ __('messages.orders') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail" 
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
-                                    Delivery Status</a>
+                                    {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-address-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_addresses')}}"><i
-                                        data-feather="map-pin"></i>Addresses</a>
+                                        data-feather="map-pin"></i>{{ __('messages.address') }}</a>
                             </li>
                             {{-- <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-card-tab"
@@ -103,7 +103,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_profile')}}"><i data-feather="user"></i>
-                                    Profile</a>
+                                    {{ __('messages.profile') }}</a>
                             </li>
                             @php
                                 $buyer = DB::table('buyers')->where('user_id', $user->id)->first();
@@ -112,7 +112,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center; display: flex; align-items: center;" href="{{route ('user_message')}}"><i data-feather="mail"></i>
-                                    Message
+                                    {{ __('messages.message') }}
                                     <span id="notification-badge" class="badge rounded-pill badge-theme" style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                         <b></b>
                                     </span>
@@ -127,14 +127,14 @@
                 <!-- Show Profile Start -->
                 <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">
-                        My Menu</button>
+                        {{ __('messages.my_menu') }}</button>
                     <div class="dashboard-right-sidebar">
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
                                 <div class="dashboard-profile">
                                     <div class="title title-flex">
                                         <div>
-                                            <h2>Message</h2>
+                                            <h2>{{ __('messages.message') }}</h2>
                                             <span class="title-leaf">
                                                 <svg class="icon-width bg-gray">
                                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
@@ -151,7 +151,7 @@
                                         <div class="col-md-2 text-right" style="display: flex; align-items: center; justify-content: flex-end; margin-left: auto;">
                                             <button id="clearAllNotifications" class="btn btn-danger" style="background-color: var(--bs-body-bg);display: flex; align-items: center; padding: 10px 20px; font-size: 16px; border-radius: 5px;">
                                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#removeNotiAll" style="color: var(--theme-color); text-decoration: none; display: flex; align-items: center;">
-                                                    <i class="ri-delete-bin-line" style="margin-right: 5px;"></i> Clear All
+                                                    <i class="ri-delete-bin-line" style="margin-right: 5px;"></i> {{ __('messages.clear_all') }}
                                                 </a>
                                             </button>
                                             <!-- Remove Noti Modal Start -->
@@ -159,23 +159,23 @@
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header d-block text-center">
-                                                            <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure?</h5>
+                                                            <h5 class="modal-title w-100" id="exampleModalLabel22">{{ __('messages.are_you_sure_to_delete') }}</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                                 <i class="fa-solid fa-xmark"></i>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="remove-box">
-                                                                <p>This will delete all of your messages.</p>
+                                                                <p>{{ __('messages.delete_all_messages') }}</p>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <form action="{{ route('remove_message_all', ['id' => $buyer->id]) }}" method="POST">
                                                                 @csrf
-                                                                <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">Yes</button>
+                                                                <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">{{ __('messages.btn_yes') }}</button>
                                                             </form>
                                                             <button type="button" class="btn btn-md fw-bold" data-bs-dismiss="modal"
-                                                            style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                                                            style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -184,7 +184,7 @@
                                         </div>
                                         @else
                                         <div class="col-md-12 text-center">
-                                            <h3>There is no message in your message box!</h3>
+                                            <h3>{{ __('messages.no_message_in_message_box') }}</h3>
                                         </div>
                                         @endif
                                     </div>
@@ -197,9 +197,13 @@
                                                     <div class="row">
                                                         <div class="col-md-10">
                                                             @if ($userNoti->title == 'Cash Cancel')
-                                                            <p><strong>You order has been Cancelled.</strong></p>
+                                                                <p><strong>{{ __('messages.order_cancelled') }}</strong></p>
                                                             @else
-                                                            <p><strong>Your order has been {{ $userNoti->title == 'Cancel' ? 'Cancelled' : $userNoti->title }}.</strong></p>
+                                                                <p><strong>{{ __('messages.order_status', [
+                                                                    'status' => $userNoti->title == 'Cancel' ? __('messages.cancelled_message') : 
+                                                                               ($userNoti->title == 'Delivered' ? __('messages.delivered_message') : 
+                                                                               ($userNoti->title == 'Confirmed' ? __('messages.confirmed_message') : $userNoti->title))
+                                                                ]) }}</strong></p>
                                                             @endif
                                                         </div>
                                                         <div class="col-md-2 text-right" style="display: flex; align-items: center; justify-content: flex-end; margin-left: auto;">
@@ -218,34 +222,40 @@
                                                                         <h4>{{ $userNoti->orderDetail->product->product_name }}</h4>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <p>{{ $userNoti->orderDetail->qty }} {{ $userNoti->orderDetail->qty == 1 ? 'item' : 'items' }}</p>
+                                                                        <p>{{ $userNoti->orderDetail->qty }} {{ $userNoti->orderDetail->qty == 1 ? __('messages.item') : __('messages.items') }}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 @if($userNoti->title == 'Confirmed')
-                                                                <span>
-                                                                    Your order has been {{ $userNoti->title }} by {{ $userNoti->orderDetail->seller->shop_name }}. It is
-                                                                    expected to be delivered between {{ date('Y/m/d', strtotime($userNoti->orderDetail->expected_from)) }} 
-                                                                    and {{ date('Y/m/d', strtotime($userNoti->orderDetail->expected_to)) }}.
-                                                                </span>
+                                                                    <span>
+                                                                        {{ __('messages.order_confirmed', [
+                                                                            'shop_name' => $userNoti->orderDetail->seller->shop_name,
+                                                                            'expected_from' => date('Y/m/d', strtotime($userNoti->orderDetail->expected_from)),
+                                                                            'expected_to' => date('Y/m/d', strtotime($userNoti->orderDetail->expected_to))
+                                                                        ]) }}
+                                                                    </span>
                                                                 @elseif($userNoti->title == 'Delivered')
-                                                                <span>
-                                                                    Your order has been {{ $userNoti->title }} by {{ $userNoti->orderDetail->seller->shop_name }} 
-                                                                    at {{ date('Y/m/d H:i', strtotime($userNoti->orderDetail->delivered_date)) }}. If you have not received it,
-                                                                    please contact us.
-                                                                </span>
+                                                                    <span>
+                                                                        {{ __('messages.order_delivered', [
+                                                                            'shop_name' => $userNoti->orderDetail->seller->shop_name,
+                                                                            'delivered_date' => date('Y/m/d H:i', strtotime($userNoti->orderDetail->delivered_date))
+                                                                        ]) }}
+                                                                        {{ __('messages.contact_us_if_not_received') }}
+                                                                    </span>
                                                                 @elseif($userNoti->title == 'Cancel')
-                                                                <span>
-                                                                    Your order has been Cancelled by {{ $userNoti->orderDetail->seller->shop_name }}.
-                                                                    We will notify the refund process soon.<br>
-                                                                    Cancelled Reason : {{ $userNoti->orderDetail->cancelled_reason }}
-                                                                </span>
+                                                                    <span>
+                                                                        {{ __('messages.order_cancelled_by_seller', [
+                                                                            'shop_name' => $userNoti->orderDetail->seller->shop_name,
+                                                                            'cancelled_reason' => $userNoti->orderDetail->cancelled_reason
+                                                                        ]) }}
+                                                                    </span>
                                                                 @elseif($userNoti->title == 'Cash Cancel')
-                                                                <span>
-                                                                    Your order has been Cancelled for no transfer payment.<br>
-                                                                    Cancelled Reason : {{ $userNoti->orderDetail->cancelled_reason }}
-                                                                </span>
+                                                                    <span>
+                                                                        {{ __('messages.order_cancelled_no_payment', [
+                                                                            'cancelled_reason' => $userNoti->orderDetail->cancelled_reason
+                                                                        ]) }}
+                                                                    </span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -261,23 +271,23 @@
                                                             <div class="modal-dialog modal-dialog-centered">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header d-block text-center">
-                                                                        <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure?</h5>
+                                                                        <h5 class="modal-title w-100" id="exampleModalLabel22">{{ __('messages.are_you_sure_to_remove') }}</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                                             <i class="fa-solid fa-xmark"></i>
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <div class="remove-box">
-                                                                            <p>You will not see this message no more in your message box.</p>
+                                                                            <p>{{ __('messages.remove_message_from_message_box') }}</p>
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <form action="{{ route('remove_message', ['id' => $userNoti->id]) }}" method="POST">
                                                                             @csrf
-                                                                            <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">Yes</button>
+                                                                            <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">{{ __('messages.btn_yes') }}</button>
                                                                         </form>
                                                                         <button type="button" class="btn btn-md fw-bold" data-bs-dismiss="modal"
-                                                                        style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                                                                        style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

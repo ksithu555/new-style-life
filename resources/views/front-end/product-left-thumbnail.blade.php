@@ -253,7 +253,7 @@
                                                 <table class="table info-table">
                                                     <tbody>
                                                         <tr>
-                                                            <td>{{ __('messages.brand') }}</td>
+                                                            <td>{{ __('messages.brand_name') }}</td>
                                                             <td>
                                                                 @php
                                                                     $brand = DB::table('brands')
@@ -860,7 +860,7 @@
                                             <ul class="brand-list">
                                                 <li>
                                                     <div class="brand-box">
-                                                        <h5>{{ __('messages.brand') }}:</h5>
+                                                        <h5>{{ __('messages.brand_name') }}:</h5>
                                                         <h6>
                                                             @php
                                                                 $brand = DB::table('brands')

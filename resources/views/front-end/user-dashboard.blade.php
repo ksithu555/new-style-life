@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Dashboard</h2>
+                        <h2>{{ __('messages.dashboard') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -20,7 +20,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item active">{{ __('messages.dashboard') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -79,22 +79,26 @@
                             <li class="nav-item" role="presentation">
                             <a class="nav-link active" id="pills-dashboard-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-dashboard" type="button" style="font-size: 14px; text-align: center;" ><i data-feather="home"></i>
-                                    DashBoard</a>
+                                    {{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-order-tab"
                                     style="font-size: 14px; text-align: center;" href="{{route ('user_order')}}"><i
-                                        data-feather="shopping-bag"></i>Orders</a>
+                                        data-feather="shopping-bag"></i>
+                                        {{ __('messages.order') }}
+                                    </a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail"
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
-                                    Delivery Status</a>
+                                    {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-address-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_addresses')}}"><i
-                                        data-feather="map-pin"></i>Addresses</a>
+                                        data-feather="map-pin"></i>
+                                        {{ __('messages.address') }}
+                                    </a>
                             </li>
                             {{-- <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-card-tab"
@@ -104,7 +108,8 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_profile')}}"><i data-feather="user"></i>
-                                    Profile</a>
+                                    {{ __('messages.profile') }}
+                                </a>
                             </li>
                             @php
                                 $buyer = DB::table('buyers')->where('user_id', $user->id)->first();
@@ -113,7 +118,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center; display: flex; align-items: center;" href="{{route ('user_message')}}"><i data-feather="mail"></i>
-                                    Message
+                                    {{ __('messages.message') }}
                                     <span id="notification-badge" class="badge rounded-pill badge-theme" style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                         <b>{{ $noti > 0 ? 'new' : '' }}</b>
                                     </span>
@@ -127,13 +132,14 @@
                 <!-- Dashboard view Start -->
                 <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">
-                        My Menu</button>
+                        {{ __('messages.my_menu') }}
+                    </button>
                     <div class="dashboard-right-sidebar">
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
                                 <div class="dashboard-home">
                                     <div class="title">
-                                        <h2>DashBoard</h2>
+                                        <h2>{{ __('messages.dashboard') }}</h2>
                                         <span class="title-leaf">
                                             <svg class="icon-width bg-gray">
                                                 <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
@@ -142,10 +148,8 @@
                                     </div>
 
                                     <div class="dashboard-user-name">
-                                        <h6 class="text-content">Hello, <b class="text-title">{{ $user->name }}</b></h6>
-                                        <p class="text-content">From your My Account Dashboard you have the ability to
-                                            view a snapshot of your recent account activity and update your account
-                                            information. Select a link below to view or edit information.</p>
+                                        <h6 class="text-content">{{ __('messages.hello') }}, <b class="text-title">{{ $user->name }}</b></h6>
+                                        <p class="text-content">{{ __('messages.dashboard_greeting') }}</p>
                                     </div>
 
                                     <div class="total-box">
@@ -157,7 +161,7 @@
                                                     <img src="{{ asset('/frontend/assets/images/svg/order.svg') }}" class="blur-up lazyload"
                                                         alt="">
                                                     <div class="total-detail">
-                                                        <h5>Total Order</h5>
+                                                        <h5>{{ __('messages.total_order') }}</h5>
                                                         <h3>{{ $orderCount }}</h3>
                                                     </div>
                                                 </div>
@@ -170,7 +174,7 @@
                                                     <img src="{{ asset('/frontend/assets/images/svg/pending.svg') }}" class="blur-up lazyload"
                                                         alt="">
                                                     <div class="total-detail">
-                                                        <h5>Total Pending Order</h5>
+                                                        <h5>{{ __('messages.total_pending_order') }}</h5>
                                                         <h3>{{ $pendingCount }}</h3>
                                                     </div>
                                                 </div>
@@ -183,7 +187,7 @@
                                                     <img src="{{ asset('/frontend/assets/images/svg/wishlist.svg') }}"
                                                         class="blur-up lazyload" alt="">
                                                     <div class="total-detail">
-                                                        <h5>Total Wishlist</h5>
+                                                        <h5>{{ __('messages.total_wishlist') }}</h5>
                                                         <h3>{{ $wishlistCount }}</h3>
                                                     </div>
                                                 </div>
@@ -193,7 +197,7 @@
 
                                     <div class="col-12">
                                         <div class="dashboard-content-title">
-                                                <h4>Account Information</h4>
+                                                <h4>{{ __('messages.account_information') }}</h4>
                                             </div>
 
                                         <div class="row g-4">
@@ -211,7 +215,7 @@
                                     </div>
                                         <div class="col-12">
                                             <div class="dashboard-content-title">
-                                                <h4>Default Address</h4>
+                                                <h4>{{ __('messages.default_address') }}</h4>
                                             </div>
 
                                             @php

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Our Story</h2>
+                        <h2>{{ __('messages.our_story') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Our Story</li>
+                                <li class="breadcrumb-item active">{{ __('messages.our_story') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -22,7 +22,7 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-    <div id="EnglishVersion">
+    <div id="EnglishVersion" style="{{ app()->getLocale() === 'jp' ? 'display:none' : '' }}">
         <!-- About Section Start -->
         <section class="seller-poster-section">
             <div class="container-fluid-lg">
@@ -185,7 +185,7 @@
         <!-- Selling Section End -->
     </div>
 
-    <div id="JapaneseVersion" style="display: none;">
+    <div id="JapaneseVersion" style="{{ app()->getLocale() === 'en' ? 'display:none' : '' }}">
         <!-- About Section Start -->
         <section class="seller-poster-section">
             <div class="container-fluid-lg">

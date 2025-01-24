@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Delivery Status</h2>
+                        <h2>{{ __('messages.delivery_status') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Delivery Status</li>
+                                <li class="breadcrumb-item active">{{ __('messages.delivery_status') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -81,22 +81,24 @@
                                 <a class="nav-link" id="pills-dashboard-tab" type="button"
                                     style="font-size: 14px; text-align: center;" href="{{ route('user_dashboard') }}"><i
                                         data-feather="home"></i>
-                                    DashBoard</a>
+                                        {{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-order-tab" style="font-size: 14px; text-align: center;"
-                                    href="{{ route('user_order') }}"><i data-feather="shopping-bag"></i>Orders</a>
+                                    href="{{ route('user_order') }}"><i data-feather="shopping-bag"></i>
+                                    {{ __('messages.orders') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="delivery-detail" type="button"
                                     style="font-size: 14px; text-align: center;"
                                     href="{{ route('user_deivery_status') }}"><i data-feather="box"></i>
-                                    Delivery Status</a>
+                                    {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-address-tab" type="button" role="tab"
                                     style="font-size: 14px; text-align: center;" href="{{ route('user_addresses') }}"><i
-                                        data-feather="map-pin"></i>Addresses</a>
+                                        data-feather="map-pin"></i>
+                                        {{ __('messages.address') }}</a>
                             </li>
                             {{-- <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-card-tab"
@@ -107,7 +109,7 @@
                                 <a class="nav-link" id="pills-profile-tab" type="button" role="tab"
                                     style="font-size: 14px; text-align: center;" href="{{ route('user_profile') }}"><i
                                         data-feather="user"></i>
-                                    Profile</a>
+                                        {{ __('messages.profile') }}</a>
                             </li>
                             @php
                             $buyer = DB::table('buyers')
@@ -122,7 +124,7 @@
                                 <a class="nav-link" id="pills-profile-tab" type="button" role="tab"
                                     style="font-size: 14px; text-align: center; display: flex; align-items: center;"
                                     href="{{ route('user_message') }}"><i data-feather="mail"></i>
-                                    Message
+                                    {{ __('messages.message') }}
                                     <span id="notification-badge" class="badge rounded-pill badge-theme"
                                         style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                         <b>{{ $noti > 0 ? 'new' : '' }}</b>
@@ -135,13 +137,13 @@
                 <!-- User Dashboard Section End -->
                 <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">
-                        My Menu</button>
+                        {{ __('messages.my_menu') }}</button>
                     <div class="dashboard-right-sidebar">
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
                                 <div class="dashboard-home">
                                     <div class="title">
-                                        <h2>Delivery Status</h2>
+                                        <h2>{{ __('messages.delivery_status') }}</h2>
                                         <span class="title-leaf">
                                             <svg class="icon-width bg-gray">
                                                 <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}">
@@ -155,19 +157,20 @@
                                             <thead>
 
                                                 <tr>
-                                                    <th scope="col">No</th>
-                                                    <th scope="col">Order Code</th>
-                                                    <th scope="col" colspan="2">Product</th>
-                                                    <th scope="col">Quantity</th>
-                                                    <th scope="col">Total(tax inc)</th>
-                                                    <th scope="col">Status</th>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">{{ __('messages.order_code') }}</th>
+                                                    <th scope="col" colspan="2">{{ __('messages.product') }}</th>
+                                                    <th scope="col">{{ __('messages.quantity') }}</th>
+                                                    <th scope="col">{{ __('messages.amount_tax_inc') }}</th>
+                                                    <th scope="col">{{ __('messages.status') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @if ($orders->count() == 0)
                                                 <tr>
-                                                    <td colspan="4" style="text-align: center">No data
-                                                        available</td>
+                                                    <td colspan="4" style="text-align: center">
+                                                        {{ __('messages.no_data_available') }}
+                                                    </td>
                                                 </tr>
                                                 @else
                                                 @foreach ($orders as $key => $order)
@@ -199,19 +202,19 @@
                                                         </h6>
                                                     </td>
                                                     @php
-                                                    $status = 'Pending';
+                                                    $status = __('messages.pending');
                                                     if ($order->cancel_date) {
-                                                    $status = 'Cancelled';
+                                                        $status = __('messages.cancelled');
                                                     } elseif ($order->delivered_date) {
-                                                    $status = 'Delivered';
+                                                        $status = __('messages.delivered');
                                                     } elseif ($order->shipped_date) {
-                                                    $status = 'Shipping';
+                                                        $status = __('messages.shipping');
                                                     } elseif ($order->picked_date) {
-                                                    $status = 'Picked';
+                                                        $status = __('messages.picked');
                                                     } elseif ($order->confirmed_date) {
-                                                    $status = 'Confirmed';
+                                                        $status = __('messages.confirmed');
                                                     } elseif ($order->processing_date) {
-                                                    $status = 'Processing';
+                                                        $status = __('messages.processing');
                                                     }
                                                     @endphp
                                                     <td>
