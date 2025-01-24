@@ -14,9 +14,9 @@ return [
     */
     'welcome' => '　　ようこそ、:name 様',
     'msgwith' => ':nameさんとメッセージやり取り',
-    'doneregister' => '「:name」登録されました。',
+    'doneregister' => '「:name」登録されました',
     'msgwithnobody' => 'メッセージやり取り',
-    'registered' => '登録されました。',
+    'registered' => '登録されました',
 
 
     'failed' => '正しいメールアドレスとパスワードを入力してください',
@@ -225,7 +225,7 @@ return [
     'confirmchange?' => '修正しますか？',
     'yeschange' => '修正する',
     'docancel' => 'キャンセル',
-    'donechange' => '修正されました。',
+    'donechange' => '修正されました',
 
     'profileedittitle' => '基本情報',
     'profileedit' => '基本情報修正',
@@ -236,12 +236,12 @@ return [
     'msgcontent' => '内容を入力してください',
 
     'mailverification' => 'メール確認のお願い',
-    'thankforregister' => 'ご登録、ありがとうございます。',
-    'alreadysendemail' => '認証確認のメールが送信されました。',
-    'pleaseclicklink' => 'メールの中のリンクをクリックして、認証処理を完了してください。',
-    'ifyouneedresend' => 'もし、再送信が必要な場合、下のボタンをクリックしてください。',
+    'thankforregister' => 'ご登録、ありがとうございます',
+    'alreadysendemail' => '認証確認のメールが送信されました',
+    'pleaseclicklink' => 'メールの中のリンクをクリックして、認証処理を完了してください',
+    'ifyouneedresend' => 'もし、再送信が必要な場合、下のボタンをクリックしてください',
     'doresend' => 'リンクを再送信',
-    'doneresend' => '認証用の新しいリンクが登録メールに送信されました。',
+    'doneresend' => '認証用の新しいリンクが登録メールに送信されました',
 
     'manageinfl' => 'バイヤー管理',
     'infllist' => 'バイヤー一覧',
@@ -385,8 +385,8 @@ return [
     'notifypayment' => '支払済を通知',
     'notify' => '振込先銀行口座',
 
-    'noorderlist' => '注文データがありません。',
-    'nobuyerregister' => '登録されたバイヤー情報がありません。',
+    'noorderlist' => '注文データがありません',
+    'nobuyerregister' => '登録されたバイヤー情報がありません',
 
     'day0' => '日曜日',
     'day1' => '月曜日',
@@ -402,16 +402,16 @@ return [
     'editconfirm' => '出展を修正',
     'editaskconfirm' => '修正しますか？',
     'doedit' => '修正する',
-    'doneedit' => '更新されました。',
+    'doneedit' => '更新されました',
 
     'deleteconfirm' => '削除確認',
     'deleteaskconfirm' => '削除しますか？',
     'dodelete' => '削除する',
-    'donedelete' => '削除されました。',
+    'donedelete' => '削除されました',
 
-    'cantordercount' => '注文できません。',
-    'pleaseinputmorethan0' => '0以上の数字を入力してください。',
-    'pleaseinputnumeric' => '数字を入力してください。',
+    'cantordercount' => '注文できません',
+    'pleaseinputmorethan0' => '0以上の数字を入力してください',
+    'pleaseinputnumeric' => '数字を入力してください',
     'orderno' => '注文番号',
 
     'companytitle' => '会社役職',
@@ -534,7 +534,7 @@ return [
 
     'zoomkeysetting' => 'ZOOMAPI設定',
 
-    'sortingupdated' => '順番が更新されました。',
+    'sortingupdated' => '順番が更新されました',
     'registersubadmintitle' => 'コンシェルジュ登録',
     'registernews' => '新着情報登録',
     'editnews' => '新着情報修正',
@@ -550,7 +550,7 @@ return [
     'newseditconfirmtitle' => '新着情報の修正',
     'newsregisterconfirmtitle' => '新着情報の登録',
     'newsdeleteconfirmtitle' => '新着情報を削除',
-    'doneset' => '設定されました。',
+    'doneset' => '設定されました',
     'titlecomment' => 'タイトル/コメント',
     'title' => 'タイトル',
     'image' => '画像',
@@ -577,9 +577,9 @@ return [
     'eventname' => 'イベント名',
     'createdby' => '登録者名',
     'eventcontent' => 'イベント内容',
-    'eventupdated' => 'イベントが更新されました。',
+    'eventupdated' => 'イベントが更新されました',
 
-    'eventregisteredwithadminzoom' => '「:key1」登録されました。イベントはコンシェルジュの「:key2」のアカウントのZOOMキーで登録されました。',
+    'eventregisteredwithadminzoom' => '「:key1」登録されましたイベントはコンシェルジュの「:key2」のアカウントのZOOMキーで登録されました',
 
     'meetingmanagelist' => '会議一覧',
     'placeholderadminmeeting' => '会議名・開催場所・作成者名',
@@ -610,7 +610,7 @@ return [
     'senddate' => '送信日',
     'sender' => '送信者',
     'notreadyet' => '未読',
-    'zoommeetinghadbeenset' => 'ZOOMミーティングが設定されました。',
+    'zoommeetinghadbeenset' => 'ZOOMミーティングが設定されました',
     'meetingtime' => 'ミーティング日時',
     'joinlink' => '参加リンク',
     'openzoommeeting' => 'ZOOMミーティング開始する',
@@ -623,14 +623,14 @@ return [
     'setconfirmconfirmtitle' => 'モニタリング確定',
     'setconfirmconfirmtext' => '確定しますか？',
 
-    'noeventlist' => '登録されたイベントがありません。',
+    'noeventlist' => '登録されたイベントがありません',
     'eventsettopconfirmtitle' => 'PR位置に表示',
     'settopaskconfirm' => 'TOPページのPR位置に表示しますか？',
     'dosettop' => '表示する',
-    'doneset' => '設定されました。',
+    'doneset' => '設定されました',
 
-    'nomeetinglist' => '登録されたデータがありません。',
-    'nobloglist' => '登録された情報がありません。',
+    'nomeetinglist' => '登録されたデータがありません',
+    'nobloglist' => '登録された情報がありません',
 
     'makername' => 'メーカー名',
 
