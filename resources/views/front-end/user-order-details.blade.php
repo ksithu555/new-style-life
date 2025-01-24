@@ -165,7 +165,7 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>#</th>
-                                                                    <th>{{ __('messages.product_name') }}</th>
+                                                                    <th>{{ __('messages.product') }}</th>
                                                                     <th>{{ __('messages.shop') }}</th>
                                                                     <th>{{ __('messages.quantity') }}</th>
                                                                     <th>{{ __('messages.price_tax_included') }}</th>
@@ -196,13 +196,13 @@
                                                                         <h5>{{ $order->qty }}</h5>
                                                                     </td>
                                                                     <td>
+                                                                        <h5>¥ {{ number_format($order->selling_price * $order->qty , 0, '.', ',') }}</h5>
+                                                                    </td>
+                                                                    <td>
                                                                         <h5>{{ $order->size }}</h5>
                                                                     </td>
                                                                     <td>
                                                                         <h5>{{ $order->color }}</h5>
-                                                                    </td>
-                                                                    <td>
-                                                                        <h5>¥ {{ number_format($order->selling_price * $order->qty , 0, '.', ',') }}</h5>
                                                                     </td>
                                                                     <td>
                                                                         @if ($order->payment_approved == 1)
