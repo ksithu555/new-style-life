@@ -317,7 +317,7 @@ return [
     'summary' => 'サマリー',
     'order_date' => '注文日',
     'order_total' => '注文合計',
-    'shipping_address' => '配送先住所',
+    'shipping_address' => 'お届け先住所',
     'product_information' => '商品情報',
     'shipping_fee' => '配送料',
     'shop_information' => 'ショップ情報',

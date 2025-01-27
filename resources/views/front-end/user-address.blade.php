@@ -131,7 +131,7 @@
                                 <div class="dashboard-address">
                                     <div class="title title-flex">
                                         <div>
-                                            <h2>{{ __('messages.address') }}</h2>
+                                            <h2>{{ __('messages.shipping_address') }}</h2>
                                             <span class="title-leaf">
                                                 <svg class="icon-width bg-gray">
                                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
