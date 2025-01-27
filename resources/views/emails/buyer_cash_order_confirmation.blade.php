@@ -90,19 +90,18 @@
         </div>
         <div class="content">
             <p style="text-align: center;">
-                Your <strong>Cash Order</strong> have been successfully placed with order code
-                <strong>{{ $orderDetails->first()->order->order_code }}</strong>!
+                {{ __('messages.cash_order_placed') }} <strong>{{ $orderDetails->first()->order->order_code }}</strong>!
             </p>
             <p style="text-align: right;">{{ \Carbon\Carbon::now()->format('F j, Y') }}</p>
-            <p>Dear {{ $orderDetails->first()->buyer->name }},</h2>
-            <p>Here are the key details regarding order:</p>
+            <p>{{ __('messages.dear') }} {{ $orderDetails->first()->buyer->name }},</p>
+            <p>{{ __('messages.order_details') }}</p>
             <table>
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Shop</th>
-                        <th>Quantity</th>
-                        <th>Price(tax inc)</th>
+                        <th>{{ __('messages.product') }}</th>
+                        <th>{{ __('messages.shop') }}</th>
+                        <th>{{ __('messages.quantity') }}</th>
+                        <th>{{ __('messages.price_tax_included') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -119,43 +118,40 @@
             <table>
                 <tbody>
                     <tr>
-                        <td class="subtotal">Subtotal :</td>
+                        <td class="subtotal">{{ __('messages.sub_total') }} :</td>
                         <td>¥{{ number_format($orderDetails->first()->order->sub_total_amount, 0, '.', ',') }}</td>
                     </tr>
                     <tr>
-                        <td class="subtotal">Shipping Fee :</td>
+                        <td class="subtotal">{{ __('messages.shipping_fee') }} :</td>
                         <td>¥{{ number_format($orderDetails->first()->order->shipping_fee, 0, '.', ',') }}</td>
                     </tr>
                     <tr>
-                        <td class="subtotal">Coupon Discounted :</td>
-                        <td>¥{{ number_format($orderDetails->first()->order->coupon_discount_amount, 0, '.', ',') }}
-                        </td>
+                        <td class="subtotal">{{ __('messages.coupon_discounted') }} :</td>
+                        <td>¥{{ number_format($orderDetails->first()->order->coupon_discount_amount, 0, '.', ',') }}</td>
                     </tr>
                     <tr>
-                        <td class="subtotal">Total Price :</td>
+                        <td class="subtotal">{{ __('messages.total_price') }} :</td>
                         <td>¥{{ number_format($orderDetails->first()->order->total_amount, 0, '.', ',') }}</td>
                     </tr>
                 </tbody>
             </table>
-            <p>Please transfer the total amount of
-                ¥{{ number_format($totalAmount, 0, '', ',') }} to the following bank account:</p>
+            <p>{{ __('messages.please_transfer_total_amount') }} ¥{{ number_format($totalAmount, 0, '', ',') }} {{ __('messages.to_following_bank_account') }}:</p>
             <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Name: {{ $bankInfo->bank_name }}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Branch Name: {{ $bankInfo->branch_name }}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account Type: {{ $bankInfo->account_type }}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account Number: {{ $bankInfo->account_number }}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account Name: {{ $bankInfo->account_name }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.bank_name') }}: {{ $bankInfo->bank_name }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.branch_name') }}: {{ $bankInfo->branch_name }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.account_type') }}: {{ $bankInfo->account_type }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.account_number') }}: {{ $bankInfo->account_number }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.account_name') }}: {{ $bankInfo->account_name }}
             </p>
-
-            <p>Please make sure the transfer person name to be the following name for the transfer process:</p>
+        
+            <p>{{ __('messages.please_make_sure_transfer_person_name') }}:</p>
             <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: {{ $transferPersonName }}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: {{ $transferDate }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.name') }}: {{ $transferPersonName }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('messages.date') }}: {{ $transferDate }}
             </p>
-
-            <p style="color: red;">***If you don't transfer the amount within 7 days, your order will
-                be cancelled.</p>
-            <p>Thank you for shopping with us.</p>
+        
+            <p style="color: red;">***{{ __('messages.transfer_within_7_days') }}</p>
+            <p>{{ __('messages.thank_you_for_shopping') }}</p>
         </div>
         <div class="footer">
             <p>Thank You,</p>

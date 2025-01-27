@@ -76,18 +76,17 @@
         </div>
         <div class="content">
             <p style="text-align: center;">
-                Your order has been <strong>{{ $orderDetails->first()->status }}</strong> by
-                <strong>{{ $orderDetails->first()->seller->shop_name }}</strong>!
+                {{ __('messages.order_status_updated', ['status' => $orderDetails->first()->status, 'shop_name' => $orderDetails->first()->seller->shop_name]) }}
             </p>
             <p style="text-align: right">{{ \Carbon\Carbon::now()->format('F j, Y') }}</p>
-            <p>Dear {{ $orderDetails->first()->buyer->name }},</h2>
-            <p>Here are the key details regarding order:</p>
+            <p>{{ __('messages.dear') }} {{ $orderDetails->first()->buyer->name }},</p>
+            <p>{{ __('messages.order_details') }}</p>
             <table>
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price(tax inc)</th>
+                        <th>{{ __('messages.product') }}</th>
+                        <th>{{ __('messages.quantity') }}</th>
+                        <th>{{ __('messages.price_tax_included') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -117,25 +116,25 @@
             <table>
                 <tbody>
                     <tr>
-                        <td class="subtotal">Amount :</td>
+                        <td class="subtotal">{{ __('messages.amount') }} :</td>
                         <td>¥{{ number_format($amount , 0, '.', ',') }}</td>
                     </tr>
                     <tr>
-                        <td class="subtotal">Shipping Fee :</td>
+                        <td class="subtotal">{{ __('messages.shipping_fee') }} :</td>
                         <td>¥{{ number_format($delivery_price , 0, '.', ',') }}</td>
                     </tr>
                     <tr>
-                        <td class="subtotal">Coupon Discounted :</td>
+                        <td class="subtotal">{{ __('messages.coupon_discounted') }} :</td>
                         <td>¥{{ number_format($coupon_discount , 0, '.', ',') }}</td>
                     </tr>
                     <tr>
-                        <td class="subtotal">Total Price :</td>
+                        <td class="subtotal">{{ __('messages.total_price') }} :</td>
                         <td>¥{{ number_format((($amount + $delivery_price) - $coupon_discount) , 0, '.', ',') }}</td>
                     </tr>
                 </tbody>
             </table>
-
-            <p>Thank you for shopping with us.</p>
+        
+            <p>{{ __('messages.thank_you_for_shopping') }}</p>
         </div>
         <div class="footer">
             <p>Thank You,</p>

@@ -470,12 +470,12 @@
                                                                 @endif
                                                                 <div class="dropdown-column col-xl-3">
                                                                     <h5 class="dropdown-header">
-                                                                        {{ $subCategoryTitle->sub_category_titlename }}
+                                                                        {{ $subCategoryTitle->{'sub_category_titlename_' . app()->getLocale() } ?? $subCategoryTitle->sub_category_titlename }}
                                                                     </h5>
                                                                     @foreach ($subCategoryTitle->subCategory as $subCategory)
                                                                         <a class="dropdown-item"
                                                                             href="{{ url('/specialsubcategorysidebar/' . $subCategory->id) }}">
-                                                                            {{ $subCategory->sub_category_name }}
+                                                                            {{ $subCategory->{'sub_category_name_' . app()->getLocale() } ?? $subCategory->sub_category_name }}
                                                                         </a>
                                                                     @endforeach
                                                                 </div>

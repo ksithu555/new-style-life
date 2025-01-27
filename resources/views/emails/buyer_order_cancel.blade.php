@@ -61,40 +61,39 @@
 </head>
 <body>
     <div class="container">
-        <h2>Order Cancelled</h2>
-        <p>Dear {{ $order->buyer->name }},</p>
-        <p>Your order has been cancelled by {{ $order->seller->shop_name }}. </p>
-        <p>Cancelled Reason : {{ $order->cancelled_reason }}</p>
-        <p>Here are the details:</p>
+        <h2>{{ __('messages.order_cancelled') }}</h2>
+        <p>{{ __('messages.dear') }} {{ $order->buyer->name }},</p>
+        <p>{{ __('messages.order_cancelled_by_seller', ['shop_name' => $order->seller->shop_name]) }}</p>
+        <p>{{ __('messages.cancelled_reason') }} : {{ $order->cancelled_reason }}</p>
+        <p>{{ __('messages.order_details') }}</p>
         <table>
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price(tax inc)</th>
+                    <th>{{ __('messages.product') }}</th>
+                    <th>{{ __('messages.quantity') }}</th>
+                    <th>{{ __('messages.price_tax_included') }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{ $order->product->product_name }}</td>
                     <td>{{ $order->qty }}</td>
-                    <td>{{ $order->price }}</td>
+                    <td>¥{{ number_format($order->price, 0, '', ',') }}</td>
                 </tr>
             </tbody>
         </table>
         <table>
             <tbody>
                 <tr>
-                    <td class="subtotal">Amount :</td>
-                    <td>¥{{ number_format($order->amount , 0, '.', ',') }}</td>
+                    <td class="subtotal">{{ __('messages.amount') }} :</td>
+                    <td>¥{{ number_format($order->amount, 0, '.', ',') }}</td>
                 </tr>
             </tbody>
         </table>
-        <p>We will notify the refund process soon.</p>
-        
-        <p>Thank you for shopping with us.</p>
+        <p>{{ __('messages.notify_refund_process') }}</p>
+        <p>{{ __('messages.thank_you_for_shopping') }}</p>
         <div class="footer">
-            <p>If you have any questions, please contact us at info@new-style.life.</p>
+            <p>{{ __('messages.contact_us_at') }} info@new-style.life.</p>
         </div>
     </div>
 </body>
