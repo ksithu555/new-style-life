@@ -122,7 +122,7 @@
                                     </div>
 
                                     <div class="order-details-name">
-                                        <h5 class="text-content">{{ __('messages.product_infomation') }}</h5>
+                                        <h5 class="text-content">{{ __('messages.product_information') }}</h5>
                                         <h3>
                                             @if (mb_strlen($orderDetail->product_name) > 30)
                                             {!! mb_substr($orderDetail->product_name, 0, 30) .
