@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Wishlist</h2>
+                        <h2>{{ __('messages.your_wishlist') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Wishlist</li>
+                                <li class="breadcrumb-item active">{{ __('messages.your_wishlist') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="product-footer">
                             <div class="product-detail">
-                                <span class="span-name">{{ $wishlistProduct->category_name }}</span>
+                                <span class="span-name">{{ $wishlistProduct->Category->{'category_name_' . app()->getLocale() } ?? $wishlistProduct->Category->category_name }}</span>
                                 <a href="{{ route('show-product-left-thumbnail', ['id' => $wishlistProduct->id]) }}">
                                     <h5 class="name">{{ $wishlistProduct->product_name }}</h5>
                                 </a>

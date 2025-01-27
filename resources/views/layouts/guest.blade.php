@@ -301,14 +301,16 @@
                                                     </ul>
 
                                                     <div class="price-box">
-                                                        <h5>Total :</h5>
+                                                        <h5>{{ __('messages.total') }} :</h5>
                                                         <h4 class="theme-color fw-bold">
                                                             ¥{{ number_format($total, 0, '.', ',') }}</h4>
                                                     </div>
 
                                                     <div class="button-group">
                                                         <a href="{{ route('show_carts') }}"
-                                                            class="btn btn-sm cart-button">View Cart</a>
+                                                            class="btn btn-sm cart-button">
+                                                            {{ __('messages.btn_view_cart') }}
+                                                        </a>
                                                         {{-- <a href="{{ url('/checkout') }}" class="btn btn-sm cart-button theme-bg-color
                                                         text-white">Checkout</a> --}}
                                                     </div>

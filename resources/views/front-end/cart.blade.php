@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Cart</h2>
+                        <h2>{{ __('messages.cart') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Cart</li>
+                                <li class="breadcrumb-item active">{{ __('messages.cart') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -44,18 +44,18 @@
                     @php
                         $applyDisabled = 1;
                     @endphp
-                        <h2 class="text-center">No Products Added To Your Cart</h2>
+                        <h2 class="text-center">{{ __('messages.no_product_added_to_cart') }}</h2>
                     @else
                     <div class="cart-table">
                         <div class="table-responsive-xl">
                             <table class="table cart-table table-borderless">
                                 <thead>
                                     <tr>
-                                        <td style="text-align: center;"><h5>Product</h5></td>
-                                        <td style="padding-left: 15px;"><h5>Price(tax inc)</h5></td>
-                                        <td style="padding-left: 15px;"><h5>Quantity</h5></td>
-                                        <td style="padding-left: 15px;"><h5>Total</h5></td>
-                                        <td style="padding-left: 15px;"><h5>Coupon</h5></td>
+                                        <td style="text-align: center;"><h5>{{ __('messages.product') }}</h5></td>
+                                        <td style="padding-left: 15px;"><h5>{{ __('messages.price_tax_included') }}</h5></td>
+                                        <td style="padding-left: 15px;"><h5>{{ __('messages.quantity') }}</h5></td>
+                                        <td style="padding-left: 15px;"><h5>{{ __('messages.total') }}</h5></td>
+                                        <td style="padding-left: 15px;"><h5>{{ __('messages.coupon') }}</h5></td>
                                         <td></td>
                                     </tr>
                                     <tr><td></td></tr>
@@ -74,11 +74,11 @@
                                                         <li class="text-content">
                                                             <a href=" {{ url('/product-left-thumbnail/' . $cartlist->product_id) }} ">{{ $cartlist->product_name }}</a>
                                                         </li>
-                                                        <li class="text-content"><span class="text-title">In
-                                                                Stock:</span>{{ $cartlist->in_stock }}
+                                                        <li class="text-content"><span class="text-title">
+                                                            {{ __('messages.in_stock') }}:</span>{{ $cartlist->in_stock }}
                                                         </li>
-                                                        <li class="text-content"><span class="text-title">Sold
-                                                                By:</span>{{ $cartlist->shop_name }}
+                                                        <li class="text-content"><span class="text-title">
+                                                            {{ __('messages.sold_by') }}:</span>{{ $cartlist->shop_name }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -95,10 +95,10 @@
                                             <div class="product-detail" style="width: 100px;">
                                                 <ul>
                                                     <li class="text-content"><span class="text-title">
-                                                            Size :</span>{{ $cartlist->size }}
+                                                        {{ __('messages.size') }} :</span>{{ $cartlist->size }}
                                                     </li>
                                                     <li class="text-content"><span class="text-title">
-                                                            Color :</span>{{ $cartlist->color }}
+                                                        {{ __('messages.color') }} :</span>{{ $cartlist->color }}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -168,7 +168,7 @@
                                             data-bs-toggle="modal" data-bs-target="#removeProfile{{ $cartlist->cart_id }}"
                                             onclick="showDeleteModal('{{ $cartlist->cart_id }}')"
                                             class="btn-sm btn-animation proceed-btn fw-bold">
-                                            Remove</button>
+                                            {{ __('messages.btn_remove') }}</button>
                                         </td> 
                                     </tr>
                                     <!-- Confirm Modal Box Start -->
@@ -176,24 +176,24 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header d-block text-center">
-                                                    <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure?</h5>
+                                                    <h5 class="modal-title w-100" id="exampleModalLabel22">{{ __('messages.are_you_sure_to_remove') }}</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="remove-box">
-                                                        <p>This item will be removed from your cart.</p>
+                                                        <p>{{ __('messages.remove_item_from_cart') }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <form method="POST" action="{{ route('remove_cart', ['id' => $cartlist->cart_id]) }}">
                                                         @csrf
                                                         <button onclick="location.href = '{{ route('remove_cart', ['id' => $cartlist->cart_id]) }}';" type="submit"
-                                                        class="btn theme-bg-color btn-md fw-bold text-light">Yes</button>
+                                                        class="btn theme-bg-color btn-md fw-bold text-light">{{ __('messages.btn_yes') }}</button>
                                                     </form>
                                                     <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal"
-                                                    style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                                                    style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,7 +209,7 @@
                 <div class="col-xxl-3">
                         <div class="summery-box p-sticky">
                             <div class="summery-header">
-                                <h3>Cart Total</h3>
+                                <h3>{{ __('messages.cart_total') }}</h3>
                             </div>
                             {{-- @if ($couponapplycheck == 1)
                             <div class="alert alert-warning alert-block" id="alert-warning">
@@ -223,22 +223,22 @@
                             <div class="summery-contain" id="ts-form">
                                     <div class="coupon-cart">
                                         {{-- <input type="hidden" name="buyer_id" value="{{ $cartlist->buyer_id }}"> --}}
-                                        <h6 class="text-content mb-2">Coupon Apply</h6>
+                                        <h6 class="text-content mb-2">{{ __('messages.coupon_apply') }}</h6>
                                         <div class="mb-3 coupon-box input-group">
                                             <input type="text" class="form-control" name="coupon" id="exampleFormControlInput1"
-                                                placeholder="Enter Coupon Code Here..." @if ($applyDisabled == 1) disabled @endif>
-                                            <button id="applyButton" class="btn-apply" @if ($applyDisabled == 1) disabled @endif>Apply</button>
+                                                placeholder="{{ __('messages.enter_coupon_code_here') }}" @if ($applyDisabled == 1) disabled @endif>
+                                            <button id="applyButton" class="btn-apply" @if ($applyDisabled == 1) disabled @endif>{{ __('messages.btn_apply') }}</button>
                                         </div>
                                     </div>
                                 <ul>
                                     <li>
-                                        <h4>Subtotal</h4> 
+                                        <h4>{{ __('messages.sub_total') }}</h4> 
                                         <h4 class="price">¥ {{ number_format($subTotal , 0, '.', ',') }}</h4>
                                     </li>
                                     
                                     
                                     <li>
-                                        <h4>Coupon Discount</h4>   
+                                        <h4>{{ __('messages.coupon_discounted') }}</h4>   
                                         {{-- @if ($couponapplycheck != 1)   --}}
                                         @if (session()->has('discount'))
                                         @php
@@ -252,7 +252,7 @@
                                    
                                     
                                     <li class="align-items-start">
-                                        <h4>Shipping</h4>
+                                        <h4>{{ __('messages.shipping') }}</h4>
                                         <h4 class="price text-end">¥ {{ number_format($shippingFee , 0, '.', ',') }}</h4>
                                     </li>
                                    
@@ -263,7 +263,7 @@
                                 @csrf
                                 <ul class="summery-total">
                                     <li class="list-total border-top-0">
-                                        <h4>Total (tax inc)</h4>
+                                        <h4>{{ __('messages.total_tax_included') }}</h4>
                                         @if($discount)
                                             @php 
                                                 $Total  = $subTotal + $shippingFee - $discount
@@ -314,7 +314,7 @@
                                             <button type="submit"
                                                 class="btn btn-animation proceed-btn fw-bold"
                                                 @if ($cartLists->count() < 1) disabled @endif>
-                                                Process To Checkout</button>
+                                                {{ __('messages.btn_process_to_checkout') }}</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -350,19 +350,21 @@
                                 <div>
                                     <h3 class="lh-base fw-bold offer-text">{{ $coupon->name }}</h3>
                                     <h4 class="lh-base fw-bold offer-text">
-                                        Get ¥{{ number_format($coupon->discount_amount, 0, '', ',') }} Cashback! Min Order of
-                                            ¥{{ number_format($coupon->mini_amount, 0, '', ',') }}
+                                        {{ __('messages.get_cashback', ['amount' => number_format($coupon->discount_amount, 0, '', ','), 'min_amount' => number_format($coupon->mini_amount, 0, '', ',')]) }}
                                     </h4>
-                                    <h5 class="lh-base fw-bold offer-text">Expired Date :
-                                        {{ date('Y/m/d', strtotime($coupon->startdate)) }} ~
-                                        {{ date('Y/m/d', strtotime($coupon->enddate)) }}
+                                    <h5 class="lh-base fw-bold offer-text">
+                                        {{ __('messages.expired_date', ['start_date' => date('Y/m/d', strtotime($coupon->startdate)), 'end_date' => date('Y/m/d', strtotime($coupon->enddate))]) }}
                                     </h5>
                                     @if ($couponSeller)
-                                        <h4 class="lh-base fw-bold offer-text">Publisher : {{ $couponSeller->shop_name }}</h4>
+                                        <h4 class="lh-base fw-bold offer-text">
+                                            {{ __('messages.publisher', ['publisher' => $couponSeller->shop_name]) }}
+                                        </h4>
                                     @elseif ($couponProduct)
                                         <h4 class="lh-base fw-bold offer-text">Publisher : New Style Life</h4>
                                     @endif
-                                    <h6 class="coupon-code">Use Code : {{ $coupon->coupon_code}}</h6>
+                                    <h6 class="coupon-code">
+                                        {{ __('messages.use_code', ['code' => $coupon->coupon_code]) }}
+                                    </h6>
                                 </div>
                             </div>
                         </div>

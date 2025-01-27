@@ -173,13 +173,13 @@
                                                     <li class="nav-item dropdown">
                                                         <a class="nav-link " href="{{ url('/') }}" style="font-size: 14px; 
                                                         font-weight: 600; color: #2a2424; text-decoration: underline; 
-                                                        text-transform: capitalize; margin-left: 20px;">Home
+                                                        text-transform: capitalize; margin-left: 20px;">{{ __('messages.home') }}
                                                         </a>
                                                     </li>
                                                     <li class="nav-item dropdown">
                                                         <a class="nav-link" href="{{ url('/user') }}" style="font-size: 14px; 
                                                         font-weight: 600; color: #2a2424; text-decoration: underline; 
-                                                        text-transform: capitalize; margin-left: 20px;">My Menu
+                                                        text-transform: capitalize; margin-left: 20px;">{{ __('messages.my_menu') }}
                                                         </a>
         
                                                     </li>
@@ -187,7 +187,7 @@
                                                      <li class="nav-item dropdown">
                                                         <a class="nav-link " href="{{ url('/products') }}" style="font-size: 14px; 
                                                         font-weight: 600; color: #2a2424; text-decoration: underline; 
-                                                        text-transform: capitalize; margin-left: 20px;">Product
+                                                        text-transform: capitalize; margin-left: 20px;">{{ __('messages.product') }}
                                                         </a>
                                                     </li>
         
@@ -195,7 +195,7 @@
                                                     <li class="nav-item dropdown">
                                                         <a class="nav-link " href="{{ route('shoplist') }}" style="font-size: 14px; 
                                                         font-weight: 600; color: #2a2424; text-decoration: underline; 
-                                                        text-transform: capitalize; margin-left: 20px;">Shop
+                                                        text-transform: capitalize; margin-left: 20px;">{{ __('messages.shop') }}
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -224,7 +224,7 @@
                             <tr>
                                 <td style="text-align: left;padding-right: 28px;border-right: 2px solid rgba(217, 217, 217, 0.5);width: 50%;">
                                     <div class="title title-2" style="text-align: left;">
-                                        <h2 style="font-size: 16px;font-weight: 700;margin: 0 0 12px;">We will deliver your order</h2>
+                                        <h2 style="font-size: 16px;font-weight: 700;margin: 0 0 12px;">{{ __('messages.we_will_deliver_your_order') }}</h2>
                                         <p
                                             style="font-size: 14px;margin: 0;line-height: 1.5;color: #939393;font-weight: 500;">
                                             〒{{ formatZipCode($order->orderDetail->first()->post_code) }} <br>
@@ -238,11 +238,10 @@
                                 <td style="text-align: left;padding-left: 32px;width: 50%;">
                                     <div class="title title-2" style="text-align: left;">
                                         <h2 style="font-size: 16px;font-weight: 700;margin: 0 0 12px;">
-                                            Thanks for your order</h2>
-                                        <p
-                                            style="font-size: 14px;margin: 0;line-height: 1.5;color:#939393;font-weight: 500;">
-                                            If you have any questions, 
-                                            Call Us (+81) 03-3981-5090 or Contact Us (info@new-style.life).</p>
+                                            {{ __('messages.thank_you_for_shopping') }}</h2>
+                                        <p style="font-size: 14px;margin: 0;line-height: 1.5;color:#939393;font-weight: 500;">
+                                            {{ __('messages.if_you_have_any_questions') }}
+                                        </p>
                                     </div>
                                 </td>
                             </tr>
@@ -257,11 +256,10 @@
                                 <td style="text-align: left;padding-left: 32px;width: 100%;">
                                     <div class="title title-2" style="text-align: left;">
                                         <h2 style="font-size: 16px;font-weight: 700;margin: 0 0 12px;">For your reminder!</h2>
-                                        <p
-                                            style="font-size: 14px;margin: 0;line-height: 1.5;color:#939393;font-weight: 500;">
-                                            We have send the email to you with detail order and bank informations. <br>
-                                            Please check your email!<br>
-                                            <span style="color: red">If you don't receive the email, please check your spam or junk folder.</span>
+                                        <p style="font-size: 14px;margin: 0;line-height: 1.5;color:#939393;font-weight: 500;">
+                                            {{ __('messages.email_sent_with_order_details') }} <br>
+                                            {{ __('messages.check_your_email') }}<br>
+                                            <span style="color: red">{{ __('messages.check_spam_folder') }}</span>
                                         </p>
                                     </div>
                                 </td>
@@ -275,7 +273,8 @@
                             <tr>
                                 <th
                                     style="font-size: 17px;font-weight: 700;padding-bottom: 8px;border-bottom: 1px solid rgba(217, 217, 217, 0.5);text-align: left;">
-                                    Ordered Items</th>
+                                    {{ __('messages.ordered_items') }}</th>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -301,8 +300,8 @@
                                                                 {!! nl2br(e($orderDetail->product->product_name)) !!}
                                                             @endif
                                                         </li>
-                                                        <li>Quantity: <span>{{ $orderDetail->qty }}</span></li>
-                                                        <li>Price: <span>¥{{ number_format($orderDetail->price, 0, '', ',') }}</span></li>
+                                                        <li>{{ __('messages.quantity') }}: <span>{{ $orderDetail->qty }}</span></li>
+                                                        <li>{{ __('messages.price') }}: <span>¥{{ number_format($orderDetail->price, 0, '', ',') }}</span></li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -317,12 +316,12 @@
                                         <tbody>
                                             <tr>
                                                 <td style="font-weight: 700;font-size: 17px;padding-bottom: 15px;border-bottom: 1px solid rgba(217, 217, 217, 0.5);"
-                                                    colspan="2">Order summary</td>
+                                                    colspan="2">{{ __('messages.order_summary') }}</td>
                                             </tr>
                                             <tr>
                                                 <td
                                                     style="text-align: left;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    Subtotal</td>
+                                                    {{ __('messages.sub_total') }}</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
                                                     ¥{{ number_format($order->sub_total_amount, 0, '', ',') }}</td>
@@ -330,7 +329,7 @@
                                             <tr>
                                                 <td
                                                     style="text-align: left;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    Discount</td>
+                                                    {{ __('messages.discount') }}</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
                                                     -¥{{ number_format($order->coupon_discount_amount, 0, '', ',') }}</td>
@@ -338,7 +337,7 @@
                                             <tr>
                                                 <td
                                                     style="text-align: left;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    Shipping Fee</td>
+                                                    {{ __('messages.shipping_fee') }}</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
                                                     ¥{{ number_format($order->shipping_fee, 0, '', ',') }}</td>
@@ -346,7 +345,7 @@
                                             <tr>
                                                 <td
                                                     style="text-align: left;font-size: 15px;font-weight: 600;padding-top: 15px;">
-                                                    Total</td>
+                                                    {{ __('messages.total') }}</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 600;padding-top: 15px;">
                                                     ¥{{ number_format($order->total_amount, 0, '', ',') }}</td>
@@ -366,8 +365,8 @@
                                 <table border="0" cellpadding="0" cellspacing="0" class="footer-social-icon text-center"
                                     align="center" style="margin: 8px auto 20px;">
                                     <tr>
-                                        <td style="font-size: 19px; font-weight: 700;">Shop For <span
-                                                class="theme-color">New Style Life</span></td>
+                                        <td style="font-size: 19px; font-weight: 700;">{{ __('messages.shop_for') }} <span
+                                                class="theme-color">{{ __('messages.new_style_life') }}</span></td>
                                     </tr>
                                 </table>
                                 <table border="0" cellpadding="0" cellspacing="0" class="footer-social-icon text-center"
@@ -375,13 +374,14 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/contact') }}"
-                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">Contact
-                                                Us</a>
+                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">
+                                                {{ __('messages.contact_us') }}</a>
                                         </td>
                                         <td>
                                             <a href="{{ url('/privacy-policy') }}"
-                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">privacy
-                                                Policy</a>
+                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">
+                                                {{ __('messages.privacy_policy') }}
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>
@@ -389,8 +389,8 @@
                                     <tr>
                                         <td>
                                             <h5 style="font-size: 13px; text-transform: uppercase; margin: 0; color:#ddd;
-                                letter-spacing:1px; font-weight: 500;">Specializing in New Style, we're dedicated to providing new,
-                                 top-quality product to Japan daily.
+                                                letter-spacing:1px; font-weight: 500;">
+                                                {{ __('messages.specializing_in_new_style') }}
                                             </h5>
                                             <h5 style="font-size: 13px; text-transform: uppercase; margin: 10px 0 0; color:#ddd;
                                 letter-spacing:1px; font-weight: 500;">©2024 Asia Human Development, Inc. All rights reserved</h5>

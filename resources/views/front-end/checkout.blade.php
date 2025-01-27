@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Checkout</h2>
+                        <h2>{{ __('messages.checkout') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Checkout</li>
+                                <li class="breadcrumb-item active">{{ __('messages.checkout') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="checkout-box">
                                         <div class="checkout-title">
-                                            <h4>Delivery Address</h4>
+                                            <h4>{{ __('messages.delivery_address') }}</h4>
                                         </div>
                                         @if($buyerAddress->count() > 0)
                                         <div class="checkout-detail">
@@ -77,8 +77,9 @@
 
                                                                 <li>
                                                                     <h6 class="text-content mb-0"><span
-                                                                            class="text-title">Phone
-                                                                            :</span>{{ $buyeraddress->phone }}</h6>
+                                                                        class="text-title">
+                                                                        {{ __('messages.phone') }}:</span>{{ $buyeraddress->phone }}
+                                                                    </h6>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -100,7 +101,7 @@
                                     </div>
                                     <div class="checkout-box">
                                         <div class="checkout-title">
-                                            <h4>Payment Option</h4>
+                                            <h4>{{ __('messages.payment_option') }}</h4>
                                         </div>
 
                                         <div class="row" style="margin-bottom: 50px;" id="paypaldiv">
@@ -110,12 +111,12 @@
                                                         <li class="nav-item" role="presentation">
                                                             <button class="nav-link active" id="pills-home-tab"
                                                                 data-bs-toggle="pill" data-bs-target="#pills-home"
-                                                                type="button" role="tab">Cash</button>
+                                                                type="button" role="tab">{{ __('messages.cash') }}</button>
                                                         </li>
                                                         <li class="nav-item" role="presentation">
                                                             <button class="nav-link" id="pills-profile-tab"
                                                                 data-bs-toggle="pill" data-bs-target="#pills-profile"
-                                                                type="button" role="tab">PayPal/Credit</button>
+                                                                type="button" role="tab">{{ __('messages.paypal_credit') }}</button>
                                                         </li>
                                                     </ul>
                                                     <div class="tab-content" id="pills-tabContent" style="margin-top: 10px;">
@@ -136,7 +137,7 @@
                                                                                     <div class="col-md-11 d-flex align-items-center">
                                                                                         <label>
                                                                                             <h4 class="fw-bold">
-                                                                                                Choose the payment for {{ $bankAccount->bank_name }} bank!
+                                                                                                {{ __('messages.choose_payment_for_bank', ['bank_name' => $bankAccount->bank_name]) }}
                                                                                             </h4>
                                                                                         </label>
                                                                                     </div>
@@ -146,31 +147,31 @@
                                                                                     <table class="table">
                                                                                         <tbody style="background-color: rgb(245, 245, 245);">
                                                                                             <tr>
-                                                                                                <td>Bank Name:</td>
+                                                                                                <td>{{ __('messages.bank_name') }}:</td>
                                                                                                 <td>
                                                                                                     <p>{{ $bankAccount->bank_name }}</p>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td>Branch Name:</td>
+                                                                                                <td>{{ __('messages.branch_name') }}:</td>
                                                                                                 <td>
                                                                                                     <p>{{ $bankAccount->branch_name }}</p>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td>Account Type:</td>
+                                                                                                <td>{{ __('messages.account_type') }}:</td>
                                                                                                 <td>
                                                                                                     <p>{{ $bankAccount->account_type }}</p>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td>Account Number:</td>
+                                                                                                <td>{{ __('messages.account_number') }}:</td>
                                                                                                 <td>
                                                                                                     <p>{{ $bankAccount->account_number }}</p>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td>Account Name:</td>
+                                                                                                <td>{{ __('messages.account_name') }}:</td>
                                                                                                 <td>
                                                                                                     <p>{{ $bankAccount->account_name }}</p>
                                                                                                 </td>
@@ -183,24 +184,23 @@
                                                                     @endif
                                                                     </div>
 
-                                                                <h4 class="fw-bold" style="margin-bottom: 10px;">Enter Your Bank Account Name</h4>
-                                                                <p style="color:red; font-size:12px;">* Please be careful to enter the correct transfer person name. 
-                                                                    This name will be used to verify payment transfers to confirm whether the payment has been made.</p>
+                                                                <h4 class="fw-bold" style="margin-bottom: 10px;">{{ __('messages.enter_bank_account_name') }}</h4>
+                                                                <p style="color:red; font-size:12px;">* {{ __('messages.enter_correct_transfer_person_name') }}</p>
                                                                 <div class="form-floating theme-form-floating">
-                                                                    <input type="text" class="form-control" name="transfer-person-name" id="transfer-person-name" placeholder="Transfer Person Name">
-                                                                    <label for="transfer-person-name">Transfer Person Name</label>
+                                                                    <input type="text" class="form-control" name="transfer-person-name" id="transfer-person-name" placeholder="{{ __('messages.transfer_person_name') }}">
+                                                                    <label for="transfer-person-name">{{ __('messages.transfer_person_name') }}</label>
                                                                     <span class="error" style="color:red" id="error-transfer-person-name"></span>
                                                                 </div>
-                                                                <p style="color:red; font-size:12px;">* Choose the date within 7 days.</p>
+                                                                <p style="color:red; font-size:12px;">* {{ __('messages.choose_date_within_7_days') }}</p>
                                                                 <div class="form-floating theme-form-floating" style="margin-top: 10px;">
-                                                                    <input type="date" class="form-control" name="transfer-date" id="transfer-date" placeholder="Transfer Date">
-                                                                    <label for="transfer-date">Transfer Date</label>
+                                                                    <input type="date" class="form-control" name="transfer-date" id="transfer-date" placeholder="{{ __('messages.transfer_date') }}">
+                                                                    <label for="transfer-date">{{ __('messages.transfer_date') }}</label>
                                                                     <span class="error" style="color:red" id="error-transfer-date"></span>
                                                                 </div>
                                                                 <button class="btn" type="button" id="btnPayWithCash"
                                                                     style="layout: vertical;background-color:#009cde;color:#fff;shape:rect;label:paywithcash;height:50; font-size: 20px;font-family: Arial, sans-serif;"
                                                                     {{ $bankAccounts->count() < 1 ? 'disabled' : '' }}>
-                                                                    Pay With Cash
+                                                                    {{ __('messages.pay_with_cash') }}
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -236,7 +236,7 @@
                     <div class="right-side-summery-box">
                         <div class="summery-box-2">
                             <div class="summery-header">
-                                <h3>Order Summery</h3>
+                                <h3>{{ __('messages.order_summary') }}</h3>
                             </div>
                             @foreach($cartLists as $cartlist)
 
@@ -279,23 +279,23 @@
                             <ul class="summery-total">
                                 <li>
 
-                                    <h4>Subtotal</h4>
+                                    <h4>{{ __('messages.sub_total') }}</h4>
                                     <h4 class="price">¥ {{ number_format($subTotal , 0, '.', ',') }}</h4>
 
                                 </li>
 
                                 <li>
-                                    <h4>Shipping</h4>
+                                    <h4>{{ __('messages.shipping') }}</h4>
                                     <h4 class="price">¥ {{ number_format($shippingFee , 0, '.', ',') }}</h4>
                                 </li>
 
                                 <li>
-                                    <h4>Coupon Discount</h4>
+                                    <h4>{{ __('messages.coupon_discounted') }}</h4>
                                     <h4 class="price">(-)¥ {{ number_format($couponDiscount , 0, '.', ',') }}</h4>
                                 </li>
 
                                 <li class="list-total">
-                                    <h4>Total (JPY)</h4>
+                                    <h4>{{ __('messages.total') }} (JPY)</h4>
                                     <h4 class="price">¥ {{ number_format($total1 , 0, '.', ',') }}</h4>
                                 </li>
                             </ul>
@@ -305,7 +305,9 @@
 
 
                         <!-- Place Order button (initially hidden) -->
-                        <button class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold" id="placeOrderButton" style="display: none;">Place Order</button>
+                        <button class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold" id="placeOrderButton" style="display: none;">
+                            {{ __('messages.btn_place_order') }}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -443,26 +445,26 @@
 
             if (!selectedBankAccount) {
                 isValid = false;
-                document.getElementById('error-selected_bank_account').textContent = 'Please select the bank account you want to transfer.';
+                document.getElementById('error-selected_bank_account').textContent = '{{ __('messages.select_bank_account_error_message') }}';
             }
-
+            
             if (!transferPersonName) {
                 isValid = false;
-                document.getElementById('error-transfer-person-name').textContent = 'Please provide your account holder.';
+                document.getElementById('error-transfer-person-name').textContent = '{{ __('messages.provide_account_holder_error_message') }}';
             } else if (transferPersonName.length > 255) {
                 isValid = false;
-                document.getElementById('error-transfer-person-name').textContent = 'Your account holder must not exceed 255 characters.';
+                document.getElementById('error-transfer-person-name').textContent = '{{ __('messages.account_holder_length_error_message') }}';
             }
-
+            
             if (!transferDate || isNaN(transferDate.getTime())) {
                 isValid = false;
-                document.getElementById('error-transfer-date').textContent = 'Please provide the date of transfer for payment.';
+                document.getElementById('error-transfer-date').textContent = '{{ __('messages.provide_transfer_date_error_message') }}';
             } else if (transferDate < today) {
                 isValid = false;
-                document.getElementById('error-transfer-date').textContent = 'The transfer date cannot be in the past.';
+                document.getElementById('error-transfer-date').textContent = '{{ __('messages.transfer_date_past_error_message') }}';
             } else if (transferDate > next7Days) {
                 isValid = false;
-                document.getElementById('error-transfer-date').textContent = 'The transfer date cannot exceed the next 7 days.';
+                document.getElementById('error-transfer-date').textContent = '{{ __('messages.transfer_date_exceed_error_message') }}';
             }
 
             if (isValid) {
