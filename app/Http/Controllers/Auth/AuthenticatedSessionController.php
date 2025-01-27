@@ -49,10 +49,10 @@ class AuthenticatedSessionController extends Controller
         $loginUser = User::where('email', $request->email)->first();
         if(!$loginUser)
         {
-            return back()->with('error', 'Incorrect!')->with('incorrect', __('messages.email_password_incorrect'));
+            return back()->with('error', '')->with('incorrect', __('messages.email_password_incorrect'));
         }
         if (!Hash::check($request->password, $loginUser->password)) {
-            return back()->with('error', 'Incorrect!')->with('incorrect', __('messages.email_password_incorrect'));
+            return back()->with('error', '')->with('incorrect', __('messages.email_password_incorrect'));
         }
 
         if($loginUser->email_verified_at == null)
