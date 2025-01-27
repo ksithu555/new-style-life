@@ -361,4 +361,8 @@ return [
     'member_benefits' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a registered member, you now have access to our services/benefits. We encourage you to take full advantage of these offerings to enhance your experience with us.',
     'further_details' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We will be in touch with further details regarding the commencement of the New Style Life and any additional requirements. In the meantime, if you require any assistance or support, feel free to contact our team.',
     'congratulations' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once again, congratulations on completing your registration!',
+    'order_confirmation' => 'Order Confirmation',
+    'order_successfully_placed' => 'Your order has been successfully placed. Here are the details:',
+    'transfer_within_date' => 'If you don\'t transfer the amount by :date, your order will be cancelled.',
+    'transfer_person_name' => 'Transfer Person Name',
 ];
