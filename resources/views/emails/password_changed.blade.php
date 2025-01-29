@@ -58,14 +58,13 @@
         </div>
         <div class="content">
             <p style="text-align: center;">
-                Your password have been <strong>changed</strong>!
+                {{ __('messages.password_changed') }}
             </p>
             <p style="text-align: right;">{{ \Carbon\Carbon::now()->format('F j, Y') }}</p>
-            <p>Dear {{ $user->name }},</h2>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We wanted to let you know that your password has been successfully changed.</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you did not make this change or if you believe an unauthorized person has accessed your account,
-                please contact our support team immediately.</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you for keeping your account secure.</p>
+            <p>{{ __('messages.dear') }} {{ $user->name }},</p>
+            <p>{{ __('messages.password_change_success') }}</p>
+            <p>{{ __('messages.unauthorized_access_warning') }}</p>
+            <p>{{ __('messages.thank_you_for_securing_account') }}</p>
         </div>
         <div class="footer">
             <p>Thank You,</p>

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2 class="mb-2">Compare</h2>
+                        <h2 class="mb-2">{{ __('messages.compare_list') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Compare</li>
+                                <li class="breadcrumb-item active">{{ __('messages.compare_list') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -33,7 +33,7 @@
                         <table class="table compare-table">
                             <tbody>
                                 <tr>
-                                    <th>Product</th>
+                                    <th>{{ __('messages.product') }}</th>
                                     @foreach($comparelistProducts as $product)
                                         <td>
                                             <a class="text-title" href="{{ route('show-product-left-thumbnail', ['id' => $product->id]) }}">
@@ -43,7 +43,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Images</th>
+                                    <th>{{ __('messages.images') }}</th>
                                     @foreach($comparelistProducts as $product)
                                     <td>
                                         <a href="{{ route('show-product-left-thumbnail', ['id' => $product->id]) }}" class="compare-image">
@@ -55,7 +55,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Size</th>
+                                    <th>{{ __('messages.size') }}</th>
                                     @foreach($comparelistProducts as $product)
                                         <td class="text-content">
                                             {{-- {{ $product->product_size }} --}}
@@ -81,7 +81,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Color</th>
+                                    <th>{{ __('messages.color') }}</th>
                                     @foreach($comparelistProducts as $product)
                                         <td class="text-content">
                                             {{-- {{ $product->product_color }} --}}
@@ -107,7 +107,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Price</th>
+                                    <th>{{ __('messages.price') }}</th>
                                     @foreach($comparelistProducts as $product)
                                         <td class="text-content">
                                         @if ($product->discount_percent != 0)
@@ -121,7 +121,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Rating</th>
+                                    <th>{{ __('messages.rating') }}</th>
                                     @foreach($comparelistProducts as $key => $product)
                                     <td>
                                         <div class="compare-rating">
@@ -134,18 +134,18 @@
                                                     @endif
                                                 @endfor
                                             </ul>
-                                            <span class="text-content">({{ $ratingWithProductCount[$key][1] }} Reviews)</span>
+                                            <span class="text-content">({{ $ratingWithProductCount[$key][1] }} {{ __('messages.reviews') }})</span>
                                         </div>
                                     </td>
                                     @endforeach
                                 </tr>
 
                                 <tr>
-                                    <th>Purchase</th>
+                                    <th>{{ __('messages.purchase') }}</th>
                                     @foreach($comparelistProducts as $product)
                                     <td>
                                         <button onclick="addToCart({{ $product->id }})"
-                                            class="btn btn-animation btn-sm w-100">Add To Cart</button>
+                                            class="btn btn-animation btn-sm w-100">{{ __('messages.add_to_cart') }}</button>
                                     </td>
                                     @endforeach
                                 </tr>
@@ -155,7 +155,7 @@
                                     @foreach($comparelistProducts as $product)
                                     <td>
                                         <a href="javascript:void(0)" class="text-content remove_column" data-comparelist-id="{{ $product->id }}">
-                                            <i class="fa-solid fa-trash-can me-2"></i> Remove
+                                            <i class="fa-solid fa-trash-can me-2"></i> {{ __('messages.btn_remove') }}
                                         </a>
                                     </td>
                                     @endforeach

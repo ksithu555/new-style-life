@@ -401,4 +401,11 @@ return [
     'ordered_items' => 'Ordered Items',
     'specializing_in_new_style' => 'Specializing in New Style, we\'re dedicated to providing new, top-quality products to Japan daily.',
     'btn_view_cart' => 'View Cart',
+    'password_changed' => 'Your password has been <strong>changed</strong>!',
+    'password_change_success' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We wanted to let you know that your password has been successfully changed.',
+    'unauthorized_access_warning' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you did not make this change or if you believe an unauthorized person has accessed your account, please contact our support team immediately.',
+    'thank_you_for_securing_account' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you for keeping your account secure.',
+    'compare_list' => 'Compare List',
+    'images' => 'Images',
+    'purchase' => 'Purchase',
 ];

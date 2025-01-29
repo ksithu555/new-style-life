@@ -79,7 +79,7 @@
                                                     <i class="fa-solid fa-location-dot"></i>
                                                 </div>
                                                 <div class="contact-detail-title">
-                                                    <h4>{{ __('messages.office') }}</h4>
+                                                    <h4>{{ __('messages.address') }}</h4>
                                                 </div>
 
                                                 <div class="contact-detail-contain">

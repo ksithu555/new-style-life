@@ -76,7 +76,7 @@
                                             {{ __('messages.dashboard') }}</a>
                                 </li>
                                 <li class="nav-item active" role="presentation">
-                                    <a class="nav-link" id="pills-order-tab"
+                                    <a class="nav-link active" id="pills-order-tab"
                                         style="font-size: 14px; text-align: center;" href="{{route ('user_order')}}"><i
                                             data-feather="shopping-bag"></i>{{ __('messages.orders') }}</a>
                                 </li>
