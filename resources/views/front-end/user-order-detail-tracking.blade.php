@@ -234,11 +234,11 @@
                                 $status = 0;
                                 $pendingDone = 'progtrckr-done';
                                 $pendingDate = $orderDetail->order_detail_created_at;
-                                $confirmedDate = 'Pending';
-                                $processingDate = 'Pending';
-                                $pickedDate = 'Pending';
-                                $shippedDate = 'Pending';
-                                $deliveredDate = 'Pending';
+                                $confirmedDate = __('messages.pending');
+                                $processingDate = __('messages.pending');
+                                $pickedDate = __('messages.pending');
+                                $shippedDate = __('messages.pending');
+                                $deliveredDate = __('messages.pending');
                                 if ($orderDetail->confirmed_date) {
                                 $status = 1;
                                 $confirmedDate = $orderDetail->confirmed_date;
@@ -273,7 +273,7 @@
                                     </li>
                                     <li class="{{ $confirmedDone }}">
                                         <h5>{{ __('messages.confirmed') }}</h5>
-                                        @if ($confirmedDate != 'Pending')
+                                        @if ($confirmedDate != __('messages.pending'))
                                         <h6>{{ date('Y/m/d H:i', strtotime($confirmedDate)) }}</h6>
                                         @else
                                         <h6>{{ $confirmedDate }}</h6>
@@ -281,7 +281,7 @@
                                     </li>
                                     <li class="{{ $processingDone }}">
                                         <h5>{{ __('messages.processing') }}</h5>
-                                        @if ($processingDate != 'Pending')
+                                        @if ($processingDate != __('messages.pending'))
                                         <h6>{{ date('Y/m/d H:i', strtotime($processingDate)) }}</h6>
                                         @else
                                         <h6>{{ $processingDate }}</h6>
@@ -289,7 +289,7 @@
                                     </li>
                                     <li class="{{ $pickedDone }}">
                                         <h5>{{ __('messages.picked') }}</h5>
-                                        @if ($pickedDate != 'Pending')
+                                        @if ($pickedDate != __('messages.pending'))
                                         <h6>{{ date('Y/m/d H:i', strtotime($pickedDate)) }}</h6>
                                         @else
                                         <h6>{{ $pickedDate }}</h6>
@@ -297,7 +297,7 @@
                                     </li>
                                     <li class="{{ $shippedDone }}">
                                         <h5>{{ __('messages.shipped') }}</h5>
-                                        @if ($shippedDate != 'Pending')
+                                        @if ($shippedDate != __('messages.pending'))
                                         <h6>{{ date('Y/m/d H:i', strtotime($shippedDate)) }}</h6>
                                         @else
                                         <h6>{{ $shippedDate }}</h6>
@@ -305,7 +305,7 @@
                                     </li>
                                     <li class="{{ $deliveredDone }}">
                                         <h5>{{ __('messages.delivered') }}</h5>
-                                        @if ($deliveredDate != 'Pending')
+                                        @if ($deliveredDate != __('messages.pending'))
                                         <h6>{{ date('Y/m/d H:i', strtotime($deliveredDate)) }}</h6>
                                         @else
                                         <h6>{{ $deliveredDate }}</h6>
@@ -331,35 +331,35 @@
                                                 <td>{{ date('Y/m/d', strtotime($pendingDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($pendingDate)) }}</td>
                                             </tr>
-                                            @if ($confirmedDate != 'Pending')
+                                            @if ($confirmedDate != __('messages.pending'))
                                             <tr>
                                                 <td>{{ __('messages.order_confirmed') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($confirmedDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($confirmedDate)) }}</td>
                                             </tr>
                                             @endif
-                                            @if ($processingDate != 'Pending')
+                                            @if ($processingDate != __('messages.pending'))
                                             <tr>
                                                 <td>{{ __('messages.processing_to_ship') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($processingDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($processingDate)) }}</td>
                                             </tr>
                                             @endif
-                                            @if ($pickedDate != 'Pending')
+                                            @if ($pickedDate != __('messages.pending'))
                                             <tr>
                                                 <td>{{ __('messages.picked_for_shipping') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($pickedDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($pickedDate)) }}</td>
                                             </tr>
                                             @endif
-                                            @if ($shippedDate != 'Pending')
+                                            @if ($shippedDate != __('messages.pending'))
                                             <tr>
                                                 <td>{{ __('messages.shipping_the_product') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($shippedDate)) }}</td>
                                                 <td>{{ date('h:i A', strtotime($shippedDate)) }}</td>
                                             </tr>
                                             @endif
-                                            @if ($deliveredDate != 'Pending')
+                                            @if ($deliveredDate != __('messages.pending'))
                                             <tr>
                                                 <td>{{ __('messages.delivered') }}</td>
                                                 <td>{{ date('Y/m/d', strtotime($deliveredDate)) }}</td>
