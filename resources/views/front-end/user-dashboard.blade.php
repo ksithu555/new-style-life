@@ -148,7 +148,9 @@
                                     </div>
 
                                     <div class="dashboard-user-name">
-                                        <h6 class="text-content">{{ __('messages.hello') }}, <b class="text-title">{{ $user->name }}</b></h6>
+                                        <h6 class="text-content">
+                                            {!! __('messages.hello', ['name' => '<b class="text-title">' . $user->name . '</b>']) !!}
+                                        </h6>
                                         <p class="text-content">{{ __('messages.dashboard_greeting') }}</p>
                                     </div>
 

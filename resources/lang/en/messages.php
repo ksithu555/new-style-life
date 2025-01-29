@@ -228,7 +228,7 @@ return [
     'delivery_status' => 'Delivery Status',
     'profile' => 'Profile',
     'message' => 'Message',
-    'hello' => 'Hello',
+    'hello' => 'Hello, :name',
     'dashboard_greeting' => 'From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information.',
     'total_order' => 'Total Order',
     'total_pending_order' => 'Total Pending Order',
