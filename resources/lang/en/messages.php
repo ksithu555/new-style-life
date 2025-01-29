@@ -439,4 +439,6 @@ return [
     'seller_support' => 'Through a team of experts offering exclusive seller workshops, training, seller support and convenient seller portal, New Style Life focuses on educating and empowering sellers across Japan. Selling on New Style Life is easy and absolutely free. All you need is to register, list your catalogue and start selling your products.',
     'seller_verification' => 'Before we get started, we’ll need to verify your email.',
     'chat_support_message' => 'You can also chat with a real live human during our operating hours. They can answer questions about your account or help you with your meditation practice.',
+    'prefecture' => 'Prefecture',
+    'seller_terms_and_conditions' => 'Seller Terms and Conditions',
 ];

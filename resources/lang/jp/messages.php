@@ -27,7 +27,7 @@ return [
     'contact_us' => 'お問い合わせ',
     'our_story' => '私たちのストーリー',
     'help_center' => 'ヘルプセンター',
-    'seller_register' => '出品者登録',
+    'seller_register' => '出店者登録',
     'your_account' => 'あなたのアカウント',
     'track_order' => '注文を追跡',
     'your_wishlist' => 'ウィッシュリスト',
@@ -437,4 +437,6 @@ return [
     'seller_support' => '専門家チームによる独占的な販売者ワークショップ、トレーニング、販売者サポート、便利な販売者ポータルを通じて、New Style Lifeは日本中の販売者の教育とエンパワーメントに焦点を当てています。New Style Lifeでの販売は簡単で完全に無料です。登録してカタログをリストし、製品の販売を開始するだけです。',
     'seller_verification' => '始める前に、メールを確認する必要があります。',
     'chat_support_message' => '営業時間中に実際の人間とチャットすることもできます。アカウントに関する質問に答えたり、瞑想の練習を手伝ったりすることができます。',
+    'prefecture' => '都道府県',
+    'seller_terms_and_conditions' => '販売者の利用規約',
 ];
