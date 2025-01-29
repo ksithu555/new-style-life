@@ -435,4 +435,8 @@ return [
     'provide_bank_account_number_error_message' => 'Please provide your bank account number.',
     'valid_digit_error_message' => 'Please provide a valid digit.',
     'select_valid_country_error_message' => 'Please select a valid country.',
+    'seller_intro' => 'Be it a manufacturer, vendor or supplier, simply sell your products online on New Style Life and become a top ecommerce player with minimum investment.',
+    'seller_support' => 'Through a team of experts offering exclusive seller workshops, training, seller support and convenient seller portal, New Style Life focuses on educating and empowering sellers across Japan. Selling on New Style Life is easy and absolutely free. All you need is to register, list your catalogue and start selling your products.',
+    'seller_verification' => 'Before we get started, we’ll need to verify your email.',
+    'chat_support_message' => 'You can also chat with a real live human during our operating hours. They can answer questions about your account or help you with your meditation practice.',
 ];

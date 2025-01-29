@@ -26,7 +26,7 @@ class RegisterController extends Controller
     public function SellerRegistered(Request $request)
     {
         if (User::where('email', $request->email)->exists()) {
-            return back()->withErrors(['email' => 'Email already exists.'])->withInput();
+            return back()->withErrors(['email' => __('messages.email_already_exists_error_message')])->withInput();
         }
         $img = $request->file('shop_logo');
         $filename = time() . '.' . $img->getClientOriginalExtension();

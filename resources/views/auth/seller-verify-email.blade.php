@@ -132,13 +132,13 @@
                             <td class="header-menu" style="display: block; padding: 10px 32px;text-align: right;">
                                 <ul>
                                     <li>
-                                        <a href="{{ url('/') }}">Home</a>
+                                        <a href="{{ url('/') }}">{{ __('messages.home') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('/products') }}">Products</a>
+                                        <a href="{{ url('/products') }}">{{ __('messages.products') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('shoplist') }}">Shops</a>
+                                        <a href="{{ route('shoplist') }}">{{ __('messages.shop') }}</a>
                                     </li>
                                 </ul>
                             </td>
@@ -163,23 +163,20 @@
                                 <td style="display: block;">
                                     <h3
                                         style="font-weight: 700; font-size: 20px; margin: 0; text-transform: uppercase;">
-                                        Hi {{ $user->name }} ! Welcome To New Style Life.</h3>
+                                        {{ __('messages.welcome_message', ['name' => $user->name]) }}
+                                    </h3>
                                 </td>
 
                                 <td>
                                     <p
                                         style="font-size: 14px;font-weight: 600;width: 82%;margin: 8px auto 0;line-height: 1.5;color: #939393;font-family: 'Nunito Sans', sans-serif;">
-                                        Be it a manufacturer, vendor or supplier, simply sell your products online on
-                                        New Style Life and become a top ecommerce player with minimum investment.
-                                        Through a team of experts offering exclusive seller workshops, training, seller
-                                        support
-                                        and convenient seller portal, New Style Life focuses on educating and empowering
-                                        sellers across Japan. Selling on New Style Life is easy and absolutely free.
-                                        All you need is to register, list your catalogue and start selling your
-                                        products.
-                                        Before we get started, we’ll need to verify your email.<br>
-                                        <span style="color: red">If you don't receive the email, please check your spam
-                                            or junk folder.</span>
+                                        {{ __('messages.seller_intro') }}
+                                        {{ __('messages.seller_support') }}
+                                        {{ __('messages.seller_verification') }}
+                                        <br>
+                                        <span style="color: red">
+                                            {{ __('messages.check_spam_folder_message') }}
+                                        </span>
                                     </p>
                                 </td>
                             </tr>
@@ -194,7 +191,8 @@
                                     <form method="POST" action="{{ route('verification.send') }}">
                                         @csrf
                                         <input type="hidden" name="email" value="{{ $user->email ?? '' }}">
-                                        <button class="password-button" type="submit">Resent Email
+                                        <button class="password-button" type="submit">
+                                            {{ __('messages.btn_resend_email') }}
                                         </button>
                                     </form>
                                     {{-- <button class="password-button">Verify Email</button> --}}
@@ -210,14 +208,16 @@
                                 <td style="display: block;">
                                     <p
                                         style="font-size: 14px; font-weight: 600; width: 82%; margin: 0 auto; line-height: 1.5; color: #939393; font-family: 'Nunito Sans', sans-serif;">
-                                        If you have any question, please email us at <span
-                                            class="theme-color">info@new-style.life</span>, call <span
-                                            class="theme-color">(+81) 03-3981-5090</span> or vixit our <span
+                                        {{ _('messages.contact_us_message') }} <span
+                                            class="theme-color">info@new-style.life</span>, 
+                                            {{ _('messages.call') }} <span
+                                            class="theme-color">(+81) 03-3981-5090</span> 
+                                            {{ _('messages.or_visit') }} <span
                                             class="theme-color"><a class="nav-link"
-                                                href="{{ url('/faq') }}">FAQ</a></span>
-                                        You can also chat with a real live human
-                                        during our operating hours. they can answer questions about account or help you
-                                        with your meditation practice.</p>
+                                                href="{{ url('/faq') }}">
+                                                {{ _('messages.faq') }}</a></span>
+                                            {{ __('messages.chat_support_message') }}
+                                    </p>
                                 </td>
                             </tr>
                         </thead>
@@ -233,8 +233,8 @@
                                     style="margin: 8px auto 11px;">
                                     <tr>
                                         <td>
-                                            <h4 style="font-size: 19px; font-weight: 700; margin: 0;">Shop For <span
-                                                    class="theme-color">New Style Life</span></h4>
+                                            <h4 style="font-size: 19px; font-weight: 700; margin: 0;">{{ _('messages.shop_for') }} <span
+                                                    class="theme-color">{{ _('messages.new_style_life') }}</span></h4>
                                         </td>
                                     </tr>
                                 </table>
@@ -244,13 +244,15 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/contact') }}"
-                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">Contact
-                                                Us</a>
+                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">
+                                                {{ _('messages.contact_us') }}
+                                            </a>
                                         </td>
                                         <td>
                                             <a href="{{ url('/privacy-policy') }}"
-                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">privacy
-                                                Policy</a>
+                                                style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">
+                                                {{ _('messages.privacy_policy') }}
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>
@@ -260,8 +262,7 @@
                                             <h5
                                                 style="font-size: 13px; text-transform: uppercase; margin: 0; color:#ddd;
                                 letter-spacing:1px; font-weight: 500;">
-                                                Specializing in Asian cuisine, we're dedicated to providing fresh,
-                                                top-quality food to Japan daily.
+                                                {{ _('messages.specializing_in_asian_cuisine') }}
                                             </h5>
                                             <h5
                                                 style="font-size: 13px; text-transform: uppercase; margin: 10px 0 0; color:#ddd;

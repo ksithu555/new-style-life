@@ -433,4 +433,8 @@ return [
     'provide_bank_account_number_error_message' => '銀行口座番号を入力してください',
     'valid_digit_error_message' => '有効な数字を入力してください',
     'select_valid_country_error_message' => '有効な国を選択してください',
+    'seller_intro' => 'メーカー、ベンダー、サプライヤーを問わず、New Style Lifeでオンラインで製品を販売し、最小限の投資でトップのeコマースプレーヤーになりましょう。',
+    'seller_support' => '専門家チームによる独占的な販売者ワークショップ、トレーニング、販売者サポート、便利な販売者ポータルを通じて、New Style Lifeは日本中の販売者の教育とエンパワーメントに焦点を当てています。New Style Lifeでの販売は簡単で完全に無料です。登録してカタログをリストし、製品の販売を開始するだけです。',
+    'seller_verification' => '始める前に、メールを確認する必要があります。',
+    'chat_support_message' => '営業時間中に実際の人間とチャットすることもできます。アカウントに関する質問に答えたり、瞑想の練習を手伝ったりすることができます。',
 ];
