@@ -4,7 +4,7 @@ return [
     'welcome' => 'Welcome to the New Style Life EC site!',
     'top_bar_address' => '4-27-5 Ikebukuro, Toshima-ku, Tokyo',
     'login' => 'Login',
-    'buyer_register' => 'Buyer Registration',
+    'buyer_register' => 'Buyer Register',
     'logout' => 'Logout',
     'all_categories' => 'All Categories',
     'menu' => 'Menu',
@@ -441,4 +441,5 @@ return [
     'chat_support_message' => 'You can also chat with a real live human during our operating hours. They can answer questions about your account or help you with your meditation practice.',
     'prefecture' => 'Prefecture',
     'seller_terms_and_conditions' => 'Seller Terms and Conditions',
+    'buyer_terms_and_conditions' => 'Buyer Terms and Conditions',
 ];

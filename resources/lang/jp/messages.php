@@ -68,9 +68,9 @@ return [
     'today_coupon_items_message' => 'これらの特別な割引を利用してお得にゲットしましょう！',
     'today' => '今日',
     'reviews' => 'レビュー',
-    'product_details' => '製品詳細',
+    'product_details' => '商品詳細',
     'brand_name' => 'ブランド名',
-    'product_code' => '製品コード',
+    'product_code' => '商品コード',
     'in_stock' => '在庫あり',
     'add_to_cart' => 'カートに追加',
     'view_more_details' => '詳細を見る',
@@ -439,4 +439,5 @@ return [
     'chat_support_message' => '営業時間中に実際の人間とチャットすることもできます。アカウントに関する質問に答えたり、瞑想の練習を手伝ったりすることができます。',
     'prefecture' => '都道府県',
     'seller_terms_and_conditions' => '販売者の利用規約',
+    'buyer_terms_and_conditions' => '購入者の利用規約',
 ];

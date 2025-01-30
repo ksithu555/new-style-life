@@ -293,7 +293,7 @@
                                                                         ->where('id', $product->category_id)
                                                                         ->first();
                                                                 @endphp
-                                                                {{ $category->category_name }}
+                                                                {{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -304,7 +304,7 @@
                                                                         ->where('id', $product->sub_category_id)
                                                                         ->first();
                                                                 @endphp
-                                                                {{ $sub_category->sub_category_name }}
+                                                                {{ $sub_category->{'sub_category_name_' . app()->getLocale() } ?? $sub_category->sub_category_name }}
                                                             </td>
                                                         </tr>
                                                         <tr>
