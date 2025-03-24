@@ -1029,7 +1029,7 @@ class AdminController extends Controller
                     ->orWhere('sub_category_name', 'like', '%' . $mainSearch . '%');
             });
         }
-        $lists = $query->select('categories.id as categoryId', 'categories.category_name as category', 'categories.category_name_jp as categoryJp', 'Sb.id as subCatId', 'Sb.sub_category_name', 'S.id as subCatTitleId', 'S.sub_category_titlename')
+        $lists = $query->select('categories.id as categoryId', 'categories.category_name as category', 'categories.category_name_jp as categoryJp', 'Sb.id as subCatId', 'Sb.sub_category_name', 'S.id as subCatTitleId', 'S.sub_category_titlename', 'S.sub_category_titlename_jp')
             ->leftJoin('sub_category_titles as S', function ($join) {
                 $join->on('categories.id', '=', 'S.category_id');
             })
@@ -2704,7 +2704,7 @@ class AdminController extends Controller
                 ->orderBy('sub_category_titles.created_at', 'desc')->get();
 
             $subcategory_name = DB::table('sub_categories')
-                ->select('sub_categories.sub_category_name')
+                ->select('sub_categories.sub_category_name', 'sub_categories.sub_category_name_jp')
                 ->where('id', $id)
                 ->first();
 

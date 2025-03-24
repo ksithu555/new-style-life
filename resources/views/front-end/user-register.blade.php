@@ -182,7 +182,7 @@
                                 <input type="hidden" name="role" value="buyer">
 
                                 <div class="col-md-12">
-                                    <button class="btn btn-animation theme-bg-color w-100" type="button" onclick="validateUserForm()">Sign Up</button>
+                                    <button class="btn btn-animation theme-bg-color w-100" type="button" onclick="validateUserForm()">{{ __('messages.sign_up') }}</button>
                                 </div>
                             </form>
                         <div class="sign-up-box">
